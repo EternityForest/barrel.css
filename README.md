@@ -1,9 +1,10 @@
 # barrel.css
-CSS Framework aiming to be as opinionated as possible for maximum restyling possibilities.
+A CSS Framework aiming to be as opinionated as possible for maximum restyling possibilities.
 
 It is a combination of classless styles, a mix of high and low level utilities, and a tiny selection of components.
 
-This is used as the internal KaithemAutomation CSS cleanup framework.
+This is used as the internal KaithemAutomation CSS framework.  See it
+[https://eternityforest.github.io/barrel.css/](Here on Github Pages!)
 
 
 ## Semantic Annotations
