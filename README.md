@@ -152,18 +152,35 @@ Apply one of these classes to a div.  Unless the theme enables the images, they 
 ```
 
 ## Variables
-More coming soon!
+Note that we have a concept of "convex and concave" inputs. Buttons and labels in toolbars are convex,
+most others are concave. You can set these to flat styles with variables.
 
 ```css
 :root {
+    /*Text color*/
     --fg: #2e2e2e;
+    /*Nontext items like borders*/
     --graphical-fg: rgb(95, 95, 95);
+    /*Main page bg*/
     --bg: whitesmoke;
-    --box-bg: hsl(200, 27%, 98%);
-    --interactive-bg: #f8fafb;
+    /*.paper, .window, but not cards by default. */
+    --box-bg: #efefef;
+    /*Inputs that are not convex or concave*/
+    --interactive-bg: ##efefef;
     --border-color: var(--graphical-fg);
     --border-radius: 0.6rem;
-    --main-font: "Sans";
-}
+    --border-width: 1px;
 
+    --main-font: "Sans";
+    /*Inputs, buttons, etc*/
+    --control-height: 28px;
+    --control-border-radius: 12px;
+    --control-border-width: 1px;
+
+    /*Note that themes can decide 3D elements should be flat*/
+    --concave-item-bg: linear-gradient(180deg, rgb(37 37 37 / 9%) 12%, rgb(255 255 255 / 42%) 88%);
+    --convex-item-bg: linear-gradient(180deg, rgb(241 238 238 / 10%) 0%, rgb(0 0 0 / 5%) 96%);
+    --convex-item-active-bg: linear-gradient(40deg, rgba(153, 134, 134, 0.13), rgba(0, 0, 0, 0.200));
+    --concave-item-box-shadow: inset 0px 0px 4px 2px #3838383b;
+}
 ```
