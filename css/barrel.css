@@ -928,7 +928,6 @@ textarea {
 button,
 a.button,
 label,
-a,
 select,
 textarea {
     border: var(--control-border-width) solid var(--border-color);
