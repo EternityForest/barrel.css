@@ -58,6 +58,9 @@ label>:is(input, select, button, div) {
 label:has(*) {
     display: inline-block;
 }
+label{
+    min-width: max-content;
+}
 
 
 /********************Behavior****************************/
@@ -549,7 +552,7 @@ table tr:first-child td {
 
 .w-sm-half {
     width: 240px;
-    max-width: calc(min(240px, 48vw));
+    max-width: calc(min(240px, 46vw));
     flex-basis: 240px;
 }
 
@@ -870,6 +873,10 @@ blockquote {
     border-left: 3px solid var(--graphical-fg);
     font-style: italic;
     border-color: var(--border-color);
+    margin-inline-start: 8px;
+    margin-inline-end: 4px;
+    margin: 6px;
+    padding: 4px;
 }
 
 a {
