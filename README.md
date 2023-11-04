@@ -3,8 +3,7 @@ A CSS Framework aiming to be as opinionated as possible for maximum restyling po
 
 It is a combination of classless styles, a mix of high and low level utilities, and a tiny selection of components.
 
-This is used as the internal KaithemAutomation CSS framework.  See it
-[https://eternityforest.github.io/barrel.css/](Here on Github Pages!)
+This is used as the internal KaithemAutomation CSS framework.  See it[(Here on Github Pages!](https://eternityforest.github.io/barrel.css)
 
 ## Meta tag
 
