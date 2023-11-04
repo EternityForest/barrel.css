@@ -436,8 +436,9 @@ table tr:first-child td {
 .col-10,
 .col-11,
 .col-12 {
-    flex-grow: .5;
+    flex-grow: 1;
     flex-basis: unset;
+    min-width: fit-content;
 }
 
 .col-1 {
@@ -540,16 +541,16 @@ table tr:first-child td {
 
 /*Sizes that are relative to approximately the width of a phone screem*/
 .w-sm-full {
-    width: 8cm;
-    max-width: calc(min(11cm, 96vw));
-    flex-basis: 11cm;
+    width: 480px;
+    max-width: calc(min(480px, 96vw));
+    flex-basis: 480px;
     flex-shrink: 1;
 }
 
 .w-sm-half {
-    width: 3.5cm;
-    max-width: calc(min(5cm, 48vw));
-    flex-basis: 3.5cm;
+    width: 240px;
+    max-width: calc(min(240px, 48vw));
+    flex-basis: 240px;
 }
 
 .w-sm-double {

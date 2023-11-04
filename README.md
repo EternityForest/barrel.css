@@ -6,6 +6,10 @@ It is a combination of classless styles, a mix of high and low level utilities, 
 This is used as the internal KaithemAutomation CSS framework.  See it
 [https://eternityforest.github.io/barrel.css/](Here on Github Pages!)
 
+## Meta tag
+
+You need this customary tag in your HTML or it doesn't scale right on mobile.
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
 ## Semantic Annotations
 
