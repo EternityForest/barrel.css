@@ -216,9 +216,9 @@ Note that the base color definitinons change in dark theme.
     --control-border-radius: 12px;
     --control-border-width: 1px;
 
-    /*Inputs that are not convex or concave*/
-    --concave-item-bg: linear-gradient(180deg, rgb(37 37 37 / 6%) 12%, rgb(255 255 255 / 42%) 88%);
-    --convex-item-bg: linear-gradient(180deg, rgb(241 238 238 / 10%) 0%, rgb(0 0 0 / 5%) 96%);
+    /*3D buttons are mostly transparent with just some highlights and shadows.*/
+    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
+    --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
     --convex-item-active-bg: var(--concave-item-bg);
     --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
 
