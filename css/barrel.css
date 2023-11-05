@@ -967,7 +967,7 @@ blockquote {
     margin-inline-end: 4px;
     margin: 6px;
     padding: 4px;
-    color: (--graphical-fg);
+    color: var(--graphical-fg);
 }
 
 a {
