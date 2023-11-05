@@ -52,6 +52,9 @@ Make a link look like it's a button.
 ### .paper
 This object should have it's own background, it is like a popup you're going to put over something else.
 
+### .rounded
+Round the corners with the default global border-radius.
+
 ### .undecorated
 Remove borders, backgrounds, shadows, and backdrop filters.
 
@@ -91,9 +94,14 @@ The element will have a reasonable theme dependent amount of padding.
 ### .margin
 The element will have a reasonable theme dependent amount of margin.
 
-### align-left, align-center, align-right
+### .align-left, .align-center, .align-right
 These apply to both text content, and flex items.
 
+### .right, .left
+Uses the margin: auto trick to move element to the side
+
+### .float-left, .float-right
+Uses CSS float.  Probably not what you want unless you are wrapping text.
 
 ## Sizing Utilities
 
