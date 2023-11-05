@@ -1372,3 +1372,89 @@ input[type=range]::-moz-range-thumb {
     border: var(--thin-border);
     border-radius: 100px;
 }
+
+/*Meter element */
+
+
+progress {
+    height: var(--control-height);
+    
+    /* For Firefox */
+    background: var(--interactive-bg);
+    box-shadow: var(--concave-item-box-shadow);
+    border-radius: var(--control-border-radius);
+  }
+  
+  progress::-webkit-progress-bar {
+    background: var(--interactive-bg);
+    box-shadow: var(--concave-item-box-shadow);
+    border-radius: var(--control-border-radius);
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: var(--highlight-color);
+    border-radius: var(--control-border-radius);
+  }
+  
+  progress::-moz-progress-bar {
+    background-color: var(--highlight-color);
+    border-radius: var(--control-border-radius);
+  }
+  
+  
+  
+  
+  meter {
+    height: var(--control-height);
+
+    /* For Firefox */
+    background: var(--interactive-bg);
+    box-shadow: var(--concave-item-box-shadow);
+    border-radius: var(--control-border-radius);
+    border-color: var(--border-color);
+  }
+  
+  /* WebKit */
+  meter::-webkit-meter-bar {
+    border-color: var(--border-color);
+    background: var(--interactive-bg);
+    box-shadow: var(--concave-item-box-shadow);
+    border-radius: var(--control-border-radius);
+  }
+  
+  meter::-webkit-meter-optimum-value,
+  meter::-webkit-meter-suboptimum-value,
+  meter::-webkit-meter-even-less-good-value {
+    border-radius: var(--control-border-radius);
+  }
+  
+  meter::-webkit-meter-optimum-value {
+    background: var(--success-color);
+  }
+  
+  meter::-webkit-meter-suboptimum-value {
+    background: var(--warning-color);
+  }
+  
+  meter::-webkit-meter-even-less-good-value  {
+    background: var(--danger-color);
+  }
+  
+  
+  /* Firefox */
+  meter::-moz-meter-bar {
+    border-radius: var(--control-border-radius);
+  }
+  
+  meter:-moz-meter-optimum::-moz-meter-bar {
+    background: var(--success-color);
+  }
+  
+  meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: var(--warning-color);
+  }
+  
+  meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: var(--danger-color);
+  }
+  
