@@ -3,7 +3,8 @@ A CSS Framework aiming to be as opinionated as possible for maximum restyling po
 
 It is a combination of classless styles, a mix of high and low level utilities, and a tiny selection of components.
 
-It supports automatic dark/light theme switching with the system preference.
+It supports automatic dark/light theme switching with the system preference.  It's simple enough that it should
+work on old browsers, but the colors might not look right.  Update your browsers!
 
 This is used as the internal KaithemAutomation CSS framework.  See it[(Here on Github Pages!](https://eternityforest.github.io/barrel.css)
 
@@ -110,6 +111,9 @@ Works correctly with nogaps.
 This represents the full width of a small screen. The size is not an exact size, it represents
 "full width on mobile, and a nice sidebar width on a large screen".
 
+### .w-sm-quarter and .w-sm-half
+These also exist.
+
 
 ### .h-1rem to .h-60rem
 Used for fixed heights. The sizes are 1,2,4,6,12,24,36,48 and 60.  A limited number are chosen
@@ -183,5 +187,12 @@ most others are concave. You can set these to flat styles with variables.
     --convex-item-bg: linear-gradient(180deg, rgb(241 238 238 / 10%) 0%, rgb(0 0 0 / 5%) 96%);
     --convex-item-active-bg: linear-gradient(40deg, rgba(153, 134, 134, 0.13), rgba(0, 0, 0, 0.200));
     --concave-item-box-shadow: inset 0px 0px 4px 2px #3838383b;
+
+    --highlight-color: var(--teal);
+    --success-color: var(--green);
+    --warning-color: var(--yellow);
+    --danger-color: var(--red);
+
+    --highlight-opacity: 25%;
 }
 ```
