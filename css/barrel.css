@@ -829,6 +829,10 @@ table tr:first-child td {
     margin-right: auto;
 }
 
+img.h-center,iframe.h-center{
+    display: block;
+}
+
 .undecorated {
     border: none !important;
     box-shadow: none !important;
@@ -894,7 +898,7 @@ table tr:first-child td {
 .inline-flex,
 .flex-rows.inline,
 .flex-cols.inline,
-.tool-bar.inline {
+.tool-bar.inline{
     display: inline-flex;
 }
 
