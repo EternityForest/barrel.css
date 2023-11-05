@@ -168,39 +168,61 @@ Apply one of these classes to a div.  Unless the theme enables the images, they 
 Note that we have a concept of "convex and concave" inputs. Buttons and labels in toolbars are convex,
 most others are concave. You can set these to flat styles with variables.
 
+Note that the base color definitinons change in dark theme.
+
 ```css
 :root {
+    --black-1: #1c1c1c;
+    --black-2: #343A40;
+    --black-3: #545862;
+    --black-4: #5C555D;
+
+    --grey-1: #ededed;
+    --grey-2: #f1f1f1;
+    --grey-3: #F8F9FA;
+
+    --red: #b92020;
+    --yellow: #cea916;
+    --green: rgb(0, 158, 0);
+    --teal: rgb(120, 212, 219);
+    --blue: rgb(95 111 161);
+
     /*Text color*/
-    --fg: #2e2e2e;
+    --fg: var(--black-1);
     /*Nontext items like borders*/
-    --graphical-fg: rgb(95, 95, 95);
+    --graphical-fg: var(--black-4);
+    /*Headings, links, etc*/
+    --accent-color: var(--blue);
     /*Main page bg*/
-    --bg: whitesmoke;
-    /*.paper, .window, but not cards by default. */
-    --box-bg: #efefef;
-    /*Inputs that are not convex or concave*/
-    --interactive-bg: ##efefef;
+    --bg: var(--grey-3);
+    /*.paper, items*/
+    --box-bg: var(--grey-2);
+    --highlight-opacity: 25%;
+
+    /*typography*/
+    --main-font: sans-serif;
+
+    /*Spacing*/
+    --padding: 6px;
+    --gap: 18px;
+
+    /*Borders*/
     --border-color: var(--graphical-fg);
     --border-radius: 0.6rem;
     --border-width: 1px;
 
-    --main-font: "Sans";
     /*Inputs, buttons, etc*/
     --control-height: 28px;
     --control-border-radius: 12px;
     --control-border-width: 1px;
 
-    /*Note that themes can decide 3D elements should be flat*/
-    --concave-item-bg: linear-gradient(180deg, rgb(37 37 37 / 9%) 12%, rgb(255 255 255 / 42%) 88%);
+    /*Inputs that are not convex or concave*/
+    --concave-item-bg: linear-gradient(180deg, rgb(37 37 37 / 6%) 12%, rgb(255 255 255 / 42%) 88%);
     --convex-item-bg: linear-gradient(180deg, rgb(241 238 238 / 10%) 0%, rgb(0 0 0 / 5%) 96%);
-    --convex-item-active-bg: linear-gradient(40deg, rgba(153, 134, 134, 0.13), rgba(0, 0, 0, 0.200));
-    --concave-item-box-shadow: inset 0px 0px 4px 2px #3838383b;
+    --convex-item-active-bg: var(--concave-item-bg);
+    --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
 
-    --highlight-color: var(--teal);
-    --success-color: var(--green);
-    --warning-color: var(--yellow);
-    --danger-color: var(--red);
-
-    --highlight-opacity: 25%;
+    /*control-bg also applies to small elements like headers*/
+    --control-bg: var(--grey-1);
 }
 ```
