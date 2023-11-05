@@ -991,8 +991,7 @@ input[type='submit'] {
 }
 
 input:not([type='submit']):not([type='range']),
-select,
-textarea {
+select {
     background: var(--concave-item-bg);
     box-shadow: var(--concave-item-box-shadow);
 }
@@ -1005,6 +1004,10 @@ select,
 textarea {
     border-radius: var(--control-border-width);
     border-color: var(--border-color);
+}
+
+textarea{
+    box-shadow: var(--concave-item-box-shadow);
 }
 
 

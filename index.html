@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <link rel="stylesheet" type="text/css" href="css/barrel.css">
   <title>Barrel.css</title>
@@ -15,7 +16,6 @@
       <p>It is public domain/CC0, allong with barrel.css itself.</p>
 
       <p>Get the source code here: <a href="https://github.com/EternityForest/barrel.css">at github</a></p>
-
       <h3>Components</h3>
       <p>We want to keep the number of components very small,
         and use semantic HTML for the rest</p>
@@ -45,15 +45,31 @@
       <p class="success">Everything is fine now.</p>
       <p class="highlight">The highlight of the page</p>
 
+      <h3>Color Variables</h3>
+      <p>Semantic color palletes are generated from a single base color</p>
+      <div class="flex-rows nogaps">
+        <div class="card w-sm-quarter h-6rem" style="background-color:var(--success-color);">
+        </div>
+
+        <div class="card w-sm-quarter h-6rem" style="background-color:var(--highlight-color);">
+        </div>
+
+        <div class="card w-sm-quarter h-6rem" style="background-color:var(--danger-color);">
+        </div>
+
+        <div class="card w-sm-quarter h-6rem" style="background-color:var(--warning-color);">
+        </div>
+      </div>
+
       <h3>Flex</h3>
       <p>The flex-rows class is all you need for a nice layout.
         The padding class gives any element a little padding around the edges.
       </p>
 
       <div class="flex-rows padding">
-        <article class="card w-sm-half h-6rem align-left">1 content here</article>
-        <article class="card w-sm-half h-6rem align-right">2 foo bar</article>
-        <article class="card w-sm-half h-6rem align-center">3 lorem ipsum</article>
+        <article class="card w-sm-half h-6rem align-left">1</article>
+        <article class="card w-sm-half h-6rem align-right">2</article>
+        <article class="card w-sm-half h-6rem align-center">3</article>
         <article class="card w-sm-half h-6rem">4</article>
       </div>
 
@@ -85,56 +101,76 @@
         <article class="card col-9 h-6rem">9-col wide</article>
       </div>
 
-      <h3>Text Styles</h3>
-      <p>
-        <b>Bold</b> and <i>Italic</i> and <u>Underlined</u> and
-        <span class="normal-font">Normal, undecorated text</span>.
-      </p>
+      <section class="padding">
+        <h3>Text Styles</h3>
+        <p>
+          <b>Bold</b> and <i>Italic</i> and <u>Underlined</u> and
+          <span class="normal-font">Normal, undecorated text</span>.
+        </p>
 
-      <p>Also a <a href="example.com">Link</a></p>
+        <p>Also a <a href="example.com">Link</a></p>
 
-      <h3>Backgrounds</h3>
-      <div style="background-color:purple">
+        <h3>Backgrounds</h3>
+        <div class="padding" style="background-color:purple">
 
-        <article class="card paper">
-          The paper class gives a background to an element.
-          You might need it if displaying over dark stuff.
-        </article>
+          <article class="card paper">
+            The paper class gives a background to an element.
+            You might need it if displaying over dark stuff.
+          </article>
 
-        <article class="card paper warning">
-          Paper warning!
-        </article>
+          <article class="card paper warning">
+            Paper warning!
+          </article>
 
-        <article class="card paper highlight">
-          Paper highlight!
-        </article>
-      </div>
-      <h3>HTML Elements</h3>
+          <article class="card paper highlight">
+            Paper highlight!
+          </article>
+        </div>
+        <h3>HTML Elements</h3>
 
-      <details>
-        <summary>details/summary</summary>
-        More content is here.
-      </details>
+        <details>
+          <summary>details/summary</summary>
+          More content is here.
+        </details>
 
-      <h4>Ye Olde Block Quote</h4>
+        <h4>Ye Olde Block Quote</h4>
 
-      <blockquote>
-        It is an ancient Mariner,
-        And he stoppeth one of three.
-        "By thy long gray beard and glittering eye,
-        Now wherefore stopp'st thou me?
-      </blockquote>
+        <blockquote>
+          It is an ancient Mariner,
+          And he stoppeth one of three.
+          "By thy long gray beard and glittering eye,
+          Now wherefore stopp'st thou me?
+        </blockquote>
 
-      <h4>Here's a form with no classes</h4>
-      <form>
+        <textarea class="w-full h-12rem">A text area</textarea>
 
-        <label>Label
-          <input>
-        </label>
+        <h4>Here's a form with no classes</h4>
+        <form>
 
-        <button>A button</button>
-      </form>
+          <label>Label
+            <input>
+          </label>
+
+          <button>A button</button>
+        </form>
+
+
+
+        <h4>Meters</h4>
+        <p>Styled</p>
+        <p class="styled">
+          <meter class="w-full" min="0" max="100" low="25" high="75" optimum="100" value="10"></meter>
+        </p>
+        <p class="styled">
+          <meter class="w-full" min="0" max="100" low="25" high="75" optimum="100" value="50"></meter>
+        </p>
+        <p class="styled">
+          <meter class="w-full" min="0" max="100" low="25" high="75" optimum="100" value="80"></meter>
+        </p>
+      </section>
+
     </section>
+
   </main>
 </body>
 
