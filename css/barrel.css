@@ -4,9 +4,9 @@
     --black-1: #1c1c1c;
     --black-2: #343A40;
     --black-3: #545862;
-    --black-4: #6C757D;
+    --black-4: #5C555D;
 
-    --grey-1: #d2d2d2;
+    --grey-1: #e2e2e2;
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
@@ -20,7 +20,7 @@
     /*.paper, items*/
     --box-bg: var(--grey-2);
     /*Inputs that are not convex or concave*/
-    --interactive-bg: var(--grey-2);
+    --interactive-bg: var(--grey-1);
     --border-color: var(--black-4);
     --border-radius: 0.6rem;
     --border-width: 1px;
@@ -213,7 +213,7 @@ header {
 
 header,
 footer {
-    background-color: var(--box-bg);
+    background-color: var(--interactive-bg);
     width: 100%;
     padding: 0px;
     box-sizing: border-box;
