@@ -6,7 +6,7 @@
     --black-3: #545862;
     --black-4: #5C555D;
 
-    --grey-1: #ededed;
+    --grey-1: #e8e7e7;
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
@@ -15,6 +15,7 @@
     --green: rgb(0, 158, 0);
     --teal: rgb(120, 212, 219);
     --blue: rgb(95 111 161);
+    --dark-blue: rgb(40 55 102);
 
 
 
@@ -24,7 +25,7 @@
     --graphical-fg: var(--black-4);
 
     /*Headings, links, etc*/
-    --accent-color: var(--blue);
+    --accent-color: var(--dark-blue);
     /*Main page bg*/
     --bg: var(--grey-3);
     /*.paper, items*/
@@ -288,7 +289,6 @@ header:not(.undecorated)>.tool-bar:only-child :is(p, h1,h2,h3,h4,h5,h6,label) {
 
 header:not(.undecorated)>.tool-bar:only-child :is(input, select, button) {
     color: var(--control-fg);
-    box-shadow: none;
 }
 
 header:not(.undecorated)>.tool-bar:only-child :is(input, button) {
@@ -300,6 +300,9 @@ footer {
     border-top: var(--border-width) solid var(--border-color);
 }
 
+header>.tool-bar>:is(p, h1, h2, h3, h4){
+    border: none;
+}
 
 
 /*Inputs*/
@@ -1388,6 +1391,8 @@ dd {
 .tool-bar :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
     border-radius: 0px var(--control-border-radius) var(--control-border-radius) 0px;
     margin-inline-end: 0px;
+    border-inline-start: var(--control-border-width) solid var(--control-border-color);
+
 }
 
 .tool-bar > label:last-child{
