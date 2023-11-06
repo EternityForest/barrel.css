@@ -556,6 +556,14 @@ table tr:first-child td {
     flex-basis: min-content;
 }
 
+.stacked-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.stacked-form> *{
+    flex-basis: 90%;
+}
 
 .flex-cols {
     display: flex;
@@ -1242,6 +1250,8 @@ dd {
 .tool-bar a {
     display: block;
     text-align: center;
+    padding-inline-start: var(--padding);
+    padding-inline-end: var(--padding);
 }
 
 .tool-bar label {
@@ -1316,7 +1326,8 @@ dd {
 }
 
 .tool-bar p {
-    padding-left: var(--padding);
+    padding-inline-start: var(--padding);
+    padding-inline-end: var(--padding);
     min-width: fit-content;
     flex-grow: 0.5;
     margin: 0px;
