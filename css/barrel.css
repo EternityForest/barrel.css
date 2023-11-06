@@ -25,7 +25,7 @@
     --graphical-fg: var(--black-4);
 
     /*Headings, links, etc*/
-    --accent-color: var(--grey-2);
+    --accent-color: var(--dark-blue);
     /*Main page bg*/
     --bg: var(--grey-1);
     /*.paper, items*/
@@ -102,7 +102,7 @@
         --bg: var(--black-1);
         --box-bg: var(--black-2);
         --control-bg: var(--black-4);
-        --accent-color: var(--blue);
+        --accent-color: var(--grey-2);
 
         --fg: var(--grey-3);
         --graphical-fg: var(--grey-1);
