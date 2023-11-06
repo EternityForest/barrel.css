@@ -568,24 +568,24 @@ table tr:first-child td {
     flex-basis: 90%;
 }
 
-.flex-cols {
+.flex-col {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.flex-cols>* {
+.flex-col>* {
     box-sizing: border-box;
     flex: 1 1 auto;
     flex-basis: fit-content;
 }
 
-.flex-cols footer,
-.flex-cols header {
+.flex-col footer,
+.flex-col header {
     flex-grow: 0;
 }
 
-.flex-rows {
+.flex-row {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -594,7 +594,7 @@ table tr:first-child td {
 }
 
 
-.flex-rows>* {
+.flex-row>* {
     box-sizing: border-box;
     flex-grow: 1;
     flex-shrink: 1;
@@ -867,39 +867,39 @@ table tr:first-child td {
     height: 60rem;
 }
 
-.flex-cols>.h-1rem {
+.flex-col>.h-1rem {
     flex-basis: 1rem;
 }
 
-.flex-cols>.h-2rem {
+.flex-col>.h-2rem {
     flex-basis: 2rem;
 }
 
-.flex-cols>.h-4rem {
+.flex-col>.h-4rem {
     flex-basis: 4rem;
 }
 
-.flex-cols>.h-6rem {
+.flex-col>.h-6rem {
     flex-basis: 6rem;
 }
 
-.flex-cols>.h-12rem {
+.flex-col>.h-12rem {
     flex-basis: 12rem;
 }
 
-.flex-cols>.h-24rem {
+.flex-col>.h-24rem {
     flex-basis: 24rem;
 }
 
-.flex-cols>.h-36rem {
+.flex-col>.h-36rem {
     flex-basis: 36rem;
 }
 
-.flex-cols>.h-48rem {
+.flex-col>.h-48rem {
     flex-basis: 48rem;
 }
 
-.flex-cols>.h-60rem {
+.flex-col>.h-60rem {
     flex-basis: 60rem;
 }
 
@@ -991,8 +991,8 @@ iframe.h-center {
 }
 
 .inline-flex,
-.flex-rows.inline,
-.flex-cols.inline,
+.flex-row.inline,
+.flex-col.inline,
 .tool-bar.inline {
     display: inline-flex;
 }
