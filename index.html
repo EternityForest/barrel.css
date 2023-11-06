@@ -16,7 +16,8 @@
       <p>It is public domain/CC0, allong with barrel.css itself.</p>
 
       <h3>Center an image</h3>
-      <img  class="h-center w-sm-full rounded" src="img/barrel_studio.avif" alt="AI generated art studio with lots of barrels">
+      <img class="h-center w-sm-full rounded" src="img/barrel_studio.avif"
+        alt="AI generated art studio with lots of barrels">
 
       <p>Get the source code here: <a href="https://github.com/EternityForest/barrel.css">at github</a></p>
       <h3>Components</h3>
@@ -39,6 +40,26 @@
         This is a card! Headers and footers are optional in
         cards and windows. "w-sm-full" means about the width of a
         phone screen.
+        <footer>A footer</footer>
+      </article>
+
+
+      <h4>Toolbar in header</h4>
+
+      <article class="card w-sm-full">
+        <header>
+          <div class="tool-bar">
+            <p>Toolbar</p>
+            <button>Button</button>
+            <label>
+              Labeled input
+              <input class="w-sm-quarter">
+            </label>
+          </div>
+
+        </header>
+        Toolbars in headers are rendered differently if they are the
+        only child of that toolbar, to reduce visual noise.
         <footer>A footer</footer>
       </article>
 
