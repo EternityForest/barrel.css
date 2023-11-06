@@ -165,13 +165,17 @@ Apply one of these classes to a div.  Unless the theme enables the images, they 
 ```
 
 ## Variables
-Note that we have a concept of "convex and concave" inputs. Buttons and labels in toolbars are convex,
-most others are concave. You can set these to flat styles with variables.
+Note that we have a concept of "convex and concave" inputs. Buttons and labels in toolbars are convex, most others are concave. You can set these to flat styles with variables.
+
+By default most variables are calculated, so you probably don't have to change much.
+Start with ones higher up in the list!
 
 Note that the base color definitinons change in dark theme.
 
 ```css
 :root {
+    color-scheme: light dark;
+
     --black-1: #1c1c1c;
     --black-2: #343A40;
     --black-3: #545862;
@@ -187,10 +191,13 @@ Note that the base color definitinons change in dark theme.
     --teal: rgb(120, 212, 219);
     --blue: rgb(95 111 161);
 
+
+
     /*Text color*/
     --fg: var(--black-1);
     /*Nontext items like borders*/
     --graphical-fg: var(--black-4);
+
     /*Headings, links, etc*/
     --accent-color: var(--blue);
     /*Main page bg*/
@@ -207,7 +214,7 @@ Note that the base color definitinons change in dark theme.
     --gap: 18px;
 
     /*Borders*/
-    --border-color: var(--graphical-fg);
+    --border-color: color-mix(in srgb, var(--graphical-fg) 75%, rgb(0 0 0 / 0%));;
     --border-radius: 0.6rem;
     --border-width: 1px;
 
@@ -215,6 +222,8 @@ Note that the base color definitinons change in dark theme.
     --control-height: 28px;
     --control-border-radius: 12px;
     --control-border-width: 1px;
+
+
 
     /*3D buttons are mostly transparent with just some highlights and shadows.*/
     --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
@@ -224,5 +233,25 @@ Note that the base color definitinons change in dark theme.
 
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
+    --control-fg: var(--fg);
+
+
+
+    /*Note that themes can decide 3D elements should be flat*/
+
+
+    /*Below this line you probably don't need to change stuff*/
+    /* fg color for warning and danger */
+    --highlight-color: var(--teal);
+    --success-color: var(--green);
+    --warning-color: var(--yellow);
+    --danger-color: var(--red);
+
+    --success-fg: color-mix(in srgb, var(--success-color) 30%, var(--fg));
+    --warning-fg: color-mix(in srgb, var(--warning-color) 20%, var(--fg));
+    --danger-fg: color-mix(in srgb, var(--danger-color) 40%, var(--fg));
+
+    --control-border-color: color-mix(in srgb, var(--control-fg) 35%, rgb(0 0 0 / 0%));
+
 }
 ```
