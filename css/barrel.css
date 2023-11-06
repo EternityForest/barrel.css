@@ -274,6 +274,10 @@ header>*:only-child>:only-child {
     margin: 0px;
 }
 
+header :is(h1, h2, h3, h4) {
+    padding-inline-start: var(--padding);
+}
+
 header>:is(h1, h2, h3, h4):has(button) {
     padding: 0px;
 }
@@ -538,7 +542,7 @@ table tr:first-child td {
     margin-bottom: 0.2em;
     min-width: min-content;
     box-sizing: border-box;
-    max-width: 99%;
+    max-width: 100vw;
     overflow: auto;
     border-radius: var(--border-radius);
     border-color: var(--border-color);
@@ -771,7 +775,18 @@ table tr:first-child td {
 
 .scroll {
     overflow: auto;
+
 }
+
+/*This user added margin is likely unwanted on tiny screens*/
+@media screen and (max-width: 860px) {
+    .scroll {
+        /*Scroll boxes should never be full screen, or else you woul
+        Have nowhere outside it to grab and scroll the whole page*/
+        max-height: 60vw;
+    }
+}
+
 
 .max-h-1rem {
     max-height: 1rem;
@@ -984,6 +999,14 @@ footer.padding {
 
 .nomargin {
     margin: 0px;
+}
+
+/*This user added margin is likely unwanted on tiny screens where*/
+@media screen and (max-width: 500px) {
+    .window {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
 
 .block {
