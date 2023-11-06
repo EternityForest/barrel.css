@@ -8,6 +8,8 @@ work on old browsers, but the colors might not look right.  Update your browsers
 
 This is used as the internal KaithemAutomation CSS framework.  See it[(Here on Github Pages!](https://eternityforest.github.io/barrel.css)
 
+Note that the preview is of this master branch, not any particular release.
+
 ## Meta tag
 
 You need this customary tag in your HTML or it doesn't scale right on mobile.

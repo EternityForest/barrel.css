@@ -249,7 +249,6 @@ footer {
     --graphical-fg: var(--control-fg);
 
     width: 100%;
-    padding: 0px;
     box-sizing: border-box;
     margin: 0px;
     flex-grow: 0;
@@ -267,7 +266,8 @@ header {
 }
 
 
-header>*:only-child {
+header>*:only-child,
+header>*:only-child>:only-child {
     width: 100%;
     box-sizing: border-box;
     padding: 6px;
@@ -278,12 +278,16 @@ header>:is(h1, h2, h3, h4):has(button) {
     padding: 0px;
 }
 
-header:not(.undecorated)>*> :only-child {
+header:not(.undecorated)>*> :only-child,
+header:not(.undecorated)> :only-child {
     border: none;
 }
 
+header:not(.undecorated)>.tool-bar:only-child {
+    gap: var(--padding);
+}
+
 header:not(.undecorated)>.tool-bar:only-child>*:not(.specificity-hack) {
-    margin: var(--padding);
     border-radius: var(--control-border-radius);
 }
 
@@ -453,7 +457,7 @@ table tr th,
 table tr td {
     border-right: var(--border-width) solid var(--border-color);
     border-bottom: var(--border-width) solid var(--border-color);
-    padding: var(--padding);
+    padding: calc(var(--padding)/3);
 }
 
 table tr th:first-child,
@@ -949,6 +953,11 @@ iframe.h-center {
     padding: var(--padding);
 }
 
+header.padding,
+footer.padding {
+    padding: calc(max(4px, calc(var(--padding) / 3)));
+}
+
 .font-normal {
     font-style: normal;
 }
@@ -1089,10 +1098,6 @@ iframe.h-center {
 
 /*Classless styles */
 
-p{
-    padding-inline-start: var(--padding);
-}
-
 blockquote {
     white-space: pre-wrap;
     border-left: 3px solid var(--graphical-fg);
@@ -1109,7 +1114,7 @@ a {
     text-decoration-style: dotted;
     text-decoration-thickness: 1.2px;
     color: color-mix(in srgb, var(--accent-color) 70%, var(--fg));
-    text-decoration-color:color-mix(in srgb, var(--accent-color) 38%, rgb(0 0 0 / 0%));
+    text-decoration-color: color-mix(in srgb, var(--accent-color) 38%, rgb(0 0 0 / 0%));
 }
 
 
