@@ -52,8 +52,8 @@
     --control-border-radius: 12px;
     --control-border-width: 1px;
 
-    --3d-highlight: color-mix(in srgb, var(--control-bg) 50%, rgb(255 255 255));
-    --3d-shadow: color-mix(in srgb, var(--control-bg) 50%, rgb(0 0 0 / 0%));
+    --3d-highlight: color-mix(in srgb, var(--box-bg) 50%, rgba(241, 241, 241, 0.695));
+    --3d-shadow: color-mix(in srgb, var(--box-bg) 50%, rgba(0, 0, 0, 0.101));
 
     /*3D buttons are mostly transparent with just some highlights and shadows.*/
     --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
@@ -270,7 +270,6 @@ header>*:only-child,
 header>*:only-child>:only-child {
     width: 100%;
     box-sizing: border-box;
-    padding: 6px;
     margin: 0px;
 }
 
@@ -307,6 +306,8 @@ header:not(.undecorated)>.tool-bar:only-child :is(input, button) {
     background: var(--control-bg);
     color: var(--control-fg);
 }
+
+
 
 footer {
     border-top: var(--border-width) solid var(--border-color);
@@ -521,8 +522,6 @@ table tr:first-child td {
     border-style: solid;
     border-width: var(--border-width);
     border-radius: var(--border-radius);
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 0.8em;
     margin-bottom: 0.2em;
     box-sizing: border-box;
@@ -580,6 +579,7 @@ table tr:first-child td {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    gap: var(--gap);
 }
 
 .flex-col>* {
@@ -779,11 +779,11 @@ table tr:first-child td {
 }
 
 /*This user added margin is likely unwanted on tiny screens*/
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 600px) {
     .scroll {
         /*Scroll boxes should never be full screen, or else you woul
         Have nowhere outside it to grab and scroll the whole page*/
-        max-height: 60vw;
+        max-height: 70vh;
     }
 }
 
@@ -1046,6 +1046,10 @@ footer.padding {
     justify-content: center;
 }
 
+.flex-col.align-center {
+    place-items: center;
+}
+
 .float-left {
     float: left;
 }
@@ -1082,28 +1086,31 @@ footer.padding {
 .bad {
     --fg: var(--danger-fg);
     --graphical-fg: var(--danger-fg);
-    background-color: color-mix(in srgb, var(--danger-color) var(--highlight-opacity), transparent)
+    background-color: color-mix(in srgb, var(--danger-color) var(--highlight-opacity), transparent);
+    color: var(--fg);
 }
 
 .warning,
 .warn {
     --fg: var(--warning-fg);
     --graphical-fg: var(--warning-fg);
-    background-color: color-mix(in srgb, var(--warning-color) var(--highlight-opacity), transparent)
+    background-color: color-mix(in srgb, var(--warning-color) var(--highlight-opacity), transparent);
+    color: var(--fg);
 }
 
 .highlight {
-    background-color: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent)
+    background-color: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent);
 }
 
 .success {
     --fg: var(--success-fg);
     --graphical-fg: var(--success-fg);
-    background-color: color-mix(in srgb, var(--success-color) var(--highlight-opacity), transparent)
+    background-color: color-mix(in srgb, var(--success-color) var(--highlight-opacity), transparent);
+    color: var(--fg);
 }
 
 .error.paper {
-    background-color: color-mix(in srgb, var(--error-color) 25%, var(--box-bg))
+    background-color: color-mix(in srgb, var(--error-color) 25%, var(--box-bg));
 }
 
 .warning.paper {
@@ -1130,6 +1137,7 @@ blockquote {
     margin-inline-end: 4px;
     margin: 6px;
     padding: 4px;
+    margin-block-end: var(--gap);
     color: var(--graphical-fg);
 }
 
@@ -1409,7 +1417,6 @@ dd {
 
 
 .tool-bar>label> :is(input, select, meter):not(.specificity-hack) {
-    margin: 0px var(--padding) 0px var(--padding);
     min-height: 100%;
 }
 
@@ -1432,6 +1439,13 @@ dd {
     border-inline-start: var(--control-border-width) solid var(--control-border-color);
 
 }
+
+
+header:not(.undecorated)>.tool-bar:only-child> :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):last-child,
+header:not(.undecorated)>.tool-bar:only-child :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
+    border-radius: var(--control-border-radius);
+}
+
 
 .tool-bar>label:last-child {
     padding-inline-end: 0px;
@@ -1476,6 +1490,8 @@ dd {
 
 .tool-bar>label {
     display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--padding);
     border-top: var(--tool-bar-element-border);
     border-bottom: var(--tool-bar-element-border);
     align-items: center;
@@ -1484,6 +1500,14 @@ dd {
 .tool-bar select {
     background: none;
 }
+
+/* 
+Wall to wall fill the top header
+body>header>.tool-bar.w-full, body>header>.tool-bar.w-full *,
+main>header>.tool-bar.w-full, main>header>.tool-bar.w-full *
+{
+    border-radius: 0px;
+} */
 
 /*Scrollbars*/
 /* Firefox */
@@ -1506,6 +1530,18 @@ dd {
     background-color: var(--control-fg);
     border-radius: var(--border-radius);
     border: none;
+}
+
+
+@media screen and (max-width: 420px) {
+    * {
+        scrollbar-width: 6px;
+    }
+
+    /* Other browsers */
+    *::-webkit-scrollbar {
+        width: 6px;
+    }
 }
 
 /* The Range inputs */

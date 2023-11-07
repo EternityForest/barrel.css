@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
   <main>
     <section class="window paper">
       <header class="padding">Look! A Header</header>
@@ -14,10 +15,6 @@
       <h2>Basic Page</h2>
       <p>This is a simple test page for barrel.css</p>
       <p>It is public domain/CC0, allong with barrel.css itself.</p>
-
-      <h3>Center an image</h3>
-      <img class="h-center w-sm-full rounded" src="img/barrel_studio.avif"
-        alt="AI generated art studio with lots of barrels">
 
       <p>Get the source code here: <a href="https://github.com/EternityForest/barrel.css">at github</a></p>
       <h3>Components</h3>
@@ -27,6 +24,7 @@
       <h4>Toolbars</h4>
       <div class="tool-bar">
         <p>Toolbar</p>
+
         <button>Button</button>
         <label>
           Labeled input
@@ -35,7 +33,7 @@
       </div>
       <h4>Cards</h4>
 
-      <article class="card w-sm-full">
+      <article class="card w-sm-full h-center">
         <header>Cards can have headers</header>
         This is a card! Headers and footers are optional in
         cards and windows. "w-sm-full" means about the width of a
@@ -43,10 +41,9 @@
         <footer>A footer</footer>
       </article>
 
-
       <h4>Toolbar in header</h4>
 
-      <article class="card w-sm-full">
+      <article class="card w-sm-full h-center">
         <header>
           <div class="tool-bar">
             <p>Toolbar</p>
@@ -69,7 +66,6 @@
       <p class="success">Everything is fine now.</p>
       <p class="highlight">The highlight of the page</p>
 
-
       <h3>Color Variables</h3>
       <p>Semantic color palletes are generated from a single base color</p>
       <div class="flex-row nogaps">
@@ -80,6 +76,9 @@
         </div>
 
         <div class="card w-sm-quarter h-6rem" style="background-color:var(--blue);">
+        </div>
+
+        <div class="card w-sm-quarter h-6rem" style="background-color:var(--purple);">
         </div>
 
         <div class="card w-sm-quarter h-6rem" style="background-color:var(--red);">
@@ -182,7 +181,7 @@
             <input>
           </label>
 
-          <button type="button">A button</button>
+          <button>A button</button>
         </form>
 
 
