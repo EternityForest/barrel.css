@@ -1167,10 +1167,9 @@ button,
 a.button,
 input,
 select {
-    min-height: var(--control-height);
+    min-height: calc(min(var(--control-height), 100%));
     box-sizing: border-box;
 }
-
 
 button,
 a.button,
@@ -1431,6 +1430,7 @@ dd {
 
 .tool-bar>label> :is(input, select, meter):not(.specificity-hack) {
     min-height: 100%;
+    max-height: 100%;
 }
 
 .tool-bar :is(h1, h2, h3, h4, h5, h6):first-child {
