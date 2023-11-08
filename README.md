@@ -51,6 +51,10 @@ Make a link look like it's a button.
 
 ## Utilities
 
+### .round-feathered
+
+Make an image smoothly fade out around the edges.
+
 ### .paper
 This object should have it's own background, it is like a popup you're going to put over something else.
 
@@ -92,6 +96,10 @@ display: flex.
 
 ### .padding
 The element will have a reasonable theme dependent amount of padding.
+
+### .padding-bottom
+Add padding just to bottom.  Useful for fixing scrollbar showing up
+when not needed.
 
 ### .margin
 The element will have a reasonable theme dependent amount of margin.
