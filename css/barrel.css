@@ -747,7 +747,6 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     width: 80px;
     max-width: calc(min(160px, 25vw));
     flex-basis: 70px;
-    flex-grow: 1;
 }
 
 .w-sm-half {
@@ -764,6 +763,7 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     flex-shrink: 1;
     flex-grow: 1;
 }
+
 
 .w-full {
     width: 100%;
@@ -1327,9 +1327,15 @@ dd {
     border-radius: 0px;
     flex-shrink: 1;
     border-radius: 0px;
-    flex-basis: fit-content;
 }
 
+.tool-bar :is(a, a.button, select, button) {
+    margin: 0px;
+    align-items: stretch;
+    border-radius: 0px;
+    flex-shrink: 1;
+    border-radius: 0px;
+}
 
 
 .tool-bar :only-child {
@@ -1537,13 +1543,13 @@ main>header>.tool-bar.w-full, main>header>.tool-bar.w-full *
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--control-bg);
-    border-radius: var(--border-radius);
+    background: color-mix(in srgb, var(--accent-color) 15%, var(--control-bg));
+    border-radius: 0px;
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: var(--control-fg);
-    border-radius: var(--border-radius);
+    border-radius: calc(min(var(--border-radius), 5px));
     border: none;
 }
 
@@ -1557,6 +1563,26 @@ main>header>.tool-bar.w-full, main>header>.tool-bar.w-full *
     *::-webkit-scrollbar {
         width: 6px;
     }
+}
+
+
+::-webkit-scrollbar-corner {
+    background-color: color-mix(in srgb, var(--accent-color) 20%, var(--control-bg));
+    border-radius: 0px 0px 4px 0px;
+}
+
+::-webkit-scrollbar-button {
+    background-color: color-mix(in srgb, var(--accent-color) 20%, var(--control-bg));
+    ;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+    border-radius: 6px 6px 0px 0px;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+    border-radius: 0px 0px 0px 0px;
+
 }
 
 /* The Range inputs */
