@@ -63,7 +63,7 @@
 
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
-    --control-fg: var(--fg);
+    --control-fg: var(--graphical-fg);
 
 
 
@@ -77,9 +77,9 @@
     --warning-color: var(--yellow);
     --danger-color: var(--red);
 
-    --success-fg: color-mix(in srgb, var(--success-color) 30%, var(--fg));
-    --warning-fg: color-mix(in srgb, var(--warning-color) 20%, var(--fg));
-    --danger-fg: color-mix(in srgb, var(--danger-color) 40%, var(--fg));
+    --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
+    --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
+    --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 
     --control-border-color: color-mix(in srgb, var(--control-fg) 35%, rgb(0 0 0 / 0%));
 
@@ -173,6 +173,13 @@ label {
     place-content: space-between;
 }
 
+b {
+    color: var(--graphical-fg);
+}
+
+span {
+    border-radius: 4px;
+}
 
 /********************Behavior****************************/
 body {
@@ -251,6 +258,7 @@ footer {
     box-sizing: border-box;
     margin: 0px;
     flex-grow: 0;
+    min-height: 1.8rem;
 }
 
 
@@ -461,6 +469,7 @@ td select {
 
 th {
     width: max-content;
+    color: var(--accent-color);
 }
 
 table tr th,
@@ -1100,22 +1109,6 @@ footer.padding {
 
 /*danger is the canonical*/
 
-.error,
-.danger,
-.bad {
-    --fg: var(--danger-fg);
-    --graphical-fg: var(--danger-fg);
-    background-color: color-mix(in srgb, var(--danger-color) var(--highlight-opacity), transparent);
-    color: var(--fg);
-}
-
-.warning,
-.warn {
-    --fg: var(--warning-fg);
-    --graphical-fg: var(--warning-fg);
-    background-color: color-mix(in srgb, var(--warning-color) var(--highlight-opacity), transparent);
-    color: var(--fg);
-}
 
 .highlight {
     background-color: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent);
@@ -1128,13 +1121,23 @@ footer.padding {
     color: var(--fg);
 }
 
-.error.paper {
-    background-color: color-mix(in srgb, var(--error-color) 25%, var(--box-bg));
+.warning,
+.warn {
+    --fg: var(--warning-fg);
+    --graphical-fg: var(--warning-fg);
+    background-color: color-mix(in srgb, var(--warning-color) var(--highlight-opacity), transparent);
+    color: var(--fg);
 }
 
-.warning.paper {
-    background-color: color-mix(in srgb, var(--warning-color) 25%, var(--box-bg))
+.error,
+.danger,
+.bad {
+    --fg: var(--danger-fg);
+    --graphical-fg: var(--danger-fg);
+    background-color: color-mix(in srgb, var(--danger-color) var(--highlight-opacity), transparent);
+    color: var(--fg);
 }
+
 
 .highlight.paper {
     background-color: color-mix(in srgb, var(--highlight-color) 35%, var(--box-bg))
@@ -1144,6 +1147,13 @@ footer.padding {
     background-color: color-mix(in srgb, var(--success-color) 35%, var(--box-bg))
 }
 
+.warning.paper {
+    background-color: color-mix(in srgb, var(--warning-color) 25%, var(--box-bg))
+}
+
+.error.paper {
+    background-color: color-mix(in srgb, var(--error-color) 25%, var(--box-bg));
+}
 
 /*Classless styles */
 
@@ -1408,8 +1418,6 @@ dd {
     flex-grow: 50;
 }
 
-.tool-bar select,
-.tool-bar button,
 .tool-bar a,
 .tool-bar p,
 .tool-bar div,
@@ -1714,4 +1722,10 @@ meter:-moz-meter-sub-optimum::-moz-meter-bar {
 
 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
     background: var(--danger-color);
+}
+
+/*Catch icons*/
+i[class],
+button i[class] {
+    color: var(--graphical-fg);
 }
