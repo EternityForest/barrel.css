@@ -16,6 +16,10 @@ your theme folder.
 
 If you want to put the theme folder elsewhere. just use relative URLs for --bg and the fonts.
 
+Please note: Nord is an adaptation of the Nord Theme, which is MIT licensed, not public domain.
+
+
+
 ## Meta tag
 
 You need this customary tag in your HTML or it doesn't scale right on mobile.
