@@ -1,10 +1,11 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/barrel.css">
+  <link rel="stylesheet" type="text/css" href="css/barrel.css" id="theme_css">
   <title>Barrel.css</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 
 <body>
 
@@ -13,10 +14,24 @@
       <header class="padding">Look! A Header</header>
 
       <h2>Basic Page</h2>
+
       <p>This is a simple test page for barrel.css</p>
       <p>It is public domain/CC0, allong with barrel.css itself.</p>
 
       <p>Get the source code here: <a href="https://github.com/EternityForest/barrel.css">at github</a></p>
+
+      <h3>Theme Chooser</h3>
+      <div class="tool-bar">
+        <button onclick="document.getElementById('theme_css').href = 'css/barrel.css';">Barrel</button>
+        <button onclick="document.getElementById('theme_css').href = 'css/fugit/fugit.css';">Fugit</button>
+        <button onclick="document.getElementById('theme_css').href = 'css/banderole/banderole.css';">Banderole</button>
+        <button onclick="document.getElementById('theme_css').href = 'css/scrapbook/scrapbook_green.css';">Scrapbook
+          Green</button>
+
+      </div>
+
+
+      </button>
 
       <h3>Round feathered images</h3>
       <img src="img/barrel_studio.webp" class="round-feathered w-sm-full h-center"

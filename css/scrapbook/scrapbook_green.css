@@ -1,0 +1,167 @@
+@import "../barrel.css";
+
+:root {
+    color-scheme: light;
+    --line-length: 95vw;
+    --control-bg: #d1e4d152;
+    --graphical-fg: #503550e3;
+    --accent-color: #4d316a;
+    --hightlight-color: #78dba5;
+
+    --border-color: rgba(36, 30, 30, 0.219);
+    --bg: linear-gradient(177deg, rgb(245 247 255 / 34%) 0%, rgba(101, 143, 87, 0.493) 100%), url(scrapbook/grunge_green.webp);
+    --fg: #412019;
+    --box-bg: rgba(228, 233, 227, 0.6);
+}
+
+::selection {
+    background: rgba(119, 88, 206, 0.431);
+    color: rgb(70, 45, 19);
+}
+
+::-moz-selection {
+    background: rgba(0, 0, 250, 0.25);
+}
+
+
+.decorative-image-main {
+    background-image: url(/static/img/nov23-ai-watercolor-tavern.webp);
+    display: block;
+    box-shadow: none;
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
+    opacity: 50%;
+}
+
+.decorative-image-login {
+    background-image: url(/static/img/nov23-ai-castle.webp);
+    display: block;
+    box-shadow: none;
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
+    opacity: 70%;
+}
+
+
+
+/************************HTML ELEMENTS***********************************/
+
+
+
+img,
+video,
+canvas {
+    border-image-slice: 20 20 20 20;
+    border-image-width: 20px 20px 20px 20px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: stretch stretch;
+    border-image-source: url('/static/img/frame.webp');
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 12px;
+    -webkit-box-shadow: 2px 2px 4px 0px #000000;
+    box-shadow: 2px 2px 4px 0px #000000;
+}
+
+.monaco-editor canvas,
+.ac-container img {
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-image-source: initial;
+    box-sizing: initial;
+    border-style: initial;
+    border-width: initial;
+    -webkit-box-shadow: initial;
+    box-shadow: initial;
+}
+
+dl {
+    padding: 2px;
+    margin: 2px;
+}
+
+dt {
+    margin: 0.2em;
+}
+
+li:hover,
+dt:hover,
+dt:hover+dd,
+a.button:hover,
+button:hover,
+input:hover,
+tr:hover {
+    background-color: rgba(150, 255, 250, 0.2);
+}
+
+
+table {
+    background-color: rgba(240, 248, 255, 0.116);
+    box-shadow: 5px 5px 12px -8px rgba(0, 0, 0, 0.97);
+}
+
+tr.header {
+    font-weight: bold;
+}
+
+th {
+    background-color: #0000001a;
+}
+
+
+
+pre {
+    margin: 0.2em;
+    background-color: rgba(245, 255, 230, 0.9);
+}
+
+
+/*This handles the old style "section box", but also top level HTML section elements. It's basicattly for independant sections of content.*/
+
+.window {
+    background: var(--box-bg);
+    backdrop-filter: blur(1px);
+    box-shadow: 2px 2px 16px -3px rgba(43, 39, 85, 0.7)
+}
+
+
+.card {
+    box-shadow: 2px 2px 8px -3px rgba(43, 39, 85, 0.4)
+}
+
+.round-feathered {
+    opacity: 0.7;
+}
+
+
+h2,
+h3 {
+    text-shadow: 2px 2px 7px rgba(217, 217, 217, 0.49);
+}
+
+a {
+    text-shadow: 0 0 1px rgb(215 237 255);
+    text-decoration: none;
+}
+
+h1 a,
+h2 a {
+    text-shadow: none;
+}
+
+button:disabled {
+    background-color: #a0a0a0;
+    color: rgb(218, 218, 218);
+    opacity: 0.7;
+    border-radius: 7px;
+}
+
+input:disabled {
+    background-color: #D0D0D0;
+}
+
+
+.tool-bar>* {
+    backdrop-filter: blur(3px);
+}
