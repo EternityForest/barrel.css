@@ -1,7 +1,3 @@
-@import "../barrel.css";
-
-/* Using a string */
-
 :root{
   --bg: radial-gradient(circle, rgb(255 255 255 / 70%) 0%, rgb(188 193 162 / 64%)), url(pergament-papier-hintergrund-braun.webp);
   --box-bg: none;

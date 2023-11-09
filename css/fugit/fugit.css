@@ -1,7 +1,3 @@
-@import "../barrel.css";
-
-/* Using a string */
-
 :root{
   color-scheme: dark;
   --phosphor-color: #ffd477;

@@ -10,6 +10,12 @@ This is used as the internal KaithemAutomation CSS framework.  See it[(Here on G
 
 Note that the preview is of this master branch, not any particular release.
 
+## Alt themes
+Because of weirdness with css variables, all of the alt themes folders must be in the foler with barrel.css itself.  Include barrel.css before
+your theme folder.
+
+If you want to put the theme folder elsewhere. just use relative URLs for --bg and the fonts.
+
 ## Meta tag
 
 You need this customary tag in your HTML or it doesn't scale right on mobile.

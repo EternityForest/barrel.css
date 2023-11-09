@@ -1,5 +1,3 @@
-@import "../barrel.css";
-
 :root {
     color-scheme: light;
     --line-length: 95vw;
@@ -22,26 +20,6 @@
 ::-moz-selection {
     background: rgba(0, 0, 250, 0.25);
 }
-
-
-.decorative-image-main {
-    background-image: url(/static/img/nov23-ai-watercolor-tavern.webp);
-    display: block;
-    box-shadow: none;
-    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
-    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
-    opacity: 50%;
-}
-
-.decorative-image-login {
-    background-image: url(/static/img/nov23-ai-castle.webp);
-    display: block;
-    box-shadow: none;
-    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
-    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
-    opacity: 70%;
-}
-
 
 
 /************************HTML ELEMENTS***********************************/

@@ -1,7 +1,3 @@
-@import "../barrel.css";
-
-/* Using a string */
-
 :root{
   --bg: radial-gradient(circle, rgb(255 255 255 / 70%) 0%, rgb(188 193 162 / 64%)), url(banderole/pergament-papier-hintergrund-braun.webp);
   --box-bg: none;
@@ -177,24 +173,6 @@ img{
   border-radius: calc(var(--border-radius) * 2);
 }
 
-.decorative-image-main
-{
-  background-image: url(/static/img/banderole/drinking-from-the-cask.svg);
-  display: block;
-  box-shadow: none;
-}
-
-.decorative-image-login
-{
-  background-image: url(/static/img/banderole/Halberd.svg);
-  display: block;
-}
-
-.decorative-image-settings
-{
-  background-image: url(/static/img/banderole/johnny_automatic_horse-shoeing.svg);
-  display: block;
-}
 
 .decorative-image-h-bar
 {
