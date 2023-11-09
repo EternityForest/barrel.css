@@ -87,6 +87,13 @@
     --thin-border: 1px solid var(--border-color);
 }
 
+@media screen and (max-width: 420px) {
+    :root {
+        --scrollbar-width: 5px;
+    }
+}
+
+
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -1593,13 +1600,13 @@ main>header>.tool-bar.w-full, main>header>.tool-bar.w-full *
 /*Scrollbars*/
 /* Firefox */
 * {
-    scrollbar-width: 14px;
+    scrollbar-width: var(--scrollbar-width);
     scrollbar-color: var(--control-fg) var(--control-bg);
 }
 
 /* Other browsers */
 *::-webkit-scrollbar {
-    width: 14px;
+    width: var(--scrollbar-width);
     background-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
 }
 
@@ -1612,18 +1619,6 @@ main>header>.tool-bar.w-full, main>header>.tool-bar.w-full *
     background-color: var(--control-fg);
     border-radius: calc(min(var(--border-radius), 5px));
     border: none;
-}
-
-
-@media screen and (max-width: 420px) {
-    * {
-        scrollbar-width: 6px;
-    }
-
-    /* Other browsers */
-    *::-webkit-scrollbar {
-        width: 6px;
-    }
 }
 
 
