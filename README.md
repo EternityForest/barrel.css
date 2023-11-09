@@ -17,7 +17,7 @@ your theme folder.
 If you want to put the theme folder elsewhere. just use relative URLs for --bg and the fonts.
 
 Please note: Nord is an adaptation of the Nord Theme, which is MIT licensed, not public domain.
-
+The font file for Fugit is under it's own free license. Images should all be CC0.
 
 
 ## Meta tag
