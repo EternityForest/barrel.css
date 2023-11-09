@@ -104,6 +104,8 @@
         --bg: var(--black-1);
         --box-bg: var(--black-2);
         --control-bg: var(--black-4);
+        /*Used when control is on top of something already control-bg colored*/
+        --alt-control-bg: var(--box-bg);
         --accent-color: var(--grey-2);
 
         --fg: var(--grey-3);
@@ -264,7 +266,7 @@ footer {
 
 header *,
 footer * {
-    --control-bg: var(--box-bg);
+    --control-bg: var(--alt-control-bg);
 }
 
 

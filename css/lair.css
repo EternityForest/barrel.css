@@ -1,8 +1,8 @@
 :root {
     color-scheme: light dark;
-    --red: red;
-    --fg: #e72323;
-    --graphical-fg: #aaadbc;
+    --red: rgb(255, 0, 119);
+    --fg: #bb5371;
+    --graphical-fg: #1a091a;
     --accent-color: rgb(182 83 0);
     --bg: #49011c;
     --box-bg: #2e2424;
@@ -10,13 +10,13 @@
     --main-font: sans-serif;
     --padding: 2px;
     --gap: 2px;
-    --border-color: #785073;
+    --border-color: #1a091a;
     --border-radius: 0rem;
     --border-width: 1px;
     --control-height: 28px;
     --control-border-radius: 0px;
     --control-border-width: 1px;
-    --3d-highlight: #9d0016;
+    --3d-highlight: #9d0092;
     --3d-shadow: #5c3c3c;
     --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
     --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
