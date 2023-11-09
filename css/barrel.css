@@ -130,10 +130,9 @@
 
 main {
     margin: auto;
-}
-
-main {
     width: min(45em, 100vw);
+    min-width: min-content;
+    max-width: 100vw;
 }
 
 html {
@@ -402,12 +401,22 @@ iframe {
 
 /*Tables*/
 
+tr {
+    border: none;
+}
+
+td {
+    border-color: color-mix(in srgb, var(--border-color) 10%, transparent);
+    padding: var(--border-width);
+    width: min-content;
+    max-width: 45%;
+}
+
 table,
-tr,
-td,
 th,
 thead {
     border-color: var(--border-color);
+
 }
 
 table {
@@ -415,16 +424,15 @@ table {
     border-width: var(--border-width);
     border-color: var(--border-color);
     border-collapse: collapse;
-    margin: 0.4em;
 }
 
 /*This makes tables easier to read by coloring alternate rows differently.*/
 table tr:nth-child(odd) td {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: color-mix(in srgb, var(--highlight-color) 3%, transparent);
 }
 
 table tr:nth-child(even) td {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: color-mix(in srgb, var(--accent-color) 3%, transparent);
 }
 
 table {
@@ -450,10 +458,6 @@ td select {
 }
 
 
-td {
-    padding: var(--border-width);
-    width: max-content;
-}
 
 th {
     width: max-content;
@@ -461,8 +465,7 @@ th {
 
 table tr th,
 table tr td {
-    border-right: var(--border-width) solid var(--border-color);
-    border-bottom: var(--border-width) solid var(--border-color);
+    border-right: var(--border-width) color-mix(in srgb, var(--border-color) 10%, transparent);
     padding: calc(var(--padding)/3);
 }
 
