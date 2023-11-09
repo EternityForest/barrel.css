@@ -102,10 +102,14 @@ details[open] {
 
 .window {
   border-width: 1px;
-  box-shadow: 1px 1px 21px 1px rgb(83 49 10 / 21%);
+  box-shadow: 3px 3px 12px 1px rgb(83 49 10 / 31%);
 }
 
 
+.card,
+.tool-bar {
+  box-shadow: 2px 2px 4px 1px rgb(83 49 10 / 20%);
+}
 
 header .tool-bar {
   transform: none;
