@@ -81,7 +81,7 @@
     --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
     --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 
-    --control-border-color: color-mix(in srgb, var(--control-fg) 35%, rgb(0 0 0 / 0%));
+    --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
 
     /*Calculated helpers*/
     --thin-border: 1px solid var(--border-color);
@@ -489,6 +489,17 @@ table tr:first-child td {
     text-align: left;
 }
 
+table tr:last-child td {
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+table tr td:last-child {
+    border-right: var(--border-width) solid var(--border-color);
+}
+
+table tr th:last-child {
+    border-right: var(--border-width) solid var(--border-color);
+}
 
 /* top-left border-radius */
 
