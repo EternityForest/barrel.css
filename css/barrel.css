@@ -19,7 +19,7 @@
 
     --dark-blue: rgb(40 55 102);
 
-
+    --scrollbar-width: 14px;
 
     /*Text color*/
     --fg: var(--black-1);
@@ -132,9 +132,33 @@
 
 main {
     margin: auto;
-    width: min(45em, 100vw);
-    min-width: min-content;
-    max-width: 100vw;
+    width: calc(min(45em, 100vw, 100%));
+    max-width: 100%;
+}
+
+img,
+figure,
+video,
+fieldset {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+p>img,
+p>a>img {
+    float: left;
+    /*Try to center in screen.  This assumes there's always a scrollbar which isn't great*/
+    max-width: calc(100vw - calc(var(--padding) *2 + var(--scrollbar-width)));
+}
+
+figcaption {
+    margin-inline-start: var(--gap);
+}
+
+p {
+    margin: var(--padding);
 }
 
 html {
@@ -153,6 +177,7 @@ body {
     line-height: 1.6;
     font-size: 18px;
     margin: 0px;
+    padding: 0px;
     color: var(--fg);
 }
 
@@ -183,6 +208,11 @@ span {
     border-radius: 4px;
 }
 
+
+p:empty {
+    padding: var(--padding);
+}
+
 /********************Behavior****************************/
 body {
     /* Disables pull-to-refresh but allows overscroll glow effects. */
@@ -203,6 +233,7 @@ h1 *,
 h2 *,
 h3 * {
     color: var(--accent-color);
+    clear: both;
 }
 
 h3 button,
@@ -239,15 +270,6 @@ hr {
 }
 
 
-/*Headers and footers */
-header {
-    border-radius: 0px 0px inherit inherit;
-}
-
-header {
-    border-radius: inherit inherit 0px 0px;
-}
-
 
 header,
 footer {
@@ -263,15 +285,24 @@ footer {
     min-height: 1.8rem;
 }
 
+/*Headers and footers */
+footer {
+    margin-top: var(--padding);
+    border-radius: 0px 0px inherit inherit;
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+header {
+    margin-bottom: var(--padding);
+    border-radius: inherit inherit 0px 0px;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+
 
 header *,
 footer * {
     --control-bg: var(--alt-control-bg);
-}
-
-
-header {
-    border-bottom: var(--border-width) solid var(--border-color);
 }
 
 
@@ -317,11 +348,6 @@ header:not(.undecorated)>.tool-bar:only-child :is(input, button) {
     color: var(--control-fg);
 }
 
-
-
-footer {
-    border-top: var(--border-width) solid var(--border-color);
-}
 
 header>.tool-bar>:is(p, h1, h2, h3, h4) {
     border: none;
@@ -505,7 +531,7 @@ table tr th:last-child {
 
 /* top-left border-radius */
 
-:is(table, thead:first-child, tbody:first-child):first-child>tr:first-child :first-child:is(td, th) {
+:is(table, thead, tbody:first-child)>tr:first-child :first-child:is(td, th) {
     border-top-left-radius: var(--border-radius);
     ;
 }
@@ -513,7 +539,7 @@ table tr th:last-child {
 
 /* top-right border-radius */
 
-:is(table, thead:first-child, tbody:first-child)>tr:first-child :last-child:is(td, th) {
+:is(table, thead, tbody:first-child)>tr:first-child :last-child:is(td, th) {
     border-top-right-radius: var(--border-radius);
     ;
 }
@@ -521,7 +547,7 @@ table tr th:last-child {
 
 /* bottom-left border-radius */
 
-:is(table, tbody)>tr:last-child :first-child:is(td, th) {
+:is(table:not(:has(tfoot))) tr:last-child :first-child:is(td, th) {
     border-bottom-left-radius: var(--border-radius);
     ;
 }
@@ -529,13 +555,23 @@ table tr th:last-child {
 
 /* bottom-right border-radius */
 
-:is(table, tbody)>tr:last-child :last-child:is(td, th) {
+:is(table:not(:has(tfoot))) tr:last-child :last-child:is(td, th) {
     border-bottom-right-radius: var(--border-radius);
     ;
 }
 
+tfoot tr:last-child :last-child:is(td, th) {
+    border-bottom-right-radius: var(--border-radius);
+}
+
+tfoot tr:last-child :first-child:is(td, th) {
+    border-bottom-left-radius: var(--border-radius);
+}
 
 
+tfoot tr:last-child :is(td, th) {
+    border-bottom: var(--border-width) solid var(--border-color);
+}
 
 /* Components */
 
@@ -611,11 +647,11 @@ table tr th:last-child {
     margin-block-end: var(--gap);
 }
 
-.flex-col>*:last-child {
+.flex-col>*:last-child:not(label, input, button, select, .tool-bar) {
     margin-block-end: 0px;
 }
 
-.flex-col>*:nth-last-child(2) {
+.flex-col>*:nth-last-child(2):not(label, input, button, select, .tool-bar) {
     margin-block-end: 0px;
 }
 
@@ -762,7 +798,7 @@ table tr th:last-child {
 A little smaller in flex to allow for expansion or fitting lots on a row*/
 .w-sm-full {
     width: 430px;
-    max-width: calc(min(430px, 100vw));
+    max-width: calc(min(430px, 100%));
     flex-basis: 300px;
     flex-shrink: 1;
     flex-grow: 1;
@@ -1557,7 +1593,7 @@ main>header>.tool-bar.w-full, main>header>.tool-bar.w-full *
 /*Scrollbars*/
 /* Firefox */
 * {
-    scrollbar-width: auto;
+    scrollbar-width: 14px;
     scrollbar-color: var(--control-fg) var(--control-bg);
 }
 
