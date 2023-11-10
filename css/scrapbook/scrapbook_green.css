@@ -64,19 +64,6 @@ tr:hover {
 }
 
 
-table {
-    background-color: rgba(240, 248, 255, 0.116);
-    box-shadow: 5px 5px 12px -8px rgba(0, 0, 0, 0.97);
-}
-
-tr.header {
-    font-weight: bold;
-}
-
-th {
-    background-color: #0000001a;
-}
-
 
 
 /*This handles the old style "section box", but also top level HTML section elements. It's basicattly for independant sections of content.*/

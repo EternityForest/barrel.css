@@ -280,6 +280,9 @@ Note that the base color definitinons change in dark theme.
     --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
     --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 
+    /*Intensity of table borders is less than normal borders, to balance the density*/
+    --table-border-strength: 40%;
+
     --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
 }
 ```

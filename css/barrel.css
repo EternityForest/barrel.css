@@ -42,7 +42,7 @@
     --gap: 18px;
 
     /*Borders*/
-    --border-color: color-mix(in srgb, var(--graphical-fg) 75%, rgb(0 0 0 / 0%));
+    --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
 
     --border-radius: 1.2rem;
     --border-width: 1px;
@@ -85,6 +85,9 @@
     --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 
     --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
+
+    /*Intensity of table borders is less than normal borders, to balance the density*/
+    --table-border-strength: 40%;
 
     /*Calculated helpers*/
     --thin-border: 1px solid var(--border-color);
@@ -474,7 +477,9 @@ tr {
 }
 
 td {
-    border-color: color-mix(in srgb, var(--border-color) 10%, transparent);
+    border-top: none;
+    border-right: none;
+    border-color: color-mix(in srgb, var(--border-color) var(--table-border-strength), transparent);
     padding: var(--border-width);
     width: min-content;
     max-width: 45%;
@@ -507,7 +512,6 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     border-radius: var(--border-radius);
-    ;
     border: none;
 }
 
