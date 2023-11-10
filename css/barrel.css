@@ -160,6 +160,12 @@ p>a>img {
     max-width: calc(100vw - calc(var(--padding) *2 + var(--scrollbar-width)));
 }
 
+dl,
+ul,
+ol {
+    margin: var(--padding);
+}
+
 figcaption {
     margin-inline-start: var(--gap);
 }
@@ -1390,7 +1396,7 @@ dd {
     border: none;
 }
 
-.tool-bar :is(a, a.button, select, input, meter, button) {
+.tool-bar :is(a, a.button, select, input, meter, button, label) {
     margin: 0px;
     align-items: stretch;
     border-radius: 0px;
