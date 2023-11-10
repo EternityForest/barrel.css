@@ -197,24 +197,25 @@ Note that the base color definitinons change in dark theme.
 
 ```css
 :root {
-    color-scheme: light dark;
-
     --black-1: #1c1c1c;
     --black-2: #343A40;
     --black-3: #545862;
     --black-4: #5C555D;
 
-    --grey-1: #ededed;
+    --grey-1: #e5e4e1;
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
     --red: #b92020;
     --yellow: #cea916;
     --green: rgb(0, 158, 0);
-    --teal: rgb(120, 212, 219);
+    --teal: rgb(116 174 174);
     --blue: rgb(95 111 161);
+    --purple: rgb(161, 95, 141);
 
+    --dark-blue: rgb(40 55 102);
 
+    --scrollbar-width: 14px;
 
     /*Text color*/
     --fg: var(--black-1);
@@ -222,9 +223,9 @@ Note that the base color definitinons change in dark theme.
     --graphical-fg: var(--black-4);
 
     /*Headings, links, etc*/
-    --accent-color: var(--blue);
+    --accent-color: var(--dark-blue);
     /*Main page bg*/
-    --bg: var(--grey-3);
+    --bg: var(--grey-1);
     /*.paper, items*/
     --box-bg: var(--grey-2);
     --highlight-opacity: 25%;
@@ -233,20 +234,22 @@ Note that the base color definitinons change in dark theme.
     --main-font: sans-serif;
 
     /*Spacing*/
-    --padding: 6px;
+    --padding: 12px;
     --gap: 18px;
 
     /*Borders*/
-    --border-color: color-mix(in srgb, var(--graphical-fg) 75%, rgb(0 0 0 / 0%));;
-    --border-radius: 0.6rem;
+    --border-color: color-mix(in srgb, var(--graphical-fg) 75%, rgb(0 0 0 / 0%));
+
+    --border-radius: 1.2rem;
     --border-width: 1px;
 
     /*Inputs, buttons, etc*/
-    --control-height: 28px;
+    --control-height: 3ex;
     --control-border-radius: 12px;
     --control-border-width: 1px;
 
-
+    --3d-highlight: color-mix(in srgb, var(--box-bg) 50%, rgba(241, 241, 241, 0.695));
+    --3d-shadow: color-mix(in srgb, var(--box-bg) 50%, rgba(0, 0, 0, 0.101));
 
     /*3D buttons are mostly transparent with just some highlights and shadows.*/
     --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
@@ -256,12 +259,15 @@ Note that the base color definitinons change in dark theme.
 
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
-    --control-fg: var(--fg);
+    --control-fg: var(--graphical-fg);
 
+    --window-box-shadow: none;
+
+    /*Used for tool bars and cards*/
+    --item-box-shadow: none;
 
 
     /*Note that themes can decide 3D elements should be flat*/
-
 
     /*Below this line you probably don't need to change stuff*/
     /* fg color for warning and danger */
@@ -270,11 +276,10 @@ Note that the base color definitinons change in dark theme.
     --warning-color: var(--yellow);
     --danger-color: var(--red);
 
-    --success-fg: color-mix(in srgb, var(--success-color) 30%, var(--fg));
-    --warning-fg: color-mix(in srgb, var(--warning-color) 20%, var(--fg));
-    --danger-fg: color-mix(in srgb, var(--danger-color) 40%, var(--fg));
+    --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
+    --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
+    --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 
-    --control-border-color: color-mix(in srgb, var(--control-fg) 35%, rgb(0 0 0 / 0%));
-
+    --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
 }
 ```
