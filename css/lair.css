@@ -23,6 +23,7 @@
     --convex-item-active-bg: var(--concave-item-bg);
     --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
     --control-bg: #560049;
+    --alt-control-bg: #482155;
     --control-fg: #ba9c7f;
     --highlight-color: var(--teal);
     --success-color: var(--green);
