@@ -43,7 +43,7 @@
 
     /*Borders*/
     --border-color: color-mix(in srgb, var(--graphical-fg) 75%, rgb(0 0 0 / 0%));
-    ;
+
     --border-radius: 1.2rem;
     --border-width: 1px;
 
@@ -65,10 +65,13 @@
     --control-bg: var(--grey-1);
     --control-fg: var(--graphical-fg);
 
+    --window-box-shadow: none;
+
+    /*Used for tool bars and cards*/
+    --item-box-shadow: none;
 
 
     /*Note that themes can decide 3D elements should be flat*/
-
 
     /*Below this line you probably don't need to change stuff*/
     /* fg color for warning and danger */
@@ -642,6 +645,21 @@ tfoot tr:last-child :is(td, th) {
 }
 
 
+
+.window {
+    border-width: 1px;
+    box-shadow: var(--window-box-shadow);
+}
+
+
+.card,
+.tool-bar {
+    box-shadow: var(--item-box-shadow);
+}
+
+header:not(.undecorated) .tool-bar {
+    box-shadow: none;
+}
 
 /*Flex rows and cols */
 .max-content {
@@ -1559,8 +1577,6 @@ dd {
 .tool-bar :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
     border-radius: 0px var(--control-border-radius) var(--control-border-radius) 0px;
     margin-inline-end: 0px;
-    border-inline-start: var(--control-border-width) solid var(--control-border-color);
-
 }
 
 
