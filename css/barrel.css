@@ -311,6 +311,15 @@ header {
     border-bottom: var(--border-width) solid var(--border-color);
 }
 
+:is(section, article, div):not(.window, .card)> :is(header, footer) {
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--border-color);
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 90%;
+}
+
 
 
 header *,
@@ -567,7 +576,8 @@ table tr th:last-child {
 
 /* bottom-left border-radius */
 
-:is(table:not(:has(tfoot)))>tr:last-child :first-child:is(td, th) {
+:is(table:not(:has(tfoot)))>tr:last-child :first-child:is(td, th),
+:is(table:not(:has(tfoot)))>tbody>tr:last-child :first-child:is(td, th) {
     border-bottom-left-radius: var(--border-radius);
     ;
 }
@@ -575,7 +585,8 @@ table tr th:last-child {
 
 /* bottom-right border-radius */
 
-:is(table:not(:has(tfoot)))>tr:last-child :last-child:is(td, th) {
+:is(table:not(:has(tfoot)))>tr:last-child :last-child:is(td, th),
+:is(table:not(:has(tfoot)))>tbody>tr:last-child :last-child:is(td, th) {
     border-bottom-right-radius: var(--border-radius);
     ;
 }
@@ -1022,6 +1033,17 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 .paper {
     background: var(--box-bg);
+}
+
+pre.poem {
+    white-space: pre-wrap;
+    font-family: inherit;
+    width: fit-content;
+}
+
+.poem p {
+    white-space: pre-wrap;
+    margin-bottom: 2.4ex;
 }
 
 .v-center {
