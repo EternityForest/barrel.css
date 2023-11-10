@@ -501,11 +501,11 @@ table {
 
 /*This makes tables easier to read by coloring alternate rows differently.*/
 table tr:nth-child(odd) td {
-    background-color: color-mix(in srgb, var(--highlight-color) 3%, transparent);
+    background-color: color-mix(in srgb, var(--highlight-color) 2%, transparent);
 }
 
 table tr:nth-child(even) td {
-    background-color: color-mix(in srgb, var(--accent-color) 3%, transparent);
+    background-color: color-mix(in srgb, var(--accent-color) 2%, transparent);
 }
 
 table {
