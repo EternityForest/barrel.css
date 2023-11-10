@@ -4,7 +4,7 @@
   --fg: #522f28;
   --graphical-fg: rgb(98 69 39 / 81%);
   --accent-color: var(--graphical-fg);
-
+  --main-font: serif;
   --concave-item-bg: none;
   --convex-item-bg: none;
   --convex-item-active-bg: none;
