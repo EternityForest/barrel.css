@@ -35,7 +35,7 @@
     --highlight-opacity: 25%;
 
     /*typography*/
-    --main-font: sans-serif;
+    --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     /*Spacing*/
     --padding: 12px;
@@ -192,8 +192,8 @@ html {
 }
 
 body {
-    font-family: Lato;
-    line-height: 1.6;
+    font-family: var(--main-font);
+    line-height: 2.8ex;
     font-size: 18px;
     margin: 0px;
     padding: 0px;
@@ -1061,6 +1061,7 @@ pre.poem {
     white-space: pre-wrap;
     font-family: inherit;
     width: fit-content;
+    line-height: 2.8ex;
 }
 
 .poem p {
