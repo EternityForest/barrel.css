@@ -99,6 +99,13 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .tool-bar {
+        --control-border-radius: 6px;
+    }
+}
+
+
 
 
 @media (prefers-color-scheme: dark) {
@@ -1502,7 +1509,6 @@ dd {
     vertical-align: middle;
     text-align: center;
     display: flex;
-    flex-grow: 0.5;
     min-width: fit-content;
 }
 
@@ -1510,7 +1516,6 @@ dd {
     padding-inline-start: var(--padding);
     padding-inline-end: var(--padding);
     min-width: fit-content;
-    flex-grow: 0.5;
     margin: 0px;
 }
 
