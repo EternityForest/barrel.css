@@ -1,0 +1,60 @@
+    :root{
+    color-scheme: light dark;
+    --black-1: #1c1c1c;
+    --black-2: #343A40;
+    --black-3: #545862;
+    --black-4: #5C555D;
+    --grey-1: #e5e4e1;
+    --grey-2: #ffffff;
+    --grey-3: #ffffff;
+    --red: #ff0000;
+    --yellow: #fff900;
+    --green: rgb(0 255 0);
+    --teal: rgb(0 237 255);
+    --blue: rgb(0 62 255);
+    --purple: rgb(255 0 178);
+    --dark-blue: rgb(0 46 191);
+    --fg: #ffff05;
+    --graphical-fg: #00188d;
+    --accent-color: rgb(0 255 42);
+    --bg: #2c9f43;
+    --box-bg: #622fb0;
+    --highlight-opacity: 25%;
+    --main-font: sans-serif;
+    --padding: 2px;
+    --gap: 2px;
+    --border-color: #00ffe6;
+    --border-radius: 1.2rem;
+    --border-width: 1px;
+    --control-height: 28px;
+    --control-border-radius: 12px;
+    --control-border-width: 1px;
+    --3d-highlight: #dc09cd;
+    --3d-shadow: #94ff44;
+    --concave-item-bg: linear-gradient(180deg, var(
+    --3d-shadow) 12%, var(--3d-highlight) 88%);
+    --convex-item-bg: linear-gradient(180deg, var(
+    --3d-highlight) 0%, var(--3d-shadow) 96%);
+    --convex-item-active-bg: var(
+    --concave-item-bg);
+    --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
+    --control-bg: #ffc400;
+    --control-fg: #8a5100;
+    --highlight-color: var(
+    --teal);
+    --success-color: var(
+    --green);
+    --warning-color: var(
+    --yellow);
+    --danger-color: var(
+    --red);
+    --success-fg: color-mix(in srgb, var(
+    --success-color) 60%, var(--fg));
+    --warning-fg: color-mix(in srgb, var(
+    --warning-color) 40%, var(--fg));
+    --danger-fg: color-mix(in srgb, var(
+    --danger-color) 70%, var(--fg));
+    --control-border-color: color-mix(in srgb, var(
+    --graphical-fg) 35%, rgb(0 0 0 / 0%));
+    --thin-border: 1px solid var(
+    --border-color);}

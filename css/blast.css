@@ -47,3 +47,7 @@
         --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
         --thin-border: 1px solid var(--border-color);
     }
+
+    a {
+        font-family: var(--mono-font);
+    }
