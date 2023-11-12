@@ -1878,12 +1878,17 @@ a:hover *:not(i, b, small, span),
 .tool-bar>a:hover,
 input:not([type='submit']):not([type='range']):hover,
 header:not(.undecorated)>:only-child :is(button, a.button, input[type='submit']):hover,
+header:not(.undecorated)>.tool-bar:only-child :is(input, button, select, a):hover,
 input:hover,
-select:hover {
+select:hover,
+tr:hover {
     color: var(--accent-color);
     --fg: var(--accent-color);
     background-color: var(--hover-color)
 }
+
+
+
 
 
 ::selection {
