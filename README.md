@@ -135,6 +135,10 @@ Does not use CSS grids, just sets width.  The size will be a little smaller than
 
 Works correctly with nogaps.
 
+### w-1rem through w-24rem
+Options are 1,2,4,6,12, and 24.  Sets width, and flex-basis, if applied to a child of
+a .flex-row element.
+
 ### w-full
 100% width, flex-basis 100%, border-box sizing.
 
