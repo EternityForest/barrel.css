@@ -19,10 +19,6 @@
   --item-box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 16%);
 }
 
-header {
-  background: none;
-}
-
 ::selection {
   background: rgba(168, 170, 59, 0.123);
   color: rgb(70, 45, 19);

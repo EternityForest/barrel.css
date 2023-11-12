@@ -273,6 +273,8 @@ Note that the base color definitinons change in dark theme.
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
     --control-fg: var(--graphical-fg);
+
+    /*Used for headers, trays, and anything smaller than a box and bigger than a button*/
     --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
     /*#e1dfd7*/
 
@@ -280,9 +282,6 @@ Note that the base color definitinons change in dark theme.
 
     /*Used for tool bars and cards*/
     --item-box-shadow: none;
-
-
-    /*Note that themes can decide 3D elements should be flat*/
 
     /*Below this line you probably don't need to change stuff*/
     /* fg color for warning and danger */
@@ -293,16 +292,11 @@ Note that the base color definitinons change in dark theme.
 
     --hover-color: color-mix(in srgb, var(--highlight-color) 30%, transparent);
 
-    --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
-    --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
-    --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
-
     --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
 
     /*Intensity of table borders is less than normal borders, to balance the density*/
     --table-border-strength: 50%;
 
-    /*Calculated helpers*/
     --thin-border: 1px solid var(--border-color);
 }
 ```
