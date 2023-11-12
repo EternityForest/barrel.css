@@ -106,20 +106,6 @@
     --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 }
 
-@media screen and (max-width: 420px) {
-    :root {
-        --scrollbar-width: 5px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .tool-bar {
-        --control-border-radius: 6px;
-    }
-}
-
-
-
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -137,8 +123,6 @@
         --bg: var(--black-1);
         --box-bg: var(--black-2);
         --control-bg: var(--black-4);
-        /*Used when control is on top of something already control-bg colored*/
-        --alt-control-bg: var(--box-bg);
         --accent-color: var(--grey-2);
 
         --fg: var(--grey-3);
@@ -150,6 +134,47 @@
         --concave-item-box-shadow: none;
     }
 }
+
+:root {
+    --black-1: #222222;
+    --black-2: #2c2c2c;
+    --black-3: #4e4c4c;
+    --black-4: #404040;
+    --grey-1: #969494;
+    --grey-2: #adadad;
+    --grey-3: #dfd6d6;
+    --warning-color: #ffd943;
+    --danger-color: #ff4242;
+    --highlight-color: #7788aa;
+
+    --bg: var(--black-1);
+    --box-bg: var(--black-2);
+    --control-bg: var(--black-4);
+    --accent-color: var(--grey-2);
+
+    --fg: var(--grey-3);
+    --graphical-fg: var(--grey-1);
+
+    --concave-item-bg: none;
+    --convex-item-bg: none;
+    --convex-item-active-bg: var(--grey-1);
+    --concave-item-box-shadow: none;
+}
+
+@media screen and (max-width: 420px) {
+    :root {
+        --scrollbar-width: 5px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tool-bar {
+        --control-border-radius: 6px;
+    }
+}
+
+
+
 
 
 
@@ -1527,6 +1552,10 @@ dd {
     flex-grow: 50;
     border: 0px;
     text-align: right;
+
+    &>input {
+        background-color: var(--alt-control-bg);
+    }
 }
 
 .tool-bar>*,

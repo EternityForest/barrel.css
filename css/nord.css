@@ -51,6 +51,9 @@ SOFTWARE.
     --control-bg: var(--grey-3);
     --alt-control-bg: var(--grey-1);
     --bg: var(--grey-1);
+    --fg: var(--black-1);
+    --control-fg: var(--black-2);
+
     --accent-color: var(--ocean);
     --concave-item-box-shadow: none;
     --convex-item-bg: var(--control-bg);
@@ -71,6 +74,7 @@ SOFTWARE.
         --fg: var(--grey-3);
         --control-fg: var(--grey-1);
         --control-bg: var(--black-3);
+        --alt-control-bg: var(--black-4);
         --border-color: var(--black-4);
         --window-box-shadow: none;
         --card-box-shadow: none;
