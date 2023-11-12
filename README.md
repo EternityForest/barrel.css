@@ -58,9 +58,9 @@ A div styled like a typical UI card.  May contain a header and a footer.  Should
 
 Make a link look like it's a button.
 
-### .poem
-All child paragraphs have centered text and preserved white space.
-
+### pre.poem
+All child paragraphs have centered text and preserved white space, display centered, generally make
+a pre look nice for poetry.
 
 ## Utilities
 
