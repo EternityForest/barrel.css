@@ -71,6 +71,8 @@
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
     --control-fg: var(--graphical-fg);
+
+    /*Used for headers, trays, and anything smaller than a box and bigger than a button*/
     --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
     /*#e1dfd7*/
 
@@ -365,16 +367,15 @@ header:not(.undecorated) {
         border: none;
     }
 
-    &>:only-child,
-    &>*:only-child,
-    &>*:only-child>:only-child {
+    &>:only-child:empty,
+    &>*:only-child:has(:only-child) {
         margin-top: 0px;
         width: 100%;
         flex-grow: 1;
         box-sizing: border-box;
         margin: 0px;
 
-        &:not(.highlight, .danger, .warning, .success) {
+        &:not(.highlight, .danger, .warning, .success, .tool-bar) {
             --control-bg: none;
             --convex-item-bg: none;
         }
@@ -399,6 +400,7 @@ header:not(.undecorated) {
 
         & :is(input, button) {
             color: var(--control-fg);
+            flex-grow: 1;
         }
 
     }
@@ -551,7 +553,7 @@ td select {
 
 th {
     width: max-content;
-    color: var(--accent-color);
+    color: var(--control-fg);
 }
 
 table tr th,
