@@ -362,12 +362,12 @@ header>:is(h1, h2, h3, h4):has(button:only-child) {
 header:not(.undecorated) {
     --convex-item-bg: var(--control-bg);
 
-    & :only-child,
+    &>:only-child,
     &>*:only-child>:only-child {
         border: none;
     }
 
-    &>:only-child:empty,
+    &>*:only-child:not(:has(:first-child)),
     &>*:only-child:has(:only-child) {
         margin-top: 0px;
         width: 100%;
