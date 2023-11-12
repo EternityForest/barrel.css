@@ -71,6 +71,8 @@
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
     --control-fg: var(--graphical-fg);
+    --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
+    /*#e1dfd7*/
 
     --window-box-shadow: none;
 
@@ -326,6 +328,11 @@ footer {
     min-height: var(--control-height);
 }
 
+main>header,
+main>footer {
+    background-color: var(--alt-control-bg);
+}
+
 /*Headers and footers */
 footer {
     margin-top: var(--padding);
@@ -349,10 +356,15 @@ header {
 }
 
 
-
-header *,
-footer * {
+/*Top level header different, for contrast with bg*/
+:not(main>*)>header *,
+:not(main>*)>footer * {
     --control-bg: var(--alt-control-bg);
+}
+
+main>*>header,
+main>*>footer {
+    background-color: var(--alt-control-bg);
 }
 
 
@@ -1535,6 +1547,7 @@ dd {
     box-sizing: border-box;
     font-size: inherit;
     height: var(--control-height);
+    color: var(--control-fg);
 }
 
 .tool-bar>label>:is(input, select) {
@@ -1938,7 +1951,6 @@ tr {
 }
 
 @media (hover: hover) {
-
 
     button:hover,
     a.button:hover,

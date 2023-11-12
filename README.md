@@ -201,6 +201,8 @@ Note that the base color definitinons change in dark theme.
 
 ```css
 :root {
+    color-scheme: light dark;
+
     --black-1: #1c1c1c;
     --black-2: #343A40;
     --black-3: #545862;
@@ -235,14 +237,21 @@ Note that the base color definitinons change in dark theme.
     --highlight-opacity: 25%;
 
     /*typography*/
-    --main-font: sans-serif;
+
+    --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --serif-font: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+
+    --main-font: var(--sans-font);
+    --font-size: 18px;
+    --heading-font: var(--main-font);
 
     /*Spacing*/
     --padding: 12px;
     --gap: 18px;
 
     /*Borders*/
-    --border-color: color-mix(in srgb, var(--graphical-fg) 75%, rgb(0 0 0 / 0%));
+    --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
 
     --border-radius: 1.2rem;
     --border-width: 1px;
@@ -264,6 +273,8 @@ Note that the base color definitinons change in dark theme.
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
     --control-fg: var(--graphical-fg);
+    --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
+    /*#e1dfd7*/
 
     --window-box-shadow: none;
 
@@ -280,13 +291,18 @@ Note that the base color definitinons change in dark theme.
     --warning-color: var(--yellow);
     --danger-color: var(--red);
 
+    --hover-color: color-mix(in srgb, var(--highlight-color) 30%, transparent);
+
     --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
     --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
     --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
 
-    /*Intensity of table borders is less than normal borders, to balance the density*/
-    --table-border-strength: 40%;
-
     --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
+
+    /*Intensity of table borders is less than normal borders, to balance the density*/
+    --table-border-strength: 50%;
+
+    /*Calculated helpers*/
+    --thin-border: 1px solid var(--border-color);
 }
 ```
