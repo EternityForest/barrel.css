@@ -80,6 +80,8 @@
     --warning-color: var(--yellow);
     --danger-color: var(--red);
 
+    --hover-color: color-mix(in srgb, var(--highlight-color) 30%, transparent);
+
     --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
     --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
     --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
@@ -226,9 +228,6 @@ label {
     place-content: space-between;
 }
 
-b {
-    color: var(--graphical-fg);
-}
 
 span {
     border-radius: 4px;
@@ -1232,27 +1231,42 @@ footer.padding {
 
 
 .highlight:not(.specificity_hack) {
-    background-color: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent);
+    --control-bg: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent);
+    --alt-control-bg: var(--control-bg);
+    background-color: var(--control-bg);
 }
 
 .success:not(.specificity_hack) {
+    --control-bg: color-mix(in srgb, var(--success-color) var(--highlight-opacity), transparent);
+    --alt-control-bg: var(--control-bg);
+    background-color: var(--control-bg);
+
+
     --fg: var(--success-fg);
     --graphical-fg: var(--success-fg);
-    background-color: color-mix(in srgb, var(--success-color) var(--highlight-opacity), transparent);
     color: var(--fg);
 }
 
 .warning:not(.specificity_hack),
 .warn:not(.specificity_hack) {
+    --control-bg: color-mix(in srgb, var(--warning-color) var(--highlight-opacity), transparent);
+    --alt-control-bg: var(--control-bg);
+    background-color: var(--control-bg);
+
+
     --fg: var(--warning-fg);
     --graphical-fg: var(--warning-fg);
-    background-color: color-mix(in srgb, var(--warning-color) var(--highlight-opacity), transparent);
     color: var(--fg);
 }
 
 .error:not(.specificity_hack),
 .danger:not(.specificity_hack),
 .bad:not(.specificity_hack) {
+    --control-bg: color-mix(in srgb, var(--danger-color) var(--highlight-opacity), transparent);
+    --alt-control-bg: var(--control-bg);
+    background-color: var(--control-bg);
+
+
     --fg: var(--danger-fg);
     --graphical-fg: var(--danger-fg);
     background-color: color-mix(in srgb, var(--danger-color) var(--highlight-opacity), transparent);
@@ -1279,17 +1293,30 @@ footer.padding {
 /*Classless styles */
 
 blockquote {
-    white-space: pre-wrap;
+    white-space: pre-line;
     border-left: 3px solid var(--graphical-fg);
     font-style: italic;
     border-color: var(--border-color);
-    margin-inline-start: 8px;
-    margin-inline-end: 4px;
-    margin: 6px;
-    padding: 4px;
-    margin-block-end: var(--gap);
-    color: var(--graphical-fg);
+    margin: var(--gap);
+    padding: var(--padding);
+    padding-inline-start: calc(var(--padding) * 3);
+    color: var(--control-fg);
+    position: relative;
 }
+
+@media screen and (max-width: 600px) {
+    blockquote {
+        padding-inline-start: var(--padding);
+    }
+}
+
+/* blockquote::before {
+    content: "\201C";
+    font-size: 2em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+} */
 
 a {
     text-decoration-style: dotted;
@@ -1363,14 +1390,6 @@ div {
     border-color: var(--border-color);
 }
 
-button:hover,
-a.button:hover,
-a.hover,
-button:hover *,
-a:hover * {
-    color: var(--accent-color);
-    --fg: var(--accent-color);
-}
 
 
 dd {
@@ -1786,6 +1805,13 @@ meter {
 }
 
 /* WebKit */
+
+meter::-webkit-meter-optimum-value,
+meter::-webkit-meter-suboptimum-value,
+meter::-webkit-meter-even-less-good-value {
+    transition: 0.15s linear width;
+}
+
 meter::-webkit-meter-bar {
     border-color: var(--control-border-color);
     background: var(--control-bg);
@@ -1833,4 +1859,37 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
 i[class],
 button i[class] {
     color: var(--graphical-fg);
+}
+
+button,
+a,
+input,
+select,
+tr {
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+button:hover,
+a.button:hover,
+a:hover,
+button:hover *:not(i, b, small, span),
+a:hover *:not(i, b, small, span),
+.tool-bar>*:hover,
+.tool-bar>a:hover,
+input:not([type='submit']):not([type='range']):hover,
+header:not(.undecorated)>:only-child :is(button, a.button, input[type='submit']):hover,
+input:hover,
+select:hover {
+    color: var(--accent-color);
+    --fg: var(--accent-color);
+    background-color: var(--hover-color)
+}
+
+
+::selection {
+    background: var(--highlight-color);
+}
+
+::-moz-selection {
+    background: var(--highlight-color);
 }
