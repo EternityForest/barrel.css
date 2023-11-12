@@ -58,7 +58,8 @@ SOFTWARE.
     --window-box-shadow: none;
     --card-box-shadow: none;
     --window-box-shadow: 2px 2px 6px 0px rgba(10, 33, 83, 0.18);
-    --item-box-shadow: 2px 2px 3px 0px rgb(8 35 53 / 12%)
+    --item-box-shadow: 2px 2px 3px 0px rgb(8 35 53 / 12%);
+    --table-border-strength: 80%;
 }
 
 

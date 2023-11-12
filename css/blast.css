@@ -14,6 +14,7 @@
         --blue: rgb(0 62 255);
         --purple: rgb(255 0 178);
         --dark-blue: rgb(0 46 191);
+        --heading-font: var(--mono-font);
         --fg: #620d0d;
         --graphical-fg: #00188d;
         --accent-color: rgb(205 255 105);
@@ -30,22 +31,9 @@
         --control-border-width: 1px;
         --3d-shadow: #dc7d09;
         --3d-highlight: #ffd744;
-        --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
-        --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
-        --convex-item-active-bg: var(--concave-item-bg);
-        --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
         --control-bg: #ffc400;
         --alt-control-bg: #ffd744;
         --control-fg: #412600;
-        --highlight-color: var(--teal);
-        --success-color: var(--green);
-        --warning-color: var(--yellow);
-        --danger-color: var(--red);
-        --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
-        --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
-        --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
-        --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
-        --thin-border: 1px solid var(--border-color);
     }
 
     a {

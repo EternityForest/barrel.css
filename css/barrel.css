@@ -96,7 +96,7 @@
     --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
 
     /*Intensity of table borders is less than normal borders, to balance the density*/
-    --table-border-strength: 40%;
+    --table-border-strength: 50%;
 
     /*Calculated helpers*/
     --thin-border: 1px solid var(--border-color);
@@ -268,6 +268,14 @@ h3 * {
     color: var(--accent-color);
     clear: both;
     font-family: var(--heading-font);
+}
+
+:not(.tool-bar) h1,
+:not(.tool-bar) h2,
+:not(.tool-bar) h3,
+:not(.tool-bar) h4 {
+    padding-inline-end: var(--gap);
+    padding-inline-start: var(--gap);
 }
 
 h3 button,
