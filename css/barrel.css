@@ -126,6 +126,7 @@
         --accent-color: var(--grey-2);
 
         --fg: var(--grey-3);
+        --control-fg: var(--grey-2);
         --graphical-fg: var(--grey-1);
 
         --concave-item-bg: none;
