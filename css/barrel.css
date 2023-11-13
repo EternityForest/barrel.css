@@ -348,14 +348,6 @@ blockquote {
     }
 }
 
-/* blockquote::before {
-    content: "\201C";
-    font-size: 2em;
-    position: absolute;
-    left: 10px;
-    top: -10px;
-} */
-
 a {
     text-decoration-style: dotted;
     text-decoration-thickness: 1.2px;
@@ -466,16 +458,13 @@ h1,
 h2,
 h3,
 h4 {
-    margin-bottom: 12px;
-    margin-top: 28px;
+    margin-bottom: var(--padding);
+    margin-top: var(--padding);
     text-align: center;
     padding-inline-end: var(--header-padding);
     padding-inline-start: var(--header-padding);
 }
 
-h2 {
-    margin-top: 32px;
-}
 
 
 
@@ -1743,7 +1732,7 @@ footer.padding {
         -webkit-appearance: inherit;
         box-sizing: inherit;
         border: var(--control-border-width) solid var(--control-border-color);
-        height: 22px;
+        height: var(--control-height);
     }
 
 

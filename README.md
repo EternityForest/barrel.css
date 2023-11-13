@@ -300,3 +300,71 @@ Note that the base color definitinons change in dark theme.
     --thin-border: 1px solid var(--border-color);
 }
 ```
+
+## The Color System
+
+### bg
+This is a color or image for the whole page
+
+### box-bg
+This is the color of windows(Almost all content is supposed to be in a window), and anything with the .paper class.  Cards do not have a background by default.
+
+
+### fg
+
+Body Text.
+
+### accent-color
+
+Used for the text color of headings, links, and scrollbars
+
+### graphical-fg
+Used for icons and borders, but usually "diluted" first with a background color
+
+
+### control-bg
+Used for text areas, plus buttons and inputs when displaying flat. Also used as the base color for scrollbar tracks.
+
+
+### alt-control-bg
+ Used for things you don't directly interact with but act as a container.  Headers and footers are this color.Trays and drag handles should be this color.  Defaults to an automatically created slight variation on the control-bg.
+
+### control-fg
+This color is used for buttons and text inputs, and also small indicators and table headings.
+
+### convex-item-bg
+Usually a gradient for buttons and labels
+
+### concave-item-bg
+used for selects and text boxes.  Concave and convex can be flattened some or all of the time by setting them to the alt-control-bg.
+
+
+### concave-item-box-shadow
+text areas, selects, inputs, and similar, should have an inset box shadow unless the theme is ultra flat.
+
+### border-color
+Defaults to a diluted version of the graphical-fg.
+
+### control-border-color
+May differ from the border color, defaults to the border color.
+
+
+
+
+### success, warning, danger, and highlight colors
+
+Pure strong base colors used to derive the foreground and background of highlighted elements.
+
+The highlight color is also used for selected text and slider thumbs. 
+
+
+### Rules
+
+
+Any fg color except the border color, must always be easily legible on any bg color, except the main bg.  
+,
+The graphical FG only needs to be easily recognizable when used for icons.  The main bg color does not need to
+have any particular contrast with anything else.
+
+No two background colors are required to be visually distinct, they are used to make things "look right" but should not be relied on to convey information.  Likewise, no two foreground colors are required to be distinct.
+
