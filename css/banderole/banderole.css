@@ -13,7 +13,7 @@
   --concave-item-bg: var(--control-bg);
   --convex-item-bg: var(--control-bg);
   --border-width: 1px;
-  --control-border-width: 2px;
+  --control-border-width: 1px;
   --control-border-color: #412f1b42;
   --window-box-shadow: 3px 3px 12px 1px rgb(83 49 10 / 31%);
   --item-box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 16%);
@@ -61,12 +61,6 @@ details[open] {
 
 .warning {
   background-color: rgba(217 217 45 / 71%);
-}
-
-.tool-bar {
-  background: transparent;
-  text-shadow: none;
-  --tool-bar-element-border: 1px solid var(--border-color);
 }
 
 .tool-bar * {
