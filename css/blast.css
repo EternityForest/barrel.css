@@ -1,5 +1,5 @@
     :root {
-        color-scheme: light dark;
+        color-scheme: light;
         --black-1: #1c1c1c;
         --black-2: #343A40;
         --black-3: #545862;
@@ -17,6 +17,7 @@
         --heading-font: var(--mono-font);
         --fg: #342101;
         --graphical-fg: #00188d;
+        --control-fg: #00188d;
         --accent-color: rgb(205 255 105);
         --bg: #9c863a;
         --box-bg: #6fcd5f;

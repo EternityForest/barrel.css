@@ -3,6 +3,7 @@
   --box-bg: #e7e5ca7a;
   --fg: #522f28;
   --graphical-fg: rgb(98 69 39 / 81%);
+  --control-fg: rgb(98 69 39 / 81%);
   --accent-color: var(--graphical-fg);
   --main-font: var(--serif-font);
   --heading-font: var(--sans-font);
