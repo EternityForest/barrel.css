@@ -55,7 +55,7 @@
     --border-width: 1px;
 
     /*Inputs, buttons, etc*/
-    --control-height: 3ex;
+    --control-height: 1.6rem;
     --control-border-radius: 12px;
     --control-border-width: 1px;
 
@@ -126,11 +126,10 @@
         --accent-color: var(--grey-2);
 
         --fg: var(--grey-3);
-        --control-fg: var(--grey-2);
         --graphical-fg: var(--grey-1);
 
-        --concave-item-bg: var(--control-bg);
-        --convex-item-bg: var(--control-bg);
+        --concave-item-bg: none;
+        --convex-item-bg: none;
         --convex-item-active-bg: var(--grey-1);
         --concave-item-box-shadow: none;
     }
@@ -547,6 +546,24 @@ header {
                 border-radius: var(--control-border-radius);
             }
 
+            &>label,
+            &>p {
+                &>* {
+                    height: var(--control-height);
+                }
+
+                &>:first-child {
+                    border-start-start-radius: var(--control-border-radius);
+                    border-end-start-radius: var(--control-border-radius);
+                }
+
+                &>:last-child {
+                    border-end-end-radius: var(--control-border-radius);
+                    border-start-end-radius: var(--control-border-radius);
+                }
+            }
+
+
             & :is(p, h1, h2, h3, h4, h5, h6, label) {
                 background: none;
                 border: none;
@@ -558,7 +575,6 @@ header {
 
             & :is(input, button) {
                 color: var(--control-fg);
-                flex-grow: 1;
             }
 
             & input,
@@ -1606,7 +1622,7 @@ footer.padding {
         padding: 0px;
 
         & :first-child {
-            flex-grow: 50;
+            flex-grow: 10;
         }
     }
 
@@ -1626,8 +1642,17 @@ footer.padding {
         padding-inline-end: var(--padding);
         min-width: fit-content;
         display: flex;
+        flex-grow: 2;
         margin: 0px;
         line-height: var(--control-height);
+
+        &:has(input) {
+            flex-grow: 50;
+        }
+
+        & :first-child {
+            flex-grow: 5;
+        }
     }
 
 
@@ -1674,14 +1699,18 @@ footer.padding {
         gap: var(--padding);
         border-top: var(--tool-bar-element-border);
         border-bottom: var(--tool-bar-element-border);
-        flex-grow: 50;
         border: 0px;
         text-align: right;
         place-content: center;
         align-items: center;
 
+        &:has(input) {
+            flex-grow: 50;
+        }
+
         &>input {
             background-color: var(--alt-control-bg);
+            flex-grow: 5;
         }
 
         /*Exception: the first item always growable so it can be the title*/
@@ -1749,17 +1778,8 @@ footer.padding {
         border: var(--tool-bar-element-border);
     }
 
-
-
-
-
 }
 
-
-header:not(.undecorated)>.tool-bar:only-child> :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):last-child,
-header:not(.undecorated)>.tool-bar:only-child :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
-    border-radius: var(--control-border-radius);
-}
 
 
 
