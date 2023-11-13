@@ -391,7 +391,7 @@ select {
 }
 
 select {
-    padding: 4px;
+    padding: 3px;
 }
 
 
@@ -1551,17 +1551,6 @@ footer.padding {
         padding-inline-end: var(--padding);
     }
 
-    & label {
-        display: flex;
-        flex-grow: 50;
-        border: 0px;
-        text-align: right;
-
-        &>input {
-            background-color: var(--alt-control-bg);
-        }
-    }
-
     &>*,
     &>input,
     &>a {
@@ -1574,7 +1563,6 @@ footer.padding {
 
     & :is(a, a.button, select, input, meter, button, label) {
         margin: 0px;
-        align-items: stretch;
         border-radius: 0px;
         flex-shrink: 1;
         border-radius: 0px;
@@ -1638,6 +1626,7 @@ footer.padding {
         min-width: fit-content;
         display: flex;
         margin: 0px;
+        line-height: var(--control-height);
     }
 
 
@@ -1684,6 +1673,15 @@ footer.padding {
         gap: var(--padding);
         border-top: var(--tool-bar-element-border);
         border-bottom: var(--tool-bar-element-border);
+        flex-grow: 50;
+        border: 0px;
+        text-align: right;
+        place-content: center;
+        align-items: center;
+
+        &>input {
+            background-color: var(--alt-control-bg);
+        }
 
         /*Exception: the first item always growable so it can be the title*/
         &> :is(input, select, meter):not(.specificity-hack) {
@@ -1702,6 +1700,8 @@ footer.padding {
         &:is(input, select) {
             border: none;
         }
+
+
 
     }
 
