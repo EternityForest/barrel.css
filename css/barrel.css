@@ -306,15 +306,6 @@ td details {
     display: inline-block;
 }
 
-/*A link styled to look like a button*/
-a.button {
-    text-decoration: none;
-    border: var(--control-border-width) solid var(--control-border-color);
-    color: var(--control-fg);
-    padding: 0em 0.2em 0em 0.2em;
-    display: inline-block;
-}
-
 button {
     border-style: solid;
     color: var(--control-fg);
@@ -362,7 +353,7 @@ a {
 
 
 button,
-a.button,
+.button,
 a,
 label,
 select,
@@ -375,7 +366,7 @@ input {
 }
 
 button,
-a.button,
+.button,
 input,
 select {
     min-height: calc(min(var(--control-height), 100%));
@@ -383,9 +374,14 @@ select {
 }
 
 button,
-a.button,
+.button,
 input[type='submit'] {
     background: var(--convex-item-bg);
+    text-decoration: none;
+    border: var(--control-border-width) solid var(--control-border-color);
+    color: var(--control-fg);
+    padding: 0em 0.2em 0em 0.2em;
+    display: inline-block;
 }
 
 input:not([type='submit']):not([type='range']),
@@ -453,7 +449,7 @@ h3 * {
 
 
 h3 button,
-h3 a.button {
+h3 .button {
     font-size: 100%;
     font-family: var(--main-font);
 }
@@ -1554,7 +1550,7 @@ footer.padding {
 
 
     /*Undo any effect something else set on convex elements for consistency*/
-    & :is(button, a.button) {
+    & :is(button, .button) {
         box-shadow: none;
         display: inline-block;
     }
@@ -1582,14 +1578,14 @@ footer.padding {
     }
 
 
-    & :is(a, a.button, select, input, meter, button, label) {
+    & :is(a, .button, select, input, meter, button, label) {
         margin: 0px;
         border-radius: 0px;
         flex-shrink: 1;
         border-radius: 0px;
     }
 
-    & :is(a, a.button, select, button) {
+    & :is(a, .button, select, button) {
         margin: 0px;
         align-items: stretch;
         border-radius: 0px;
@@ -1664,7 +1660,7 @@ footer.padding {
 
     /*P is not growable */
 
-    & :is(meter, a, a.button, button) {
+    & :is(meter, a, .button, button) {
         width: fit-content;
         flex-grow: 1;
     }
@@ -1750,22 +1746,22 @@ footer.padding {
 
 
     /*:not(i) is for icons*/
-    &> :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-prepend):first-child,
-    & :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, input, meter, button, form, .input-group-prepend):first-child :first-child:not(i) {
+    &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-prepend):first-child,
+    & :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, input, meter, button, form, .input-group-prepend):first-child :first-child:not(i) {
         border-radius: var(--control-border-radius) 0px 0px var(--control-border-radius);
         margin-inline-start: 0px;
 
     }
 
-    &> :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):last-child,
-    & :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
+    &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):last-child,
+    & :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
         border-radius: 0px var(--control-border-radius) var(--control-border-radius) 0px;
         margin-inline-end: 0px;
     }
 
 
 
-    &> :is(a, a.button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):first-child:last-child {
+    &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):first-child:last-child {
         border-radius: var(--control-border-radius) var(--control-border-radius) var(--control-border-radius) var(--control-border-radius);
     }
 
@@ -1994,14 +1990,14 @@ tr {
 @media (hover: hover) {
 
     button:hover,
-    a.button:hover,
+    .button:hover,
     a:hover,
     button:hover *:not(i, b, small, span),
     a:hover *:not(i, b, small, span),
     .tool-bar>*:hover,
     .tool-bar>a:hover,
     input:not([type='submit']):not([type='range']):hover,
-    header:not(.undecorated)>:only-child :is(button, a.button, input[type='submit']):hover,
+    header:not(.undecorated)>:only-child :is(button, .button, input[type='submit']):hover,
     header:not(.undecorated)>.tool-bar:only-child :is(input, button, select, a):hover,
     input:hover,
     select:hover,
