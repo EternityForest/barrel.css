@@ -359,12 +359,9 @@ The highlight color is also used for selected text and slider thumbs.
 
 
 ### Rules
+Any fg color except the border color, must always be easily legible on any bg color, except the main bg.
 
-
-Any fg color except the border color, must always be easily legible on any bg color, except the main bg.  
-,
-The graphical FG only needs to be easily recognizable when used for icons.  The main bg color does not need to
-have any particular contrast with anything else.
+The main bg color does not need to have any particular contrast with anything else.
 
 No two background colors are required to be visually distinct, they are used to make things "look right" but should not be relied on to convey information.  Likewise, no two foreground colors are required to be distinct.
 
