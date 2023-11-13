@@ -101,9 +101,9 @@
 /*Less likely stuff for user to change, intermediate vars in complex logic*/
 :root {
     --header-padding: var(--gap);
-    --success-fg: color-mix(in srgb, var(--success-color) 60%, var(--fg));
-    --warning-fg: color-mix(in srgb, var(--warning-color) 40%, var(--fg));
-    --danger-fg: color-mix(in srgb, var(--danger-color) 70%, var(--fg));
+    --success-fg: color-mix(in srgb, var(--success-color) 30%, var(--fg));
+    --warning-fg: color-mix(in srgb, var(--warning-color) 30%, var(--fg));
+    --danger-fg: color-mix(in srgb, var(--danger-color) 30%, var(--fg));
 }
 
 
@@ -400,7 +400,7 @@ select {
 
 input,
 textarea {
-    border: var(--border-width) solid var(--control-border-color);
+    [] border: var(--border-width) solid var(--control-border-color);
     box-shadow: var(--concave-item-box-shadow);
 }
 
