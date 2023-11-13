@@ -210,6 +210,10 @@ ol {
     margin: var(--padding);
 }
 
+dt {
+    margin-block-end: var(--padding);
+}
+
 figcaption {
     margin-inline-start: var(--gap);
 }
@@ -400,7 +404,7 @@ select {
 
 input,
 textarea {
-    [] border: var(--border-width) solid var(--control-border-color);
+    border: var(--border-width) solid var(--control-border-color);
     box-shadow: var(--concave-item-box-shadow);
 }
 
@@ -1627,7 +1631,7 @@ footer.padding {
     }
 
 
-    & :is(h1, h2, h3, h4, h5, h6, label) {
+    & :is(h1, h2, h3, h4, h5, h6) {
         margin: 0px;
         padding-top: 0px;
         padding-bottom: 0px;
@@ -1635,6 +1639,7 @@ footer.padding {
         text-align: center;
         display: flex;
         min-width: fit-content;
+        flex-grow: 50;
     }
 
     & p {
@@ -1694,6 +1699,12 @@ footer.padding {
 
 
     &>label {
+        margin: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        vertical-align: middle;
+        min-width: fit-content;
+
         display: inline-flex;
         flex-wrap: wrap;
         gap: var(--padding);
