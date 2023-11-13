@@ -1283,6 +1283,9 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     background: var(--box-bg);
 }
 
+/*Don't let people use non-pre elements or they
+will get a nasty surprise later when the auto formatter
+ruins it*/
 pre.poem {
     white-space: pre-wrap;
     font-family: inherit;
@@ -1656,15 +1659,13 @@ footer.padding {
         }
     }
 
-
-
-    /*P is not growable */
-
     & :is(meter, a, .button, button) {
         width: fit-content;
-        flex-grow: 1;
     }
 
+    & :is(a, .button, button, input[type=submit]) {
+        flex-grow: 1;
+    }
 
     /*Most likely to make good use of the extra space*/
 
@@ -1690,6 +1691,12 @@ footer.padding {
 
     & meter {
         min-height: 100%;
+        flex-grow: 25;
+    }
+
+    & input[type=range] {
+        flex-grow: 35;
+        background: var(--concave-item-bg);
     }
 
 
@@ -2008,8 +2015,6 @@ tr {
     }
 
 }
-
-
 
 ::selection {
     background: var(--highlight-color);
