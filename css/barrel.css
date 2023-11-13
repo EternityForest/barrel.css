@@ -143,6 +143,10 @@
         content: "";
     }
 
+    details.help:not([open]) {
+        display: none;
+    }
+
 }
 
 /* Stuff that should print as is */
