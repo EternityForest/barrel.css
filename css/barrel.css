@@ -134,6 +134,15 @@
         color: gray;
         font-size: 80%;
     }
+
+    a:local-link::after {
+        content: "";
+    }
+
+    a[href^="/"]::after {
+        content: "";
+    }
+
 }
 
 /* Stuff that should print as is */
