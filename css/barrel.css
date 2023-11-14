@@ -2058,7 +2058,7 @@ meter {
 }
 
 *::-moz-meter-bar {
-    width: 60px;
+    width: 100% !important;
     display: block !important;
     flex-grow: 1;
     height: 12px;
