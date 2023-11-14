@@ -49,6 +49,9 @@ Levels of badness that should make text red and such.
 
 ## Components
 
+### .toggle
+Apply this directly to a checkbox element to style it as a slide toggle.
+
 ### form.stacked-form
 
 A form where each element is stacked vertically. All inputs should be inside a 
@@ -69,6 +72,9 @@ A horizontal bar of items that may contain p, a, button, input, label, input ins
 May be located anywhere. Themes will usually join all the items together.  It is a flex element that reflows.
 
 Inputs and meters should be inside of labels.
+
+### .spacer
+Use on a child of tool-bar to make it take up remaining space.
 
 ### .card
 

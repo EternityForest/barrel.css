@@ -106,7 +106,7 @@ h6 {
 
     /*Inputs, buttons, etc*/
     --control-height: 1.6rem;
-    --control-border-radius: 12px;
+    --control-border-radius: 0.8rem;
     --control-border-width: 1px;
 
     --3d-highlight: color-mix(in srgb, var(--box-bg) 50%, rgba(241, 241, 241, 0.695));
@@ -172,7 +172,7 @@ h6 {
         --graphical-fg: grey !important;
         --concave-item-box-shadow: none !important;
         --heading-font: var(--sans-font) !important;
-
+        --hover-color: transparent;
     }
 
     * {
@@ -197,6 +197,19 @@ h6 {
         display: none;
     }
 
+    input[type="checkbox"] {
+        background: none !important;
+
+        &.toggle::before {
+            border-color: black !important;
+            background-color: black !important;
+
+        }
+    }
+
+    form {
+        break-inside: avoid;
+    }
 }
 
 /* Stuff that should print as is */
@@ -1750,8 +1763,8 @@ footer.padding {
     flex-grow: 1;
     vertical-align: middle;
     height: fit-content;
-    align-items: center;
-    align-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
     box-sizing: border-box;
     background-clip: content-box;
     gap: 0px;
@@ -1855,7 +1868,7 @@ footer.padding {
         margin: 0px;
         line-height: var(--control-height);
 
-        &:has(input) {
+        &:has(input:not([type='submit'], [type='range'], [type='checkbox'], [type="radio"], [type="button"])) {
             flex-grow: 50;
         }
 
@@ -1874,7 +1887,7 @@ footer.padding {
 
     /*Most likely to make good use of the extra space*/
 
-    & input:not([type="submit"]),
+    & input:not([type="submit"], [type="checkbox"], [type="radio"]),
     & select {
         flex-grow: 50;
     }
@@ -1908,6 +1921,11 @@ footer.padding {
         background: var(--concave-item-bg);
     }
 
+    /*repeat here, specificity issue*/
+    & input[type="checkbox"].toggle {
+        width: calc(var(--control-height) * 1.77) !important;
+    }
+
 
 
     &>label {
@@ -1924,10 +1942,10 @@ footer.padding {
         border-bottom: var(--tool-bar-element-border);
         border: 0px;
         text-align: right;
-        place-content: center;
-        align-items: center;
+        place-content: flex-start;
+        align-items: flex-start;
 
-        &:has(input) {
+        &:has(input:not([type='submit'], [type='range'], [type='checkbox'], [type="radio"], [type="button"])) {
             flex-grow: 50;
         }
 
@@ -2015,6 +2033,10 @@ footer.padding {
         &>input[type="range"] {
             background: none;
         }
+    }
+
+    & .spacer {
+        flex-grow: 1;
     }
 
 }
@@ -2231,45 +2253,129 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
 
 /*Checkbox*/
 
-input[type='checkbox'] {
-    -webkit-appearance: none !important;
+input[type='checkbox'],
+input[type='radio'],
+:is(input[type='checkbox'], input[type='radio'])::before {
+    -webkit-print-color-adjust: exact;
+    /* Chrome, Safari 6 – 15.3, Edge */
+    color-adjust: exact;
+    /* Firefox 48 – 96 */
+    print-color-adjust: exact;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    -webkit-appearance: none;
     border-radius: 50px;
     appearance: none;
     background: var(--concave-item-bg);
     box-shadow: var(--concave-item-box-shadow);
     border: var(--control-border-width) solid var(--control-border-color);
+    width: var(--control-height);
     height: var(--control-height);
-    width: calc(var(--control-height) * 1.77);
+    flex-grow: 0 !important;
     --slider-position: 0px;
 }
 
-input[type='checkbox']:checked {
-    position: relative;
-    --slider-position: calc(var(--control-height) * 0.77);
+input[type="radio"] {
+
+    &::before {
+        transition: background 0.4s ease, height 0.1s ease, width 0.1s ease;
+        background: none;
+        content: "";
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 50px;
+        margin: 0px;
+        padding: 0px;
+        top: 5px;
+        left: 5px;
+        height: 0px;
+        width: 0px;
+    }
+
+    &:checked::before {
+        transition: background 0.4s ease, height 0.1s ease, width 0.1s ease;
+        height: calc(calc(var(--control-height) - calc(var(--control-border-width) *2)) - 10px);
+        width: calc(calc(var(--control-height) - calc(var(--control-border-width) *2)) - 10px);
+        background: var(--control-fg);
+    }
 }
 
-input[type='checkbox']:checked::before {
-    background: var(--highlight-color);
+
+
+input[type='checkbox']:not(.toggle) {
+    border-radius: calc(var(--control-border-radius) / 2);
+
+    &:checked {
+        position: relative;
+        background: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent);
+    }
+
+    &::before {
+        transition: border-color 0.4s ease, width 0.25s ease, height 0.25s ease;
+        width: 0px;
+        height: 0px;
+        content: "";
+        background: transparent;
+        border-color: transparent;
+        display: block;
+        position: relative;
+
+    }
+
+    &:checked::before {
+        transition: border-color 0.4s ease, width 0.25s ease, height 0.25s ease;
+        content: "";
+        transform: rotate(45deg);
+
+        margin: 0px;
+        padding: 0px;
+        border-color: var(--control-fg);
+
+        border-bottom: 4px solid;
+        border-right: 4px solid;
+        left: calc(var(--control-height) / 4);
+
+        height: calc(var(--control-height) / 1.3);
+        width: calc(var(--control-height) / 2.3);
+    }
 }
 
-
-input[type='checkbox']:before {
-    content: "";
-    position: relative;
-    display: inline-block;
-    box-sizing: border-box;
-    border: var(--control-border-width) solid var(--control-border-color);
-    left: var(--slider-position);
+input[type="checkbox"].toggle {
     border-radius: 50px;
-    margin: 0px;
-    padding: 0px;
-    height: calc(var(--control-height) - calc(var(--control-border-width) *2));
-    width: calc(var(--control-height) - calc(var(--control-border-width) *2));
-    background: var(--convex-item-bg);
-    transition: left 0.25s ease, background 0.25s ease;
+    width: calc(var(--control-height) * 1.77) !important;
+
+    &:checked {
+        position: relative;
+        --slider-position: calc(var(--control-height) * 0.77);
+    }
+
+    &:checked::before {
+        background: var(--highlight-color);
+    }
+
+    &:before {
+        content: "";
+        box-shadow: var(--concave-item-box-shadow);
+
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        border: var(--control-border-width) solid var(--control-border-color);
+        left: var(--slider-position);
+        border-radius: 50px;
+        margin: 0px;
+        padding: 0px;
+        height: calc(var(--control-height) - calc(var(--control-border-width) *2));
+        width: calc(var(--control-height) - calc(var(--control-border-width) *2));
+        background: var(--convex-item-bg);
+        transition: left 0.25s ease, background 0.4s ease;
+    }
+
 }
-
-
 
 /*Catch icons*/
 i[class],
