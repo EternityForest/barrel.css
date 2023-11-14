@@ -2229,6 +2229,46 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
     background: var(--danger-color);
 }
 
+/*Checkbox*/
+
+input[type='checkbox'] {
+    -webkit-appearance: none !important;
+    border-radius: 50px;
+    appearance: none;
+    background: var(--concave-item-bg);
+    box-shadow: var(--concave-item-box-shadow);
+    border: var(--control-border-width) solid var(--control-border-color);
+    height: var(--control-height);
+    width: calc(var(--control-height) * 1.77);
+    --slider-position: 0px;
+}
+
+input[type='checkbox']:checked {
+    position: relative;
+    --slider-position: calc(var(--control-height) * 0.77);
+}
+
+input[type='checkbox']:checked::before {
+    background: var(--highlight-color);
+}
+
+
+input[type='checkbox']:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: var(--control-border-width) solid var(--control-border-color);
+    left: var(--slider-position);
+    border-radius: 50px;
+    margin: 0px;
+    padding: 0px;
+    height: calc(var(--control-height) - calc(var(--control-border-width) *2));
+    width: calc(var(--control-height) - calc(var(--control-border-width) *2));
+    background: var(--convex-item-bg);
+    transition: left 0.25s ease, background 0.25s ease;
+}
+
 
 
 /*Catch icons*/
