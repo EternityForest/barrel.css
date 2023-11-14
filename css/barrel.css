@@ -1672,7 +1672,7 @@ footer.padding {
     height: fit-content;
     align-items: center;
     align-content: center;
-
+    box-sizing: border-box;
     background-clip: content-box;
     gap: 0px;
 
@@ -1699,7 +1699,7 @@ footer.padding {
     &>*,
     &>input,
     &>a {
-
+        box-sizing: border-box;
         font-size: inherit;
         height: var(--control-height);
         color: var(--control-fg);
@@ -1877,7 +1877,8 @@ footer.padding {
 
 
 
-    /:not(i) is for icons*/ &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-prepend):first-child,
+    /*:not(i) is for icons*/
+    &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-prepend):first-child,
     & :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, input, meter, button, form, .input-group-prepend):first-child :first-child:not(i) {
         border-radius: var(--control-border-radius) 0px 0px var(--control-border-radius);
         margin-inline-start: 0px;
@@ -1900,16 +1901,20 @@ footer.padding {
         -webkit-appearance: inherit;
         box-sizing: inherit;
         border: var(--control-border-width) solid var(--control-border-color);
+        height: var(--control-height);
     }
 
 
-    /*The boder puts an ugly white line on the meter*/
-
-    &>:not(meter),
-    &>form>:not(meter) {
+    &>*:not(meter),
+    &>form>*:not(meter) {
         border: var(--tool-bar-element-border);
     }
 
+    &>meter {
+        height: var(--control-height);
+        border: var(--tool-bar-element-border);
+        padding: 0px;
+    }
 
     &>input:not([type="submit"]) {
         border: var(--tool-bar-element-border);
@@ -2049,6 +2054,18 @@ meter {
     /* For Firefox */
     border-radius: var(--control-border-radius);
     border-color: var(--control-border-color);
+    padding: 0px;
+}
+
+*::-moz-meter-bar {
+    width: 60px;
+    display: block !important;
+    flex-grow: 1;
+    height: 12px;
+    background: var(--control-bg);
+    border: var(--thin-border);
+    border-radius: var(--control-border-radius);
+    margin-top: calc(calc(var(--control-height) - 12px) / 2);
 }
 
 /* WebKit */
