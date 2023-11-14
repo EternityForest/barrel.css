@@ -49,10 +49,14 @@ Levels of badness that should make text red and such.
 
 ## Components
 
-### .stacked-form
+### form.stacked-form
 
 A form where each element is stacked vertically. All inputs should be inside a 
-label.  To group multiple inputs, Put them in a p, div, or section.
+label.  To group multiple inputs in one row, Put them in a p or div.
+
+Each row in a stacked form likes to be as wide as possible, you may want to apply a width to the whole form like w-sm-double, center it with h-center, and use the border class for the best look.
+
+You can use fieldsets too.
 
 ### .window
 
@@ -63,6 +67,8 @@ element.
 
 A horizontal bar of items that may contain p, a, button, input, label, input inside label, select, and headings.
 May be located anywhere. Themes will usually join all the items together.  It is a flex element that reflows.
+
+Inputs and meters should be inside of labels.
 
 ### .card
 
@@ -102,6 +108,10 @@ Round the corners with the default global border-radius.
 
 ### .undecorated
 Remove borders, backgrounds, shadows, and backdrop filters.
+
+### .border
+
+Puts a border on the element, with the usual width, color, and radius.
 
 ### .flex-row
 Makes a class into a flex container. It will wrap, and have row orientation with margin between elements.

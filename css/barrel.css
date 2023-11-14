@@ -342,7 +342,7 @@ p {
 
 
 /*Stack labels on the form elements*/
-label>:is(input, select, button, div) {
+label>:is(input:not(input[type=radio], input[type=checkbox]), select, button, div) {
     display: block;
 }
 
@@ -352,12 +352,16 @@ label:has(*) {
     text-align: start;
 }
 
+
+
 label {
     min-width: max-content;
     padding-inline-start: var(--padding);
-    padding-inline-end: var(--padding);
-    /*If it ever is a flex, keep the inputs near the side*/
-    place-content: space-between;
+
+    &>input[type=checkbox]:first-child,
+    &>input[type=radio]:first-child {
+        margin-inline-end: var(--padding);
+    }
 }
 
 span {
@@ -371,9 +375,9 @@ p:empty {
 
 
 input[type=checkbox] {
-    min-width: 2em;
+    min-width: var(--control-height);
+    height: var(--control-height);
 }
-
 
 dialog {
     position: fixed;
@@ -422,7 +426,7 @@ button {
 
 button:active,
 a:active,
-input[type='submit']:active {
+input:is([type='submit'], [type='button']):active {
     background: var(--convex-item-active-bg) !important;
     box-shadow: var(--concave-item-box-shadow) !important;
     color: var(--control-fg);
@@ -483,7 +487,7 @@ select {
 
 button,
 .button,
-input[type='submit'] {
+input:is([type='submit'], [type='button']) {
     background: var(--convex-item-bg);
     text-decoration: none;
     border: var(--control-border-width) solid var(--control-border-color);
@@ -492,7 +496,7 @@ input[type='submit'] {
     display: inline-block;
 }
 
-input:not([type='submit']):not([type='range']),
+input:not([type='submit'], [type='range'], [type='checkbox'], [type="radio"]),
 select {
     background: var(--concave-item-bg);
     box-shadow: var(--concave-item-box-shadow);
@@ -506,7 +510,7 @@ select {
 
 
 
-input,
+input:not([type='checkbox'], [type="radio"]),
 textarea {
     border: var(--border-width) solid var(--control-border-color);
     box-shadow: var(--concave-item-box-shadow);
@@ -519,6 +523,10 @@ textarea {
     font-size: var(--font-size);
 }
 
+fieldset {
+    border: var(--border-width) solid var(--control-border-color);
+    border-radius: var(--border-radius);
+}
 
 /*Border radius looks bad if it's smashed right up close to containing box and not the same radius*/
 header>* {
@@ -976,12 +984,12 @@ header:not(.undecorated) .tool-bar {
 
     & label:has(*) {
         display: inline-block;
-        width: fit-content;
         text-align: start;
     }
 
 
-    &>* {
+    &>*,
+    & fieldset>* {
         flex-basis: 90%;
         margin-block-end: var(--padding);
         margin-block-start: 0px;
@@ -995,6 +1003,7 @@ header:not(.undecorated) .tool-bar {
         flex-wrap: wrap;
         width: calc(100% - calc(var(--padding) * 2));
         padding: 0px;
+        gap: var(--padding);
 
         &>:first-child {
             margin-inline-start: 0px;
@@ -1002,24 +1011,29 @@ header:not(.undecorated) .tool-bar {
     }
 
     & * {
-        width: fit-content;
+        width: auto;
     }
 
 
     & label {
+        width: auto;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         padding: 0px;
-        margin-inline-start: var(--padding);
 
-        &>:is(input, select) {
+        &>:is(input:not(input[type=radio], input[type=checkbox]), select) {
             width: 100%;
+            max-width: 100%;
         }
     }
 
-    & :is(input, select, label) {
-        max-width: calc(100% - calc(var(--padding) * 2))
+    & label:has(input[type=radio], input[type=checkbox]) {
+        flex-direction: row;
+    }
+
+    & :is(input:not([type='checkbox'], [type="radio"]), select, label) {
+        min-width: 6em;
     }
 }
 
@@ -1444,29 +1458,6 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 /*Simple utilities */
 
-.stacked-form {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.stacked-form>* {
-    flex: 1 1 auto;
-    flex-basis: fit-content;
-    margin-block-end: var(--gap);
-}
-
-.stacked-form>is(p, div, section) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.stacked-form label {
-    width: fit-content;
-}
-
 .round-feathered {
     mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
     -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 67%, rgba(0, 0, 0, 0) 71%);
@@ -1861,7 +1852,7 @@ footer.padding {
         }
     }
 
-    & :is(meter, a, .button, button) {
+    & :is(a, .button, button) {
         width: fit-content;
     }
 
@@ -1891,13 +1882,17 @@ footer.padding {
         background: var(--convex-item-bg);
     }
 
-    & meter {
+    & meter,
+    & input[type=range] {
         min-height: 100%;
         flex-grow: 25;
+        width: 4em;
+        flex-basis: 4em;
     }
 
     & input[type=range] {
-        flex-grow: 35;
+        flex-basis: 4em;
+        flex-grow: 20;
         background: var(--concave-item-bg);
     }
 
@@ -1924,6 +1919,10 @@ footer.padding {
             flex-grow: 50;
         }
 
+        &:has(meter) {
+            flex-grow: 10;
+        }
+
         &>input {
             background-color: var(--alt-control-bg);
             flex-grow: 5;
@@ -1946,8 +1945,6 @@ footer.padding {
         &:is(input, select) {
             border: none;
         }
-
-
 
     }
 
@@ -1995,6 +1992,18 @@ footer.padding {
 
     &>input:not([type="submit"]) {
         border: var(--tool-bar-element-border);
+    }
+
+    & label {
+
+        /*Label BG should match element bg*/
+        &:has(input[type="range"]) {
+            background: var(--concave-item-bg);
+        }
+
+        &>input[type="range"] {
+            background: none;
+        }
     }
 
 }
@@ -2204,7 +2213,8 @@ button,
 a,
 input,
 select,
-tr {
+tr,
+label {
     transition: color 0.2s ease, background 0.2s ease;
 }
 
@@ -2218,7 +2228,7 @@ tr {
     .tool-bar>:hover,
     .tool-bar>a:hover,
     input:not([type='submit']):not([type='range']):hover,
-    header:not(.undecorated)>:only-child :is(button, .button, input[type='submit']):hover,
+    header:not(.undecorated)>:only-child :is(button, .button, input:is([type='submit'], [type='button'])):hover,
     header:not(.undecorated)>.tool-bar:only-child :is(input, button, select, a):hover,
     input:hover,
     select:hover,
@@ -2226,6 +2236,19 @@ tr {
         color: var(--accent-color);
         --fg: var(--accent-color);
         background-color: var(--hover-color)
+    }
+
+    /*Non toolbsar things don't have a background normally*/
+    .tool-bar input[type='range']:hover {
+        background-color: var(--hover-color);
+    }
+
+    .tool-bar label:hover {
+        background-color: var(--hover-color);
+    }
+
+    label:hover {
+        color: var(--accent-color);
     }
 
 }

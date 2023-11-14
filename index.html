@@ -57,7 +57,8 @@
       </details>
 
       <h4>The .stacked-form class</h4>
-      <form class="stacked-form border margin">
+      <p>This form uses the stacked-form, border, h-center, and w-sm-double classes.</p>
+      <form class="stacked-form border h-center w-sm-double">
         <label>The input goes in the label<input></label>
         <label>Inputs in labels get stacked<input></label>
         <label>It should just work<input></label>
@@ -78,6 +79,19 @@
           <label>More groups<input size="15"></label>
         </p>
 
+
+        <fieldset>
+          <legend>Choose a side</legend>
+          <p>Fieldsets work</p>
+
+          <label><input type="radio" id="Fries" name="monster" value="F">Fries</label>
+          <label><input type="radio" id="Salad" name="monster" value="S">Salad</label>
+          <label><input type="radio" id="OnionRings" name="monster" value="O">Onion Rings</label>
+
+          <label>An input <input></label>
+          <label><input type="checkbox">A checkbox</label>
+
+        </fieldset>
         <input type="submit">
 
       </form>
@@ -97,8 +111,8 @@
       <div class="tool-bar margin">
         <p>Toolbar</p>
 
-        <meter min="0" max="100" value="50"></meter>
-        <input type="range">
+        <label>Meter<meter min="0" max="100" value="50"></meter></label>
+        <label>Range 1<input type="range"></label>
         <select></select>
       </div>
       <h4>Cards</h4>
