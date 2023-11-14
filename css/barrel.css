@@ -1026,15 +1026,27 @@ header:not(.undecorated) .tool-bar {
             width: 100%;
             max-width: 100%;
         }
+
+        &:has(input[type="radio"], input[type="checkbox"]) {
+            flex-direction: row;
+        }
     }
 
-    & label:has(input[type=radio], input[type=checkbox]) {
-        flex-direction: row;
-    }
 
     & :is(input:not([type='checkbox'], [type="radio"]), select, label) {
         min-width: 6em;
     }
+}
+
+/*This is a fallback for Firefox.  It's not great but it makes
+it usable.  Remove when FF fully supports :has()*/
+.stacked-form *::has(input[type="radio"], input[type="checkbox"]) {
+    flex-direction: row;
+}
+
+.stacked-form label input[type='checkbox'],
+.stacked-form label input[type='radio'] {
+    place-self: baseline;
 }
 
 .flex-col {
