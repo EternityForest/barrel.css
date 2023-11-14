@@ -2172,119 +2172,121 @@ meter {
             }
         }
     }
+}
 
-    *::-moz-meter-bar {
-        width: 100% !important;
-        display: block !important;
-        flex-grow: 1;
-        height: 10px;
-        background: var(--control-bg);
-        border: var(--thin-border);
-        border-radius: var(--control-border-radius);
+*::-moz-meter-bar {
+    width: 100% !important;
+    display: block !important;
+    flex-grow: 1;
+    height: 10px;
+    background: var(--control-bg);
+    border: var(--thin-border);
+    border-radius: var(--control-border-radius);
+}
+
+/* WebKit */
+
+meter::-webkit-meter-optimum-value,
+meter::-webkit-meter-suboptimum-value,
+meter::-webkit-meter-even-less-good-value {
+    transition: 0.15s linear width;
+}
+
+meter::-webkit-meter-bar {
+    border-color: var(--control-border-color);
+    background: var(--control-bg);
+    box-shadow: var(--concave-item-box-shadow);
+    border-radius: var(--control-border-radius);
+}
+
+meter::-webkit-meter-optimum-value,
+meter::-webkit-meter-suboptimum-value,
+meter::-webkit-meter-even-less-good-value {
+    border-radius: var(--control-border-radius);
+}
+
+meter::-webkit-meter-optimum-value {
+    background: var(--success-color);
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: var(--warning-color);
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: var(--danger-color);
+}
+
+meter:-moz-meter-optimum::-moz-meter-bar {
+    background: var(--success-color);
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: var(--warning-color);
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: var(--danger-color);
+}
+
+
+
+/*Catch icons*/
+i[class],
+button i[class] {
+    color: var(--graphical-fg);
+}
+
+
+/*Animation and behavior*/
+button,
+a,
+input,
+select,
+tr,
+label {
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+@media (hover: hover) {
+
+    button:hover,
+    .button:hover,
+    a:hover,
+    button:hover :not(i, b, small, span),
+    a:hover :not(i, b, small, span),
+    .tool-bar>:hover,
+    .tool-bar>a:hover,
+    input:not([type='submit']):not([type='range']):hover,
+    header:not(.undecorated)>:only-child :is(button, .button, input:is([type='submit'], [type='button'])):hover,
+    header:not(.undecorated)>.tool-bar:only-child :is(input, button, select, a):hover,
+    input:hover,
+    select:hover,
+    tr:hover {
+        color: var(--accent-color);
+        --fg: var(--accent-color);
+        background-color: var(--hover-color)
     }
 
-    /* WebKit */
-
-    meter::-webkit-meter-optimum-value,
-    meter::-webkit-meter-suboptimum-value,
-    meter::-webkit-meter-even-less-good-value {
-        transition: 0.15s linear width;
+    /*Non toolbsar things don't have a background normally*/
+    .tool-bar input[type='range']:hover {
+        background-color: var(--hover-color);
     }
 
-    meter::-webkit-meter-bar {
-        border-color: var(--control-border-color);
-        background: var(--control-bg);
-        box-shadow: var(--concave-item-box-shadow);
-        border-radius: var(--control-border-radius);
+    .tool-bar label:hover {
+        background-color: var(--hover-color);
     }
 
-    meter::-webkit-meter-optimum-value,
-    meter::-webkit-meter-suboptimum-value,
-    meter::-webkit-meter-even-less-good-value {
-        border-radius: var(--control-border-radius);
+    label:hover {
+        color: var(--accent-color);
     }
 
-    meter::-webkit-meter-optimum-value {
-        background: var(--success-color);
-    }
+}
 
-    meter::-webkit-meter-suboptimum-value {
-        background: var(--warning-color);
-    }
+::selection {
+    background: var(--highlight-color);
+}
 
-    meter::-webkit-meter-even-less-good-value {
-        background: var(--danger-color);
-    }
-
-    meter:-moz-meter-optimum::-moz-meter-bar {
-        background: var(--success-color);
-    }
-
-    meter:-moz-meter-sub-optimum::-moz-meter-bar {
-        background: var(--warning-color);
-    }
-
-    meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-        background: var(--danger-color);
-    }
-
-
-    /*Catch icons*/
-    i[class],
-    button i[class] {
-        color: var(--graphical-fg);
-    }
-
-
-    /*Animation and behavior*/
-    button,
-    a,
-    input,
-    select,
-    tr,
-    label {
-        transition: color 0.2s ease, background 0.2s ease;
-    }
-
-    @media (hover: hover) {
-
-        button:hover,
-        .button:hover,
-        a:hover,
-        button:hover :not(i, b, small, span),
-        a:hover :not(i, b, small, span),
-        .tool-bar>:hover,
-        .tool-bar>a:hover,
-        input:not([type='submit']):not([type='range']):hover,
-        header:not(.undecorated)>:only-child :is(button, .button, input:is([type='submit'], [type='button'])):hover,
-        header:not(.undecorated)>.tool-bar:only-child :is(input, button, select, a):hover,
-        input:hover,
-        select:hover,
-        tr:hover {
-            color: var(--accent-color);
-            --fg: var(--accent-color);
-            background-color: var(--hover-color)
-        }
-
-        /*Non toolbsar things don't have a background normally*/
-        .tool-bar input[type='range']:hover {
-            background-color: var(--hover-color);
-        }
-
-        .tool-bar label:hover {
-            background-color: var(--hover-color);
-        }
-
-        label:hover {
-            color: var(--accent-color);
-        }
-
-    }
-
-    ::selection {
-        background: var(--highlight-color);
-    }
-
-    ::-moz-selection {
-        background: var(--highlight-color);
-    }
+::-moz-selection {
+    background: var(--highlight-color);
+}
