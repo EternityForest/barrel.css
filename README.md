@@ -49,9 +49,15 @@ Levels of badness that should make text red and such.
 
 ## Components
 
+### .stacked-form
+
+A form where each element is stacked vertically. All inputs should be inside a 
+label.  To group multiple inputs, Put them in a p, div, or section.
+
 ### .window
 
-A large pane, generally with a border and a background.  May have a header and footer.
+A large pane, generally with a border and a background.  May have a header and footer
+element.
 
 ### .tool-bar
 
