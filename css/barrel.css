@@ -1,3 +1,52 @@
+/*https://www.joshwcomeau.com/css/custom-css-reset/*/
+html {
+    box-sizing: border-box;
+}
+
+*,
+:before,
+:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
 :root {
     color-scheme: light dark;
 
@@ -234,7 +283,6 @@ html {
     min-height: 100vh;
     padding: 0px;
     margin: 0px;
-    box-sizing: border-box;
 }
 
 body {
@@ -255,7 +303,7 @@ figure,
 video,
 fieldset {
     max-width: 100%;
-    box-sizing: border-box;
+
     margin-left: 0px;
     margin-right: 0px;
 }
@@ -428,7 +476,7 @@ button,
 input,
 select {
     min-height: calc(min(var(--control-height), 100%));
-    box-sizing: border-box;
+
 }
 
 button,
@@ -538,13 +586,14 @@ hr {
     border: none;
     border-top: var(--border-width) solid var(--border-color);
     height: var(--border-width);
+    margin: var(--padding);
 }
 
 
 header,
 footer {
     width: 100%;
-    box-sizing: border-box;
+
     margin: 0px;
     flex-grow: 0;
     min-height: var(--control-height);
@@ -581,16 +630,15 @@ header {
         --convex-item-bg: var(--control-bg);
 
         &>:only-child,
-        &>*:only-child>:only-child {
+        &>:only-child>:only-child {
             border: none;
         }
 
-        &>*:only-child:not(:has(:first-child)),
-        &>*:only-child:has(:only-child) {
+        &>:only-child {
             margin-top: 0px;
             width: 100%;
             flex-grow: 1;
-            box-sizing: border-box;
+
             margin: 0px;
 
             &:not(.highlight, .danger, .warning, .success, .tool-bar) {
@@ -603,7 +651,7 @@ header {
         &>.tool-bar:only-child {
             gap: var(--padding);
 
-            &>*:not(.specificity-hack) {
+            &>:not(.specificity-hack) {
                 border-radius: var(--control-border-radius);
             }
 
@@ -704,11 +752,11 @@ table {
         &>tr:last-child>th {
             border-bottom: var(--border-width) solid var(--border-color);
         }
+    }
 
-        &>tr:first-child>th {
-            border-top: var(--border-width) solid var(--border-color);
-        }
-
+    &>thead>tr:first-child>th,
+    &>:first-child>tr:first-child>:is(td, th) {
+        border-top: var(--border-width) solid var(--border-color);
     }
 
     /*This makes tables easier to read by coloring alternate rows differently.*/
@@ -729,7 +777,7 @@ table {
     & td input,
     & td select {
         border: var(--border-width) solid var(--border-color);
-        box-sizing: border-box;
+
         margin: 0px;
         width: auto;
     }
@@ -771,7 +819,8 @@ table {
 
     /* top-left border-radius */
 
-    & :not(tfoot)>tr:first-child :first-child:is(td, th) {
+    &>thead>tr:first-child :first-child:is(td, th),
+    &:not(:has(thead)) tr:first-child :first-child:is(td, th) {
         border-top-left-radius: var(--border-radius);
 
     }
@@ -779,35 +828,33 @@ table {
 
     /* top-right border-radius */
 
-    & :not(tfoot)>tr:first-child :last-child:is(td, th) {
+    &>thead>tr:first-child :last-child:is(td, th),
+    &:not(:has(thead)) tr:first-child>:last-child:is(td, th) {
         border-top-right-radius: var(--border-radius);
 
     }
 
     /* bottom-left border-radius */
-
     &:not(:has(tfoot)) {
 
-        &>tr:last-child :first-child:is(td, th),
-        &>tbody>tr:last-child :first-child:is(td, th) {
+        &>thead>tr:last-child>:first-child:is(td, th),
+        &>tbody>tr:last-child>:first-child:is(td, th) {
             border-bottom-left-radius: var(--border-radius);
-            ;
         }
 
         /* bottom-right border-radius */
-        &>tr:last-child :last-child:is(td, th),
-        &>tbody>tr:last-child :last-child:is(td, th) {
+        &>tr:last-child>:last-child:is(td, th),
+        &>tbody>tr:last-child>:last-child:is(td, th) {
             border-bottom-right-radius: var(--border-radius);
-            ;
         }
     }
 
-    & tfoot tr:last-child {
-        & :last-child:is(td, th) {
+    & tfoot>tr:last-child {
+        &>:last-child:is(td, th) {
             border-bottom-right-radius: var(--border-radius);
         }
 
-        & :first-child:is(td, th) {
+        &>:first-child:is(td, th) {
             border-bottom-left-radius: var(--border-radius);
         }
 
@@ -818,20 +865,16 @@ table {
 
 
     &:has(thead) {
-        &>tbody>tr:first-child td {
+        &>tbody>tr:first-child>td {
             border-top: none;
-
-            &:first-child,
-            &:last-child {
-                border-radius: 0px;
-            }
         }
     }
 
     &:not(:has(tbody)),
     &>tbody {
-        &>tr:first-child td {
+        &>tr:first-child>td {
             border-top: var(--border-width) solid var(--border-color);
+            border-top-width: var(--border-width);
         }
     }
 }
@@ -855,7 +898,7 @@ table {
     border-radius: var(--border-radius);
     margin-top: 0.8em;
     margin-bottom: 0.2em;
-    box-sizing: border-box;
+
     overflow-x: auto;
     flex-basis: fit-content;
     border-color: var(--border-color);
@@ -868,7 +911,7 @@ table {
     border-width: var(--border-width);
     margin-top: 0.8em;
     margin-bottom: 0.2em;
-    box-sizing: border-box;
+
     max-width: 100vw;
     overflow: auto;
     border-radius: var(--border-radius);
@@ -941,17 +984,17 @@ header:not(.undecorated) .tool-bar {
 }
 
 .flex-col>* {
-    box-sizing: border-box;
+
     flex: 1 1 auto;
     flex-basis: fit-content;
     margin-block-end: var(--gap);
 }
 
-.flex-col>*:last-child:not(label, input, button, select, .tool-bar) {
+.flex-col>:last-child:not(label, input, button, select, .tool-bar) {
     margin-block-end: 0px;
 }
 
-.flex-col>*:nth-last-child(2):not(label, input, button, select, .tool-bar) {
+.flex-col>:nth-last-child(2):not(label, input, button, select, .tool-bar) {
     margin-block-end: 0px;
 }
 
@@ -971,7 +1014,7 @@ header:not(.undecorated) .tool-bar {
 
 
 .flex-row>* {
-    box-sizing: border-box;
+
     flex-basis: fit-content;
     margin: 0px;
 }
@@ -1129,7 +1172,7 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 .w-full {
     width: 100%;
-    box-sizing: border-box;
+
     flex-basis: 100%;
 }
 
@@ -1409,9 +1452,9 @@ iframe.h-center {
 .nogaps {
     gap: 0px;
 
-    &>*:not(.specificity_hack) {
+    &>:not(.specificity_hack) {
         margin: 0px;
-        box-sizing: border-box;
+
         margin-block-end: 0px;
     }
 }
@@ -1629,7 +1672,7 @@ footer.padding {
     height: fit-content;
     align-items: center;
     align-content: center;
-    box-sizing: border-box;
+
     background-clip: content-box;
     gap: 0px;
 
@@ -1656,7 +1699,7 @@ footer.padding {
     &>*,
     &>input,
     &>a {
-        box-sizing: border-box;
+
         font-size: inherit;
         height: var(--control-height);
         color: var(--control-fg);
@@ -1834,8 +1877,7 @@ footer.padding {
 
 
 
-    /*:not(i) is for icons*/
-    &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-prepend):first-child,
+    /:not(i) is for icons*/ &> :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-prepend):first-child,
     & :is(a, .button, select, p, h1, h2, h3, h4, h5, h6, input, meter, button, form, .input-group-prepend):first-child :first-child:not(i) {
         border-radius: var(--control-border-radius) 0px 0px var(--control-border-radius);
         margin-inline-start: 0px;
@@ -1858,14 +1900,13 @@ footer.padding {
         -webkit-appearance: inherit;
         box-sizing: inherit;
         border: var(--control-border-width) solid var(--control-border-color);
-        height: var(--control-height);
     }
 
 
     /*The boder puts an ugly white line on the meter*/
 
-    &>*:not(meter),
-    &>form>*:not(meter) {
+    &>:not(meter),
+    &>form>:not(meter) {
         border: var(--tool-bar-element-border);
     }
 
@@ -1889,17 +1930,17 @@ footer.padding {
 }
 
 /* Other browsers */
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: var(--scrollbar-width);
     background-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
 }
 
-*::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background-color: color-mix(in srgb, var(--accent-color) 15%, var(--control-bg));
     border-radius: 0px;
 }
 
-*::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: var(--control-fg);
     border-radius: calc(min(var(--border-radius), 5px));
     border: none;
@@ -1931,6 +1972,7 @@ footer.padding {
 /****/
 input[type=range] {
     -webkit-appearance: none;
+    appearance: none;
     background-color: transparent;
     border: none;
     --concave-item-box-shadow: none;
@@ -2042,12 +2084,6 @@ meter::-webkit-meter-even-less-good-value {
     background: var(--danger-color);
 }
 
-
-/* Firefox */
-meter::-moz-meter-bar {
-    border-radius: var(--control-border-radius);
-}
-
 meter:-moz-meter-optimum::-moz-meter-bar {
     background: var(--success-color);
 }
@@ -2059,6 +2095,8 @@ meter:-moz-meter-sub-optimum::-moz-meter-bar {
 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
     background: var(--danger-color);
 }
+
+
 
 /*Catch icons*/
 i[class],
@@ -2081,9 +2119,9 @@ tr {
     button:hover,
     .button:hover,
     a:hover,
-    button:hover *:not(i, b, small, span),
-    a:hover *:not(i, b, small, span),
-    .tool-bar>*:hover,
+    button:hover :not(i, b, small, span),
+    a:hover :not(i, b, small, span),
+    .tool-bar>:hover,
     .tool-bar>a:hover,
     input:not([type='submit']):not([type='range']):hover,
     header:not(.undecorated)>:only-child :is(button, .button, input[type='submit']):hover,

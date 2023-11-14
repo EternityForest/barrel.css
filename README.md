@@ -3,7 +3,9 @@ A CSS Framework aiming to be as opinionated as possible for maximum restyling po
 
 It is a combination of classless styles, a mix of high and low level utilities, and a tiny selection of components.
 
-It supports automatic dark/light theme switching with the system preference, desktop, mobile, and also aims to work as well as possible in print media, especially if you use extra hint classes.  
+It supports automatic dark/light theme switching with the system preference, desktop, mobile, and also aims to work as well as possible in print media, especially if you use extra hint classes.
+
+It also includes some basic CSS reset features, eliminating a lot of default margins and using border-box sizing on everything.
 
 It's simple enough that it should work on old browsers, but the colors might not look right.  Update your browsers!
 
