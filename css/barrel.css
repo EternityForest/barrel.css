@@ -2130,8 +2130,8 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
 }
 
-input[type=range]::-moz-range-track {
-    background-color: color-mix(in srgvb, var(--control-bg) 70%, var(--control-fg));
+input[type="range"]::-moz-range-track {
+    background-color: color-mix(in srgb, var(--control-bg) 70%, var(--control-fg));
     border: var(--thin-border);
     border-radius: 250px;
     height: calc(var(--control-height) / 3);
@@ -2140,7 +2140,7 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
     width: calc(var(--control-height) / 1.6);
     height: calc(var(--control-height) / 1.2);
-    background-color: color-mix(in srgb, var(--accent-color) 50%, var(--control-bg));
+    background-color: var(--highlight-color);
     border: var(--thin-border);
     border-width: 2px;
     border-radius: 100px;
