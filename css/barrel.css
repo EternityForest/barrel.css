@@ -56,7 +56,7 @@ h6 {
     --black-3: #545862;
     --black-4: #5C555D;
 
-    --grey-1: #e5e4e1;
+    --grey-1: #e1ded7;
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
@@ -100,10 +100,11 @@ h6 {
 
     /*Borders*/
     --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
-
+    --border-style: solid;
     --border-radius: 1.2rem;
     --border-width: 1px;
 
+    --border: var(--border-width) var(--border-style) var(--border-color);
     /*Inputs, buttons, etc*/
     --control-height: 1.6rem;
     --control-border-radius: 0.8rem;
@@ -370,9 +371,13 @@ label:has(*) {
     text-align: start;
 }
 
-
+form {
+    color: var(--control-fg);
+    text-shadow: var(--control-text-shadow);
+}
 
 label {
+    color: var(--control-fg);
     min-width: max-content;
     padding-inline-start: var(--padding);
 
@@ -416,13 +421,13 @@ select {
 
 
 textarea:disabled {
-    background-color: color-mix(in srgb, var(--control-bg) 50%, var(--bg) 50%);
+    background-color: color-mix(in srgb, var(--control-bg) 50%, var(--box-bg) 50%);
     color: var(--control-fg);
 }
 
 details {
     margin: 0.4em;
-    border: var(--border-width) solid var(--border-color);
+    border: var(--border);
     padding-left: 0.4em;
     border-radius: var(--border-radius);
 }
@@ -539,7 +544,7 @@ select {
 
 input:not([type='checkbox'], [type="radio"]),
 textarea {
-    border: var(--border-width) solid var(--control-border-color);
+    border: var(--control-border);
     box-shadow: var(--concave-item-box-shadow);
 }
 
@@ -551,7 +556,7 @@ textarea {
 }
 
 fieldset {
-    border: var(--border-width) solid var(--control-border-color);
+    border: var(--border-width) solid var(--border-color);
     border-radius: var(--border-radius);
 }
 
@@ -622,7 +627,7 @@ h3:first-of-type {
 hr {
     background-color: transparent;
     border: none;
-    border-top: var(--border-width) solid var(--border-color);
+    border-top: var(--border);
     height: var(--border-width);
     margin: var(--padding);
 }
@@ -645,13 +650,13 @@ footer {
 footer {
     margin-top: var(--padding);
     border-radius: 0px 0px inherit inherit;
-    border-top: var(--border-width) solid var(--border-color);
+    border-top: var(--border);
 }
 
 header {
     margin-bottom: var(--padding);
     border-radius: inherit inherit 0px 0px;
-    border-bottom: var(--border-width) solid var(--border-color);
+    border-bottom: var(--border);
     break-after: avoid;
 
 
@@ -739,7 +744,7 @@ header {
 
 :is(section, article, div):not(.window, .card)> :is(header, footer) {
     border-radius: var(--border-radius);
-    border: var(--border-width) solid var(--border-color);
+    border: var(--border);
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -792,13 +797,13 @@ table {
 
     &>thead {
         &>tr:last-child>th {
-            border-bottom: var(--border-width) solid var(--border-color);
+            border-bottom: var(--border);
         }
     }
 
     &>thead>tr:first-child>th,
     &>:first-child>tr:first-child>:is(td, th) {
-        border-top: var(--border-width) solid var(--border-color);
+        border-top: var(--border);
     }
 
     /*This makes tables easier to read by coloring alternate rows differently.*/
@@ -818,7 +823,7 @@ table {
 
     & td input,
     & td select {
-        border: var(--border-width) solid var(--border-color);
+        border: var(--border);
 
         margin: 0px;
         width: auto;
@@ -833,8 +838,8 @@ table {
 
     & tr th,
     & tr td {
-        border-right: var(--border-width) color-mix(in srgb, var(--border-color) var(--table-border-strength), transparent) solid;
-        border-bottom: var(--border-width) color-mix(in srgb, var(--border-color) var(--table-border-strength), transparent) solid;
+        border-right: 1px color-mix(in srgb, var(--border-color) var(--table-border-strength), transparent) solid;
+        border-bottom: 1px color-mix(in srgb, var(--border-color) var(--table-border-strength), transparent) solid;
         padding: calc(var(--padding)/3);
 
         &:first-child,
@@ -949,8 +954,7 @@ table {
 /*This handles the old style "section box", but also top level HTML section elements. It's basicattly for independant sections of content.*/
 .window {
     background: var(--box-bg);
-    border-style: solid;
-    border-width: var(--border-width);
+    border: var(--border);
     margin-top: 0.8em;
     margin-bottom: 0.2em;
 
@@ -1556,7 +1560,7 @@ iframe.h-center {
 }
 
 .border {
-    border: var(--border-width) solid var(--border-color);
+    border: var(--border);
     border-radius: var(--border-radius);
 }
 
