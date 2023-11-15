@@ -678,6 +678,10 @@ header {
                 border-radius: var(--control-border-radius);
             }
 
+            &>label {
+                gap: 2px;
+            }
+
             &>label,
             &>p {
                 &>* {
@@ -1955,7 +1959,13 @@ footer.padding {
 
         &>input {
             background-color: var(--alt-control-bg);
-            flex-grow: 5;
+
+            &:not([type="checkbox"], [type="radio"]) {
+                flex-grow: 5;
+                border-top: none;
+                border-bottom: none;
+                border-inline-end: none;
+            }
         }
 
         /*Exception: the first item always growable so it can be the title*/
@@ -2347,10 +2357,11 @@ input[type='checkbox']:not(.toggle) {
 input[type="checkbox"].toggle {
     border-radius: 50px;
     width: calc(var(--control-height) * 1.77) !important;
+    --slider-position: var(--control-border-width);
 
     &:checked {
         position: relative;
-        --slider-position: calc(var(--control-height) * 0.77);
+        --slider-position: calc(calc(var(--control-height) * 0.777) + var(--control-border-width));
     }
 
     &:checked::before {
@@ -2366,11 +2377,13 @@ input[type="checkbox"].toggle {
         box-sizing: border-box;
         border: var(--control-border-width) solid var(--control-border-color);
         left: var(--slider-position);
+        top: var(--control-border-width);
+        vertical-align: middle;
         border-radius: 50px;
         margin: 0px;
         padding: 0px;
-        height: calc(var(--control-height) - calc(var(--control-border-width) *2));
-        width: calc(var(--control-height) - calc(var(--control-border-width) *2));
+        height: calc(100% - calc(var(--control-border-width) *2));
+        aspect-ratio: 1;
         background: var(--convex-item-bg);
         transition: left 0.25s ease, background 0.4s ease;
     }
