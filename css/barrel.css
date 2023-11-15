@@ -113,7 +113,7 @@ h6 {
     --3d-shadow: color-mix(in srgb, var(--box-bg) 50%, rgba(0, 0, 0, 0.101));
 
     /*3D buttons are mostly transparent with just some highlights and shadows.*/
-    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
+    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 3%, var(--3d-highlight) 64%);
     --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
     --convex-item-active-bg: var(--concave-item-bg);
     --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
@@ -147,6 +147,10 @@ h6 {
 
     --thin-border: 1px solid var(--border-color);
     --control-border: var(--control-border-width) solid var(--control-border-color);
+
+
+    --heading-text-shadow: none;
+    --control-text-shadow: none;
 }
 
 /*Less likely stuff for user to change, intermediate vars in complex logic*/
@@ -501,11 +505,20 @@ select {
 
 button,
 .button,
+input:is([type='submit'], [type='button']),
+label,
+.tool-bar :is(p, h1, h2, h3, h4, h5) {
+    text-shadow: var(--control-text-shadow);
+}
+
+button,
+.button,
 input:is([type='submit'], [type='button']) {
     background: var(--convex-item-bg);
     text-decoration: none;
     border: var(--control-border);
     color: var(--control-fg);
+    text-shadow: var(--control-text-shadow);
     padding: 0em 0.2em 0em 0.2em;
     display: inline-block;
 }
@@ -595,6 +608,7 @@ h4 {
     text-align: center;
     padding-inline-end: var(--header-padding);
     padding-inline-start: var(--header-padding);
+    text-shadow: var(--heading-text-shadow);
 }
 
 
