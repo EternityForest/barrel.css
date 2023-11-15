@@ -250,7 +250,7 @@ Note that the base color definitinons change in dark theme.
     --black-3: #545862;
     --black-4: #5C555D;
 
-    --grey-1: #e5e4e1;
+    --grey-1: #e1ded7;
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
@@ -294,27 +294,29 @@ Note that the base color definitinons change in dark theme.
 
     /*Borders*/
     --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
-
+    --border-style: solid;
     --border-radius: 1.2rem;
     --border-width: 1px;
 
+    --border: var(--border-width) var(--border-style) var(--border-color);
     /*Inputs, buttons, etc*/
     --control-height: 1.6rem;
     --control-border-radius: 0.8rem;
     --control-border-width: 1px;
 
-    --3d-highlight: color-mix(in srgb, var(--box-bg) 50%, rgba(241, 241, 241, 0.695));
-    --3d-shadow: color-mix(in srgb, var(--box-bg) 50%, rgba(0, 0, 0, 0.101));
-
-    /*3D buttons are mostly transparent with just some highlights and shadows.*/
-    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 12%, var(--3d-highlight) 88%);
-    --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
-    --convex-item-active-bg: var(--concave-item-bg);
-    --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
-
     /*control-bg also applies to small elements like headers*/
     --control-bg: var(--grey-1);
     --control-fg: var(--graphical-fg);
+
+
+    --3d-highlight: color-mix(in srgb, var(--control-bg) 25%, rgba(241, 241, 241, 100%));
+    --3d-shadow: color-mix(in srgb, var(--control-bg) 98%, rgba(0, 0, 0, 100%));
+
+    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 3%, var(--3d-highlight) 45%);
+    --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
+    --convex-item-active-bg: var(--concave-item-bg);
+    --concave-item-box-shadow: inset 0px 0px 4px 2px #38383815;
+
 
     /*Used for headers, trays, and anything smaller than a box and bigger than a button*/
     --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
@@ -341,6 +343,11 @@ Note that the base color definitinons change in dark theme.
 
     --thin-border: 1px solid var(--border-color);
     --control-border: var(--control-border-width) solid var(--control-border-color);
+
+
+    --heading-text-shadow: none;
+    --control-text-shadow: none;
+    --slider-thumb: var(--convex-item-bg);
 }
 ```
 
