@@ -48,6 +48,7 @@ h6 {
     isolation: isolate;
 }
 
+
 :root {
     color-scheme: light dark;
 
@@ -435,7 +436,8 @@ details {
 }
 
 details.help {
-    border: var(--border-width) dotted;
+    border: none;
+
 }
 
 
