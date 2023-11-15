@@ -299,8 +299,8 @@ Note that the base color definitinons change in dark theme.
     --border-width: 1px;
 
     /*Inputs, buttons, etc*/
-    --control-height: 3ex;
-    --control-border-radius: 12px;
+    --control-height: 1.6rem;
+    --control-border-radius: 0.8rem;
     --control-border-width: 1px;
 
     --3d-highlight: color-mix(in srgb, var(--box-bg) 50%, rgba(241, 241, 241, 0.695));
@@ -340,6 +340,7 @@ Note that the base color definitinons change in dark theme.
     --table-border-strength: 50%;
 
     --thin-border: 1px solid var(--border-color);
+    --control-border: var(--control-border-width) solid var(--control-border-color);
 }
 ```
 

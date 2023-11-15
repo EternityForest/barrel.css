@@ -146,6 +146,7 @@ h6 {
     --table-border-strength: 50%;
 
     --thin-border: 1px solid var(--border-color);
+    --control-border: var(--control-border-width) solid var(--control-border-color);
 }
 
 /*Less likely stuff for user to change, intermediate vars in complex logic*/
@@ -503,7 +504,7 @@ button,
 input:is([type='submit'], [type='button']) {
     background: var(--convex-item-bg);
     text-decoration: none;
-    border: var(--control-border-width) solid var(--control-border-color);
+    border: var(--control-border);
     color: var(--control-fg);
     padding: 0em 0.2em 0em 0.2em;
     display: inline-block;
@@ -715,7 +716,7 @@ header {
 
             & input,
             & label>input {
-                border: var(--control-border-width) solid var(--control-border-color);
+                border: var(--control-border);
             }
 
         }
@@ -1756,7 +1757,7 @@ footer.padding {
 }
 
 .tool-bar {
-    --tool-bar-element-border: var(--control-border-width) solid var(--control-border-color);
+    --tool-bar-element-border: var(--control-border);
     --header-padding: 0px;
     flex-basis: max-content;
     display: flex;
@@ -2013,7 +2014,7 @@ footer.padding {
     & meter::-webkit-meter-inner-element {
         -webkit-appearance: inherit;
         box-sizing: inherit;
-        border: var(--control-border-width) solid var(--control-border-color);
+        border: var(--control-border);
         height: var(--control-height);
     }
 
@@ -2114,7 +2115,7 @@ input[type=range] {
 
 input[type="range"]::-webkit-slider-runnable-track {
     background-color: color-mix(in srgb, var(--control-bg) 70%, var(--control-fg));
-    border: var(--thin-border);
+    border: var(--control-border);
     border-radius: 250px;
     height: calc(var(--control-height) / 3);
 }
@@ -2124,7 +2125,7 @@ input[type=range]::-webkit-slider-thumb {
     width: calc(var(--control-height) / 1.6);
     height: calc(var(--control-height) / 1.2);
     background-color: var(--highlight-color);
-    border: var(--thin-border);
+    border: var(--control-border);
     border-width: 2px;
     border-radius: 100px;
     -webkit-appearance: none;
@@ -2132,7 +2133,7 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type="range"]::-moz-range-track {
     background-color: color-mix(in srgb, var(--control-bg) 70%, var(--control-fg));
-    border: var(--thin-border);
+    border: var(--control-border);
     border-radius: 250px;
     height: calc(var(--control-height) / 3);
 }
@@ -2141,7 +2142,7 @@ input[type=range]::-moz-range-thumb {
     width: calc(var(--control-height) / 1.6);
     height: calc(var(--control-height) / 1.2);
     background-color: var(--highlight-color);
-    border: var(--thin-border);
+    border: var(--control-border);
     border-width: 2px;
     border-radius: 100px;
 }
@@ -2280,7 +2281,7 @@ input[type='radio'] {
     appearance: none;
     background: var(--concave-item-bg);
     box-shadow: var(--concave-item-box-shadow);
-    border: var(--control-border-width) solid var(--control-border-color);
+    border: var(--control-border);
     width: var(--control-height);
     height: var(--control-height);
     flex-grow: 0 !important;
@@ -2375,7 +2376,7 @@ input[type="checkbox"].toggle {
         position: relative;
         display: inline-block;
         box-sizing: border-box;
-        border: var(--control-border-width) solid var(--control-border-color);
+        border: var(--control-border);
         left: var(--slider-position);
         top: var(--control-border-width);
         vertical-align: middle;
