@@ -10,7 +10,7 @@
 
   --convex-item-active-bg: none;
   --concave-item-box-shadow: inset 0px 0px 4px 2px #3838381f;
-  --control-bg: #b6921717;
+  --control-bg: #e5dcbe;
   --concave-item-bg: var(--control-bg);
   --convex-item-bg: var(--control-bg);
   --border-width: 1px;
