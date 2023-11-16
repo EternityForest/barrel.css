@@ -117,13 +117,22 @@ dd {
     --control-fg: var(--graphical-fg);
 
 
-    --3d-highlight: color-mix(in srgb, var(--control-bg) 25%, rgba(241, 241, 241, 100%));
-    --3d-shadow: color-mix(in srgb, var(--control-bg) 98%, rgba(0, 0, 0, 100%));
+    /*Used for the convex and concave*/
+    --3d-highlight: color-mix(in srgb, var(--control-bg) 62%, rgba(241, 241, 241, 100%));
+    --3d-shadow: color-mix(in srgb, var(--control-bg) 96%, rgba(0, 0, 0, 100%));
 
-    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 3%, var(--3d-highlight) 45%);
+    /*Concave than convex BG needs to be less intense than other shadows
+    because we stack it with the inset shadow
+    Also, we usually don't want it to be that extremely concave
+    */
+    --concave-shadow: color-mix(in srgb, var(--3d-shadow) 40%, var(--control-bg));
+    --concave-highlight: color-mix(in srgb, var(--3d-highlight) 60%, var(--control-bg));
+
+    --concave-item-bg: linear-gradient(180deg, var(--concave-shadow) 4px, var(--concave-highlight) 43%);
+
     --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
-    --convex-item-active-bg: var(--concave-item-bg);
-    --concave-item-box-shadow: inset 0px 0px 4px 2px #38383815;
+    --convex-item-active-bg: linear-gradient(180deg, color-mix(in srgb, var(--concave-shadow) 90%, var(--control-fg)) 3%, color-mix(in srgb, var(--3d-highlight) 90%, var(--control-fg)) 45%);
+    --concave-item-box-shadow: inset 0px 0px 4px 2px color-mix(in srgb, var(--fg) 7%, transparent);
 
 
     /*Used for headers, trays, and anything smaller than a box and bigger than a button*/
@@ -131,7 +140,6 @@ dd {
     /*#e1dfd7*/
 
     --window-box-shadow: none;
-
     /*Used for tool bars and cards*/
     --item-box-shadow: none;
 
@@ -259,10 +267,8 @@ input[type=range],
         --fg: var(--grey-3);
         --graphical-fg: var(--grey-1);
 
-        --concave-item-bg: var(--control-bg);
-        --convex-item-bg: var(--control-bg);
-        --convex-item-active-bg: var(--grey-1);
-        --concave-item-box-shadow: none;
+        --3d-highlight: var(--control-bg);
+        --3d-shadow: var(--control-bg);
     }
 }
 
@@ -1860,14 +1866,12 @@ footer.padding {
 
 
     & :is(a, .button, select, input, meter, button, label) {
-        margin: 0px;
         border-radius: 0px;
         flex-shrink: 1;
         border-radius: 0px;
     }
 
     & :is(a, .button, select, button) {
-        margin: 0px;
         align-items: stretch;
         border-radius: 0px;
         flex-shrink: 1;
@@ -2243,14 +2247,16 @@ meter {
 }
 
 /*Try to make it look kinda like webkit*/
-@supports (-moz-appearance:none) {
-    meter {
+@supports (-moz-appearance: none) {
+
+    meter,
+    .tool-bar>label>meter {
         height: 12px;
-        margin-top: calc((calc(--control-height-12px))/2);
-        margin-top: calc((calc(--control-height-12px))/2);
+        margin-top: calc((calc(var(--control-height) - 12px)) / 2);
         box-shadow: var(--concave-item-box-shadow);
         background: var(--concave-item-bg);
         min-height: 12px;
+        border-radius: 60px;
     }
 
     .tool-bar {
@@ -2415,18 +2421,13 @@ input[type="checkbox"].toggle {
     --slider-position: var(--control-border-width);
 
     &:checked {
+        background: var(--highlight-color);
         position: relative;
         --slider-position: calc(calc(var(--control-height) * 0.777) + var(--control-border-width));
     }
 
-    &:checked::before {
-        background: var(--highlight-color);
-    }
-
     &:before {
         content: "";
-        box-shadow: var(--concave-item-box-shadow);
-
         position: relative;
         display: inline-block;
         box-sizing: border-box;
@@ -2477,9 +2478,11 @@ label {
     input:hover,
     select:hover,
     tr:hover {
-        color: var(--accent-color);
-        --fg: var(--accent-color);
-        background-color: var(--hover-color)
+        &:not(:active) {
+            color: var(--accent-color);
+            --fg: var(--accent-color);
+            background-color: var(--hover-color)
+        }
     }
 
     /*Non toolbsar things don't have a background normally*/

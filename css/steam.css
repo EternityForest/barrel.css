@@ -25,6 +25,7 @@ SOFTWARE.
 */
 
 :root {
+    color-scheme: only light;
     --teal: #8bc7d9;
     --3d-highlight: rgb(245 237 20);
     --3d-shadow: rgb(223 160 17);
@@ -49,15 +50,11 @@ SOFTWARE.
     --item-box-shadow: 2px 2px 3px 1px #2b140021;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {}
-}
-
 .window {
     backdrop-filter: blur(2px);
 }
 
-:is(.card, .window)>header {
+:is(.card, .window)>:is(header, footer) {
     background: var(--convex-item-bg);
 }
 
