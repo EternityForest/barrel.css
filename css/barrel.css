@@ -1104,12 +1104,18 @@ it usable.  Remove when FF fully supports :has()*/
 
 .flex-col {
     display: flex;
-    flex-wrap: wrap;
+    /*I don't think there's many use cases for wrapping a column 
+    and in behaves badly in edge cases, so no wrap*/
+    flex-wrap: nowrap;
     flex-direction: column;
 
     /*Nicer input stacking*/
     &>label:has(+input) {
         margin-block-end: 4px;
+    }
+
+    &>.tool-bar {
+        flex-grow: 0;
     }
 }
 
