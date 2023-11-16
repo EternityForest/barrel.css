@@ -1083,6 +1083,7 @@ header:not(.undecorated) .tool-bar {
     /*Inline rows of controls*/
     &>p>label {
         flex-grow: 1;
+        flex-basis: min-content;
     }
 
 
