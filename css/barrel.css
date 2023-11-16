@@ -1266,8 +1266,8 @@ it usable.  Remove when FF fully supports :has()*/
 /*Sizes that are relative to approximately the width of a phone screen.
 A little smaller in flex to allow for expansion or fitting lots on a row*/
 .w-sm-full {
-    width: 430px;
-    max-width: calc(min(430px, 100%));
+    width: min(min(430px, 100%), 100vw);
+    max-width: calc(min(430px, 100vw));
     flex-basis: 300px;
     flex-shrink: 1;
     flex-grow: 1;
@@ -1287,11 +1287,18 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 }
 
 .w-sm-double {
-    width: 16cm;
-    max-width: calc(min(28cm, 96vw));
+    width: min(min(28cm, 96vw), 100%);
+    max-width: min(28cm, 96vw);
     flex-basis: 16cm;
     flex-shrink: 1;
     flex-grow: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .w-sm-double {
+        width: min(430px, 100%);
+        max-width: calc(min(430px, 100vw));
+    }
 }
 
 
