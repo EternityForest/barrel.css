@@ -42,12 +42,12 @@ SOFTWARE.
     --control-text-shadow: 1px 1px 2px #f5d48947;
     --control-border-color: #815007;
     --alt-control-bg: #f1c6226b;
-    --window-box-shadow: 2px 2px 6px 4px #2b1400c7;
-    --border-color: #d7a905;
+    --window-box-shadow: 2px 2px 6px 5px #2b1400c7;
+    --border-color: #d7a90570;
     --border-style: outset;
-    --border-width: 3px;
+    --border-width: 0px;
     --control-border-width: 1px;
-    --item-box-shadow: 2px 2px 3px 1px #2b140021;
+    --item-box-shadow: 2px 2px 3px 3px #2b140065;
 }
 
 .window {
@@ -61,4 +61,8 @@ SOFTWARE.
 /*Override the default flattening*/
 :is(.card, .window)>:is(header, footer):not(.undecorated) {
     --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
+}
+
+.tool-bar {
+    box-shadow: none;
 }

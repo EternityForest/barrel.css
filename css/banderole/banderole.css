@@ -79,7 +79,6 @@ details[open] {
 
 header:not(.undecorated) .tool-bar {
   transform: none;
-  padding: 4px;
 }
 
 a {
