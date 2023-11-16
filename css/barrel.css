@@ -139,9 +139,9 @@ dd {
     --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
     /*#e1dfd7*/
 
-    --window-box-shadow: none;
+    --window-box-shadow: rgb(0 0 0 / 15%) 1px 5px 12px -3px;
     /*Used for tool bars and cards*/
-    --item-box-shadow: none;
+    --item-box-shadow: 1px 2px 8px -3px rgba(0, 0, 0, 0.1);
 
     /*Below this line you probably don't need to change stuff*/
     /* fg color for warning and danger */
@@ -2028,7 +2028,6 @@ footer.padding {
             }
         }
 
-        /*Exception: the first item always growable so it can be the title*/
         &> :is(input, select, meter):not(.specificity-hack) {
             max-height: 100%;
         }
@@ -2038,7 +2037,7 @@ footer.padding {
         }
 
         &:first-child {
-            padding-inline-start: 0px;
+            flex-grow: .05;
         }
 
         &:is(input, select) {
