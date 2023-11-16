@@ -16,6 +16,16 @@ Note that the preview is of this master branch, not any particular release.
 When printing, Barrel currently overrides the styles automatically, with a white foreground, flat background,
 the theme Serif font, and the URLs displayed after all links.
 
+## Design Rules
+
+Avoid mixing component classes.  Put a stacked form IN a card, don't make a stacked form
+that IS a card.
+
+
+### Header Button Pattern
+
+Putting a button or toolbar in a header, or a button in heading inside a header, is treated as a special case and collapses the borders(among other things) to reduce visual noise.
+
 
 
 ## Alt themes
@@ -408,7 +418,7 @@ Pure strong base colors used to derive the foreground and background of highligh
 The highlight color is also used for selected text and slider thumbs. 
 
 
-### Rules
+### Color Rules
 Any fg color except the border color, must always be easily legible on any bg color, except the main bg.
 
 The main bg color does not need to have any particular contrast with anything else.

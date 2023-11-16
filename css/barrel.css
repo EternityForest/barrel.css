@@ -94,6 +94,7 @@ dd {
     --main-font: var(--sans-font);
     --font-size: 18px;
     --heading-font: var(--main-font);
+    --control-font: var(--main-font);
 
     /*Spacing*/
     --padding: 12px;
@@ -506,7 +507,7 @@ textarea,
 input {
     border-radius: var(--control-border-radius);
     border-color: var(--control-border-color);
-    font-family: inherit;
+    font-family: var(--control-font);
     border-width: var(--control-border-width);
 }
 
@@ -685,12 +686,15 @@ header {
         --convex-item-bg: var(--control-bg);
 
         &>:only-child,
-        &>:only-child>:only-child {
+        &>:only-child>:only-child,
+        & :is(h1, h2, h3, h4, h5, h6)>button {
             border: none;
             text-align: start;
         }
 
-        &>:only-child {
+        &>:only-child,
+        & :is(h1, h2, h3, h4, h5, h6)>button,
+        :is(h1, h2, h3, h4, h5, h6) {
             margin-top: 0px;
             width: 100%;
             flex-grow: 1;
@@ -702,6 +706,7 @@ header {
                 --convex-item-bg: none;
             }
         }
+
 
         /*Treat toolbar only children of a header specially*/
         &>.tool-bar:only-child {
