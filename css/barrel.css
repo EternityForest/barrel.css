@@ -2377,7 +2377,6 @@ input[type='checkbox']:not(.toggle) {
 
     &:checked {
         position: relative;
-        background: color-mix(in srgb, var(--highlight-color) var(--highlight-opacity), transparent);
     }
 
     &::before {
