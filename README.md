@@ -392,18 +392,24 @@ Used for text areas, plus buttons and inputs when displaying flat. Also used as 
 ### control-fg
 This color is used for buttons and text inputs, and also small indicators and table headings.
 
-### convex-item-bg
+
+### 3D colors
+
+Normally, you just set 
+#### convex-item-bg
 Usually a gradient for buttons and labels
 
-### concave-item-bg
+#### concave-item-bg
 used for selects and text boxes.  Concave and convex can be flattened some or all of the time by setting them to the alt-control-bg.
 
-
-### concave-item-box-shadow
+#### concave-item-box-shadow
 text areas, selects, inputs, and similar, should have an inset box shadow unless the theme is ultra flat.
 
-### border-color
+#### 
+#### border-color
 Defaults to a diluted version of the graphical-fg.
+
+
 
 ### control-border-color
 May differ from the border color, defaults to the border color.
