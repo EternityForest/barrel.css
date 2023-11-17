@@ -49,15 +49,6 @@ dd {
 }
 
 
-@font-face {
-    font-family: 'AtkinsonHyperlegible';
-    font-style: normal;
-    font-weight: 400;
-    src: url('fonts/AtkinsonHyperlegible-Regular.ttf');
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-}
-
-
 :root {
     color-scheme: light dark;
 
