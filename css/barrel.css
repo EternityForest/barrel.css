@@ -658,8 +658,15 @@ footer {
     min-height: var(--control-height);
     background-color: var(--alt-control-bg);
     color: var(--control-fg);
-    --accent-color: var(--control-fg);
     --graphical-fg: var(--control-fg);
+
+    & :is(a, h1, h2, h3, h4, h5, h6) {
+
+        &,
+        & * {
+            color: var(--control-fg);
+        }
+    }
 }
 
 /*Headers and footers */
@@ -2549,8 +2556,11 @@ input,
 select,
 tr,
 label {
-    transition: color 0.2s ease, background 0.2s ease;
+    &::after {
+        transition: color 0.2s ease;
+    }
 }
+
 
 @media (hover: hover) {
 
@@ -2567,21 +2577,20 @@ label {
     input:hover,
     select:hover,
     tr:hover {
-        &:not(:active) {
+        &:not(:active):not(.specificity_hack) {
             color: var(--accent-color);
             --fg: var(--accent-color);
-            background-color: var(--hover-color)
+            background: var(--hover-color);
+            --control-fg: var(--accent-color);
         }
     }
 
     /*Non toolbsar things don't have a background normally*/
-    .tool-bar input[type='range']:hover {
-        background-color: var(--hover-color);
+    .tool-bar input[type='range']:hover,
+    .tool-bar label:hover {
+        background: var(--hover-color);
     }
 
-    .tool-bar label:hover {
-        background-color: var(--hover-color);
-    }
 
     label:hover {
         color: var(--accent-color);
