@@ -188,7 +188,7 @@ Does not use CSS grids, just sets width.  The size will be a little smaller than
 Works correctly with nogaps.
 
 ### w-1rem through w-24rem
-Options are 1,2,4,6,12, and 24.  Sets width, and flex-basis, if applied to a child of
+Options are 1,2,4,6,8,12,16,18,20 and 24.  Sets width, and flex-basis, if applied to a child of
 a .flex-row element.
 
 ### w-full
@@ -203,16 +203,24 @@ These also exist.
 
 
 ### .h-1rem to .h-60rem
-Used for fixed heights. The sizes are 1,2,4,6,12,24,36,48 and 60.  A limited number are chosen
-to not bloat things.  They are taken from the Highly Composite Number sequence.  Sets height
-and flex-basis(Only for children of flex-col), max still grow or shrink.
+Used for fixed heights. The sizes are 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60.  
+A limited number are chosen to not bloat things and to create visual consistency.
+
+They are taken from the [Practical Number Sequence](https://en.m.wikipedia.org/wiki/Practical_number) up to 24, and the[Highly Composite Number](https://en.m.wikipedia.org/wiki/Highly_composite_number) sequence above that.  
+
+They are likely numbers most people are already familiar with and will
+have no trouple remembering.
+
+Sets height and flex-basis(Only for children of flex-col), max still grow or shrink.
 
 ### .max-h-1rem to .max-h-60rem
-Can be 1,2,4,6,12,24, sets max-height
+Can be e 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets max-height
 
 ### .min-h-1rem to .min-h-24rem
-Can be 1,2,4,6,12,24, sets min-height
+Can be e 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets min-height
 
+### .h-min-content
+height: min-content
 
 ### .max-content and .min-content
 

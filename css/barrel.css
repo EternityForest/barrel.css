@@ -572,7 +572,7 @@ textarea {
 }
 
 fieldset {
-    border: var(--border-width) solid var(--border-color);
+    border: var(--control-border-width) solid var(--control-border-color);
     border-radius: var(--border-radius);
 }
 
@@ -695,6 +695,7 @@ header {
         & :is(h1, h2, h3, h4, h5, h6)>button {
             border: none;
             text-align: start;
+            max-height: 100%;
         }
 
         &>:only-child,
@@ -1120,16 +1121,20 @@ it usable.  Remove when FF fully supports :has()*/
 .flex-col>* {
     flex: 1 1 auto;
     flex-basis: fit-content;
+}
+
+.flex-col.gaps>* {
     margin-block-end: var(--gap);
-}
 
-.flex-col>:last-child:not(label, input, button, select, .tool-bar) {
-    margin-block-end: 0px;
-}
 
-/*Todo find out what this is for*/
-.flex-col>:nth-last-child(2):not(label, input, button, select, .tool-bar, p, .card, .window) {
-    margin-block-end: 0px;
+    &>:last-child:not(label, input, button, select, .tool-bar) {
+        margin-block-end: 0px;
+    }
+
+    /*Todo find out what this is for*/
+    &>:nth-last-child(2):not(label, input, button, select, .tool-bar, p, .card, .window) {
+        margin-block-end: 0px;
+    }
 }
 
 .flex-col footer,
@@ -1142,14 +1147,15 @@ it usable.  Remove when FF fully supports :has()*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: var(--gap);
     align-items: stretch;
 }
 
+.flex-row.gaps {
+    gap: var(--gap);
+}
 
 .flex-row>* {
-
-    flex-basis: fit-content;
+    flex-basis: min-content;
     margin: 0px;
 }
 
@@ -1167,15 +1173,21 @@ it usable.  Remove when FF fully supports :has()*/
 .col-10,
 .col-11,
 .col-12 {
-    flex-grow: var(--this-col-width-internal);
-    flex-basis: calc(calc(var(--this-col-width-internal) * 8.33%) - var(--gap));
-    width: calc(calc(var(--this-col-width-internal) * 8.33%) - var(--gap));
-    min-width: min-content;
+    flex-basis: calc(var(--this-col-width-internal) * 8.33%);
+    width: calc(var(--this-col-width-internal) * 8.33%);
+    margin-inline-end: 0px;
 
-    &:is(.nogaps>*) {
-        flex-basis: calc(var(--this-col-width-internal) * 8.33%);
-        width: calc(var(--this-col-width-internal) * 8.33%);
-        margin-inline-end: 0px;
+
+
+    /*Img and video would become 1:1 pixel style*/
+    &:not(img, video) {
+        min-width: min-content;
+    }
+
+    &:is(.gaps>*) {
+        flex-grow: var(--this-col-width-internal);
+        flex-basis: calc(calc(var(--this-col-width-internal) * 8.33%) - var(--gap));
+        width: calc(calc(var(--this-col-width-internal) * 8.33%) - var(--gap));
     }
 }
 
@@ -1320,8 +1332,24 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     width: 6rem;
 }
 
+.w-8rem {
+    width: 8rem;
+}
+
 .w-12rem {
     width: 12rem;
+}
+
+.w-16rem {
+    width: 16rem;
+}
+
+.w-18rem {
+    width: 18rem;
+}
+
+.w-20rem {
+    width: 20rem;
 }
 
 .w-24rem {
@@ -1349,8 +1377,24 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     max-height: 6rem;
 }
 
+.max-h-8rem {
+    max-height: 8rem;
+}
+
 .max-h-12rem {
     max-height: 12rem;
+}
+
+.max-h-16rem {
+    max-height: 16rem;
+}
+
+.max-h-18rem {
+    max-height: 18rem;
+}
+
+.max-h-20rem {
+    max-height: 20rem;
 }
 
 .max-h-24rem {
@@ -1387,13 +1431,43 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     min-height: 6rem;
 }
 
+.min-h-8rem {
+    min-height: 8rem;
+}
+
 .min-h-12rem {
     min-height: 12rem;
+}
+
+.min-h-16rem {
+    min-height: 16rem;
+}
+
+.min-h-18rem {
+    min-height: 18rem;
+}
+
+.min-h-20rem {
+    min-height: 20rem;
 }
 
 .min-h-24rem {
     min-height: 24rem;
 }
+
+.min-h-36rem {
+    min-height: 36rem;
+}
+
+.min-h-48rem {
+    min-height: 48rem;
+}
+
+.min-h-60rem {
+    min-height: 60rem;
+}
+
+
 
 .h-1rem {
     height: 1rem;
@@ -1411,8 +1485,20 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     height: 6rem;
 }
 
+.h-8rem {
+    height: 8rem;
+}
+
 .h-12rem {
     height: 12rem;
+}
+
+.h-16rem {
+    height: 16rem;
+}
+
+.h-18rem {
+    height: 18rem;
 }
 
 .h-24rem {
@@ -1429,6 +1515,10 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 .h-60rem {
     height: 60rem;
+}
+
+.h-min-content {
+    height: min-content;
 }
 
 .flex-col,
@@ -1449,8 +1539,21 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
         flex-basis: 6rem;
     }
 
+    &>.h-8rem {
+        flex-basis: 8rem;
+    }
+
+
     &>.h-12rem {
         flex-basis: 12rem;
+    }
+
+    &>.h-16rem {
+        flex-basis: 16rem;
+    }
+
+    &>.h-18rem {
+        flex-basis: 16rem;
     }
 
     &>.h-24rem {
@@ -1488,8 +1591,24 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
         flex-basis: 6rem;
     }
 
+    &>.w-8rem {
+        flex-basis: 8rem;
+    }
+
     &>.w-12rem {
         flex-basis: 12rem;
+    }
+
+    &>.w-16rem {
+        flex-basis: 16rem;
+    }
+
+    &>.w-18rem {
+        flex-basis: 18rem;
+    }
+
+    &>.w-20rem {
+        flex-basis: 18rem;
     }
 
     &>.w-24rem {
@@ -1563,7 +1682,6 @@ iframe.h-center {
 
     &>:not(.specificity_hack) {
         margin: 0px;
-
         margin-block-end: 0px;
     }
 }
@@ -2061,6 +2179,9 @@ footer.padding {
 
 }
 
+.flex-col>.tool-bar {
+    flex-grow: 0;
+}
 
 
 
