@@ -147,6 +147,9 @@ Set flex gap to zero, set all children to have zero margins.
 
 The element is a scroll box. It will stay smaller than the viewport, and show scrollbars for content within.
 
+### .relative
+position: relative
+
 ### .inline
 Makes an element inline.  When combined with .block gives inline block. 
 When combined with .flex, gives .inline-flex.
