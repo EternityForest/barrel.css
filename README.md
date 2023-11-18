@@ -1,7 +1,10 @@
 # barrel.css
 A CSS Framework aiming to be as opinionated as possible for maximum restyling possibilities.
 
-It is a combination of classless styles, a mix of high and low level utilities, and a tiny selection of components.
+It is a combination of classless styles, a mix of high and low level utilities, and a tiny selection of components.  Unlike utility-first frameworks, we don't have millions of styles for every possible color and size.  
+
+You do as much as you can semantically, and fill in the rest with semi-semantic classes. There are classes like .margin-bottom, letting the theme decide how much margin, not specific things like .margin-bottom-3px.
+
 
 It supports automatic dark/light theme switching with the system preference, desktop, mobile, and also aims to work as well as possible in print media, especially if you use extra hint classes.
 
@@ -170,7 +173,10 @@ Add padding just to bottom.  Useful for fixing scrollbar showing up
 when not needed.
 
 ### .margin
-The element will have a reasonable theme dependent amount of margin.
+The element will have a reasonable theme dependent amount of margin(Determined by --gap).
+
+### .margin-top, .margin-bottom
+Add margin to the top or bottom of an element.
 
 ### .align-left, .align-center, .align-right
 These apply to both text content, and flex items.

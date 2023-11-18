@@ -1729,6 +1729,14 @@ footer.padding {
     margin: var(--gap);
 }
 
+.margin-top {
+    margin-bottom: var(--gap);
+}
+
+.margin-bottom {
+    margin-bottom: var(--gap);
+}
+
 .nomargin {
     margin: 0px;
 }
