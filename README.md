@@ -86,8 +86,14 @@ May be located anywhere. Themes will usually join all the items together.  It is
 
 Inputs and meters should be inside of labels.
 
+
+### .pagination
+
+Following Bootstrap's example, use this on a UL to make it show a list of pages.
+Displays much like a tool-bar.  Use a wrapping nav for accessibility.
+
 ### .spacer
-Use on a child of tool-bar to make it take up remaining space.
+Use on a child of tool-bar or pagination to make it take up remaining space.
 
 ### .card
 
