@@ -190,7 +190,12 @@ dd {
         --graphical-fg: grey !important;
         --concave-item-box-shadow: none !important;
         --heading-font: var(--sans-font) !important;
-        --hover-color: transparent;
+        --hover-color: transparent !important;
+        --heading-text-shadow: none !important;
+        --control-text-shadow: none !important;
+        --border-color: black !important;
+        --item-box-shadow: none !important;
+        --window-box-shadow: none !important
     }
 
     * {
@@ -340,13 +345,20 @@ canvas {
 
 
 
+@media screen {
+
+    dl,
+    ul,
+    ol {
+        &:not(.tool-bar, .nomargin) {
+            margin: var(--padding);
+        }
+    }
+}
+
 dl,
 ul,
 ol {
-    &:not(.tool-bar) {
-        margin: var(--padding);
-    }
-
     &:is(.tool-bar) {
         padding: 0px;
     }
@@ -354,6 +366,7 @@ ol {
 
 dt {
     margin-block-end: var(--padding);
+    break-after: avoid;
 }
 
 li,
@@ -1008,6 +1021,11 @@ header:not(.undecorated) .tool-bar {
     column-count: 2;
     column-fill: auto;
     break-inside: avoid;
+    column-gap: var(--gap);
+}
+
+.balance-columns {
+    column-fill: balance;
 }
 
 .pagebreak {
@@ -1750,6 +1768,10 @@ footer.padding {
 
 .nomargin {
     margin: 0px;
+}
+
+.margin-indent {
+    margin-inline-start: var(--gap);
 }
 
 /*This user added margin is likely unwanted on tiny screens where*/
@@ -2563,7 +2585,6 @@ input[type="checkbox"].toggle {
         border: var(--control-border);
         left: var(--slider-position);
         top: var(--control-border-width);
-        vertical-align: middle;
         border-radius: 50px;
         margin: 0px;
         padding: 0px;
@@ -2623,11 +2644,6 @@ label {
     .tool-bar input[type='range']:hover,
     .tool-bar label:hover {
         background: var(--hover-color);
-    }
-
-
-    label:hover {
-        color: var(--accent-color);
     }
 
 }
