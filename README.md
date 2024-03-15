@@ -62,6 +62,10 @@ Levels of badness that should make text red and such.
 
 ## Components
 
+### [v-cloak], [x-cloak]
+Elements with the v-cloak or x-cloak attribute display as a spinner, for compatibility
+with Vue and Alpine.
+
 ### .toggle
 Apply this directly to a checkbox element to style it as a slide toggle.
 
