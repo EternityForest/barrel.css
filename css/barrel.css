@@ -60,14 +60,15 @@ dd {
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
-    --red: #b92020;
-    --yellow: #cea916;
+    --red: #e03131;
+    --yellow: #ffd43b;
     --green: rgb(0, 158, 0);
-    --teal: rgb(116 174 174);
-    --blue: rgb(95 111 161);
-    --purple: rgb(161, 95, 141);
-
+    --teal: rgb(102, 190, 179);
+    --blue: rgb(81, 104, 173);
+    --purple: rgb(182, 80, 151);
     --dark-blue: rgb(40 55 102);
+
+
 
     --scrollbar-width: 14px;
 
@@ -189,12 +190,13 @@ dd {
         --graphical-fg: grey !important;
         --concave-item-box-shadow: none !important;
         --heading-font: var(--sans-font) !important;
-        --hover-color: transparent !important;
-        --heading-text-shadow: none !important;
-        --control-text-shadow: none !important;
-        --border-color: black !important;
+        --hover-color: transparent  !important;
+        --heading-text-shadow: none  !important;
+        --control-text-shadow: none  !important;
+        --border-color: black  !important;
         --item-box-shadow: none !important;
         --window-box-shadow: none !important
+
     }
 
     * {
@@ -328,6 +330,7 @@ body {
     color: var(--fg);
     /* Disables pull-to-refresh but allows overscroll glow effects. */
     overscroll-behavior-y: contain;
+    overscroll-behavior-x: contain;
 }
 
 /*Classless styles */
@@ -345,11 +348,10 @@ canvas {
 
 
 @media screen {
-
     dl,
     ul,
     ol {
-        &:not(.tool-bar, .nomargin) {
+        &:not(.tool-bar, .nomargin){
             margin: var(--padding);
         }
     }
@@ -358,7 +360,7 @@ canvas {
 dl,
 ul,
 ol {
-    &:is(.tool-bar) {
+    &:is(.tool-bar){
         padding: 0px;
     }
 }
@@ -413,11 +415,11 @@ form {
 label {
     color: var(--control-fg);
     min-width: max-content;
-    padding-inline-start: var(--padding);
+    padding-inline-start: calc(var(--padding)/2);
 
     &>input[type=checkbox]:first-child,
     &>input[type=radio]:first-child {
-        margin-inline-end: var(--padding);
+        margin-inline-end: calc(var(--padding) / 2);
     }
 }
 
@@ -464,6 +466,9 @@ details {
     border: var(--border);
     padding-left: 0.4em;
     border-radius: var(--border-radius);
+    &>summary{
+        padding-left: calc(var(--border-radius) / 2);
+    }
 }
 
 details.help {
@@ -540,6 +545,8 @@ button,
 input,
 select {
     min-height: calc(min(var(--control-height), 100%));
+    width: fit-content;
+    flex-basis: min-content;
     /*Don't set button height, remember they can be multiine*/
 }
 
@@ -617,6 +624,9 @@ dd {
 
 /*Headings and lines */
 
+h1{
+    text-align: center;
+}
 h1,
 h2,
 h3,
@@ -646,7 +656,6 @@ h3,
 h4 {
     margin-bottom: var(--padding);
     margin-top: var(--padding);
-    text-align: center;
     padding-inline-end: var(--header-padding);
     padding-inline-start: var(--header-padding);
     text-shadow: var(--heading-text-shadow);
@@ -713,7 +722,6 @@ header {
     }
 
     &:not(.undecorated) {
-
         &>:only-child,
         &>:only-child>:only-child,
         & :is(h1, h2, h3, h4, h5, h6)>button {
@@ -787,8 +795,7 @@ header {
     border: var(--border);
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 
@@ -988,6 +995,24 @@ table {
     border-color: var(--border-color);
 }
 
+/*From the old geocities size*/
+.badge-88{
+    width: 88px;
+    height: 31px;
+    border-radius: 6px;
+    font-size: 12pt;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+    background-color: var(--control-bg);
+    border-color: var(--graphical-fg);
+    vertical-align: center;
+    & p{
+        margin: 0px;
+        padding: 2px;
+    }
+}
+
 /*This handles the old style "section box", but also top level HTML section elements. It's basicattly for independant sections of content.*/
 .window {
     background: var(--box-bg);
@@ -1021,8 +1046,7 @@ header:not(.undecorated) .tool-bar {
     break-inside: avoid;
     column-gap: var(--gap);
 }
-
-.balance-columns {
+.balance-columns{
     column-fill: balance;
 }
 
@@ -1071,9 +1095,15 @@ header:not(.undecorated) .tool-bar {
         margin-inline-end: var(--padding);
     }
 
+    & :is(textarea) {
+        width: 100%;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
     &>:is(p, div, section),
     &>fieldset>:is(p, div, section) {
-        &:not(.tool-bar) {
+        &:not(.tool-bar){
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -1099,9 +1129,13 @@ header:not(.undecorated) .tool-bar {
         flex-grow: 0;
         padding: 0px;
 
-        &>:is(input:not(input[type=radio], input[type=checkbox]), select) {
+        &>:is(input:not(input[type=radio], input[type=checkbox])) {
             width: 100%;
             max-width: 100%;
+        }
+
+        &>:is(select) {
+            max-width: max-content;
         }
 
         &:has(input[type="radio"], input[type="checkbox"]) {
@@ -1171,8 +1205,7 @@ it usable.  Remove when FF fully supports :has()*/
 .flex-col footer,
 .flex-col header {
     flex-grow: 0;
-
-    &:not(.margin-bottom) {
+    &:not(.margin-bottom){
         margin-block-end: 0px;
     }
 }
@@ -1605,6 +1638,10 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     &>.h-60rem {
         flex-basis: 60rem;
     }
+
+    &>.h-min-content {
+        flex-basis: min-content;
+    }
 }
 
 
@@ -1648,6 +1685,10 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
     &>.w-24rem {
         flex-basis: 24rem;
     }
+
+    &>.w-min-content {
+        flex-basis: min-content;
+    }
 }
 
 
@@ -1665,6 +1706,10 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 .paper {
     background: var(--box-bg);
+}
+
+.outline-text{
+    text-shadow: 0px 0px 1px var(--control-bg);
 }
 
 /*Don't let people use non-pre elements or they
@@ -1768,7 +1813,7 @@ footer.padding {
     margin: 0px;
 }
 
-.margin-indent {
+.margin-indent{
     margin-inline-start: var(--gap);
 }
 
@@ -1915,7 +1960,6 @@ footer.padding {
 .highlight:not(.specificity_hack),
 .success:not(.specificity_hack),
 .warning:not(.specificity_hack) {
-
     &:not(meter),
     & :is(input, button, textarea, select, .button) {
         --control-bg: var(--highlight-tint);
@@ -1962,8 +2006,7 @@ footer.padding {
     width: unset;
 }
 
-.tool-bar,
-.pagination {
+.tool-bar, .pagination{
     --tool-bar-element-border: var(--control-border);
     --header-padding: 0px;
     flex-basis: max-content;
@@ -1982,6 +2025,9 @@ footer.padding {
     gap: 0px;
     line-height: calc(var(--control-height) - calc(var(--control-border-width) * 2 + 1px));
 
+    &>*{
+        text-wrap: nowrap;
+    }
     /*Undo any effect something else set on convex elements for consistency*/
     & :is(button, .button) {
         box-shadow: none;
@@ -1990,7 +2036,7 @@ footer.padding {
 
 
 
-    &>li {
+    & > li{
         display: inline;
     }
 
@@ -2074,9 +2120,11 @@ footer.padding {
     }
 
     & p {
-        padding-inline-start: var(--padding);
-        padding-inline-end: var(--padding);
-        padding-top: 1px;
+        &:not(:has(input)){
+            padding-inline-start: var(--padding);
+            padding-inline-end: var(--padding);
+            padding-top: 1px;
+        }
         min-width: fit-content;
         display: flex;
         flex-grow: 2;
@@ -2139,12 +2187,12 @@ footer.padding {
     /*repeat here, specificity issue*/
     & input[type="checkbox"].toggle {
         width: calc(var(--control-height) * 1.77) !important;
+        min-width: calc(var(--control-height) * 1.77) !important;
     }
 
 
 
-    &>label,
-    li {
+    &>label,li {
         margin: 0px;
         padding-top: 0px;
         padding-bottom: 0px;
@@ -2210,8 +2258,8 @@ footer.padding {
 
     }
 
-    &> :is(a, .button, li, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):last-child,
-    & :is(a, .button, li, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i) {
+    &> :is(a, .button,li, select, p, h1, h2, h3, h4, h5, h6, label, input, meter, button, .input-group-append):last-child,
+    & :is(a, .button, li, select, p, h1, h2, h3, h4, h5, h6, label, meter, button, form, .input-group-append):last-child :last-child:not(i):not(.toggle) {
         border-radius: 0px var(--control-border-radius) var(--control-border-radius) 0px;
         margin-inline-end: 0px;
     }
@@ -2573,6 +2621,8 @@ input[type='checkbox']:not(.toggle) {
 input[type="checkbox"].toggle {
     border-radius: 50px;
     width: calc(var(--control-height) * 1.77) !important;
+    min-width: calc(var(--control-height) * 1.77) !important;
+
     --slider-position: var(--control-border-width);
 
     &:checked {
@@ -2676,8 +2726,7 @@ label {
     }
 }
 
-[v-cloak]:before,
-[x-cloak]:before {
+[v-cloak]:before,[x-cloak]:before {
     content: "";
     box-sizing: border-box;
     position: absolute;
@@ -2696,7 +2745,6 @@ label {
     overflow: hidden;
 }
 
-[v-cloak]>*,
-[x-cloak]>* {
+[v-cloak]>*, [x-cloak]>* {
     display: none !important;
 }
