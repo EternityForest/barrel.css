@@ -1264,6 +1264,12 @@ it usable.  Remove when FF fully supports :has()*/
         flex-basis: calc(calc(var(--this-col-width-internal) * 8.33%) - var(--gap));
         width: calc(calc(var(--this-col-width-internal) * 8.33%) - var(--gap));
     }
+
+    &.margin {
+        flex-grow: var(--this-col-width-internal);
+        flex-basis: calc(calc(var(--this-col-width-internal) * 8.33%) - calc(var(--gap) * 2));
+        width: calc(calc(var(--this-col-width-internal) * 8.33%) - calc(var(--gap) * 2));
+    }
 }
 
 
