@@ -111,6 +111,11 @@ Make a link look like it's a button.
 All child paragraphs have centered text and preserved white space, display centered, generally make
 a pre look nice for poetry.
 
+### led led-red
+
+Use this on a checkbox type input to make an inducator LED. Available colors
+are red, yellow, green, blue, cyan, purple
+
 ## Utilities
 
 ### .round-feathered
@@ -291,14 +296,15 @@ Note that the base color definitinons change in dark theme.
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
 
-    --red: #b92020;
-    --yellow: #cea916;
+    --red: #e03131;
+    --yellow: #ffd43b;
     --green: rgb(0, 158, 0);
-    --teal: rgb(116 174 174);
-    --blue: rgb(95 111 161);
-    --purple: rgb(161, 95, 141);
-
+    --teal: rgb(102, 190, 179);
+    --blue: rgb(81, 104, 173);
+    --purple: rgb(182, 80, 151);
     --dark-blue: rgb(40 55 102);
+
+
 
     --scrollbar-width: 14px;
 
@@ -317,13 +323,15 @@ Note that the base color definitinons change in dark theme.
 
     /*typography*/
 
-    --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --sans-font: font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --serif-font: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
     --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 
     --main-font: var(--sans-font);
     --font-size: 18px;
+    --line-height: calc(2px + 18px + 2px + 4px);
     --heading-font: var(--main-font);
+    --control-font: var(--main-font);
 
     /*Spacing*/
     --padding: 12px;
@@ -346,23 +354,30 @@ Note that the base color definitinons change in dark theme.
     --control-fg: var(--graphical-fg);
 
 
-    --3d-highlight: color-mix(in srgb, var(--control-bg) 25%, rgba(241, 241, 241, 100%));
-    --3d-shadow: color-mix(in srgb, var(--control-bg) 98%, rgba(0, 0, 0, 100%));
+    /*Used for the convex and concave*/
+    --3d-highlight: color-mix(in srgb, var(--control-bg) 62%, rgba(241, 241, 241, 100%));
+    --3d-shadow: color-mix(in srgb, var(--control-bg) 96%, rgba(0, 0, 0, 100%));
 
-    --concave-item-bg: linear-gradient(180deg, var(--3d-shadow) 3%, var(--3d-highlight) 45%);
-    --convex-item-bg: linear-gradient(180deg, var(--3d-highlight) 0%, var(--3d-shadow) 96%);
-    --convex-item-active-bg: var(--concave-item-bg);
-    --concave-item-box-shadow: inset 0px 0px 4px 2px #38383815;
+    /*Concave than convex BG needs to be less intense than other shadows
+    because we stack it with the inset shadow
+    Also, we usually don't want it to be that extremely concave
+    */
+    --concave-shadow: color-mix(in srgb, var(--3d-shadow) 40%, var(--control-bg));
+    --concave-highlight: color-mix(in srgb, var(--3d-highlight) 60%, var(--control-bg));
+
+    --concave-item-bg: linear-gradient(180deg, var(--concave-shadow) 4px, var(--concave-highlight) 43%);
+    --convex-item-bg: linear-gradient(180deg, var(--concave-highlight) 0%, var(--concave-shadow) 96%);
+    --convex-item-active-bg: linear-gradient(180deg, color-mix(in srgb, var(--concave-shadow) 90%, var(--control-fg)) 3%, color-mix(in srgb, var(--3d-highlight) 90%, var(--control-fg)) 45%);
+    --concave-item-box-shadow: inset 0px 0px 4px 2px color-mix(in srgb, var(--fg) 7%, transparent);
 
 
     /*Used for headers, trays, and anything smaller than a box and bigger than a button*/
     --alt-control-bg: color-mix(in srgb, var(--control-bg) 90%, #816e23);
     /*#e1dfd7*/
 
-    --window-box-shadow: none;
-
+    --window-box-shadow: rgb(0 0 0 / 15%) 1px 5px 12px -3px;
     /*Used for tool bars and cards*/
-    --item-box-shadow: none;
+    --item-box-shadow: 1px 2px 8px -3px rgba(0, 0, 0, 0.1);
 
     /*Below this line you probably don't need to change stuff*/
     /* fg color for warning and danger */
@@ -371,7 +386,7 @@ Note that the base color definitinons change in dark theme.
     --warning-color: var(--yellow);
     --danger-color: var(--red);
 
-    --hover-color: color-mix(in srgb, var(--highlight-color) 30%, transparent);
+    --hover-color: color-mix(in srgb, var(--highlight-color) 30%, var(--control-bg));
 
     --control-border-color: color-mix(in srgb, var(--graphical-fg) 35%, rgb(0 0 0 / 0%));
 
@@ -385,7 +400,6 @@ Note that the base color definitinons change in dark theme.
     --heading-text-shadow: none;
     --control-text-shadow: none;
     --slider-thumb: var(--convex-item-bg);
-}
 ```
 
 ## The Color System
