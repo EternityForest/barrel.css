@@ -401,6 +401,11 @@ p {
 /*Stack labels on the form elements*/
 label>:is(input:not(input[type=radio], input[type=checkbox]), select, button, div) {
     display: block;
+
+    &.flex-row,
+    &.flex-column {
+        display: flex;
+    }
 }
 
 label:has(*) {
@@ -2613,6 +2618,12 @@ input[type="radio"] {
 }
 
 
+.numval,
+input[type="number"] {
+    font-family: Fira Code, monospace;
+
+}
+
 input[type='checkbox'].led {
     border-radius: 50%;
     margin: 0px 0px;
@@ -2789,7 +2800,8 @@ label {
 
 /* Loading spinner */
 
-[v-cloak] {
+[v-cloak],
+[x-cloak] {
     display: block;
     padding: 50px 0;
 }
