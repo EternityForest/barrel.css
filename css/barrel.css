@@ -310,6 +310,7 @@ main {
     margin: auto;
     width: calc(min(45em, 100vw, 100%));
     max-width: 100%;
+    min-width: min-content
 }
 
 html {
@@ -1741,6 +1742,10 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 .outline-text {
     text-shadow: 0px 0px 1px var(--control-bg);
+}
+
+pre {
+    width: fit-content;
 }
 
 /*Don't let people use non-pre elements or they
