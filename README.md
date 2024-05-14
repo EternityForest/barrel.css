@@ -147,6 +147,10 @@ Remove borders, backgrounds, shadows, and backdrop filters.
 
 Puts a border on the element, with the usual width, color, and radius.
 
+### .noselect
+
+Don't allow selecting the text. Use sparingly. People mostly don't like this.
+
 ### .flex-row
 Makes a class into a flex container. It will wrap, and have row orientation with margin between elements.
 The theme is allowed to do whatever else it wants here to make items look nice, it assumes you're doing something
