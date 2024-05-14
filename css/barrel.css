@@ -99,7 +99,7 @@ dd {
 
     /*Spacing*/
     --padding: 8px;
-    --gap: 18px;
+    --gap: 12px;
 
     /*Borders*/
     --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
