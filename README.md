@@ -241,11 +241,15 @@ have no trouple remembering.
 
 Sets height and flex-basis(Only for children of flex-col), max still grow or shrink.
 
+### .max-w-1rem to .max-w-60rem
+Can be 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets max-width
+
+
 ### .max-h-1rem to .max-h-60rem
-Can be e 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets max-height
+Can be 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets max-height
 
 ### .min-h-1rem to .min-h-24rem
-Can be e 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets min-height
+Can be 1,2,4,6,8, 12, 16, 18, 20, 24,36,48 and 60, sets min-height
 
 ### .h-min-content
 height: min-content
@@ -436,6 +440,11 @@ Used for text areas, plus buttons and inputs when displaying flat. Also used as 
 
 ### control-fg
 This color is used for buttons and text inputs, and also small indicators and table headings.
+
+### contrasting-bg-color
+
+Normally control-bg, but if you ever set control-bg to something other than a solid color, set this to something that gives approproate contrast with fg. Must not be transparent.
+
 
 
 ### 3D colors
