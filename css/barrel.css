@@ -1193,6 +1193,10 @@ it usable.  Remove when FF fully supports :has()*/
     flex-wrap: nowrap;
     flex-direction: column;
 
+    &>hr {
+        flex-grow: 0;
+    }
+
     /*Nicer input stacking*/
     &>label:has(+input) {
         margin-block-end: 4px;
