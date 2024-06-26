@@ -312,7 +312,7 @@ main {
     margin: auto;
     width: calc(min(45em, 100vw, 100%));
     max-width: 100%;
-    min-width: calc(min(min-content, 100vw));
+    min-width: calc(min(min-content,100vw));
 }
 
 html {
@@ -594,6 +594,7 @@ select {
 
 select {
     padding: 3px;
+    padding-bottom: 0px;
 }
 
 
@@ -948,7 +949,6 @@ table {
     /* bottom-left border-radius */
     &:not(:has(tfoot)) {
 
-        &>thead>tr:last-child>:first-child:is(td, th),
         &>tbody>tr:last-child>:first-child:is(td, th) {
             border-bottom-left-radius: var(--border-radius);
         }
@@ -1192,8 +1192,7 @@ it usable.  Remove when FF fully supports :has()*/
     and in behaves badly in edge cases, so no wrap*/
     flex-wrap: nowrap;
     flex-direction: column;
-
-    &>hr {
+    &>hr{
         flex-grow: 0;
     }
 
@@ -1356,7 +1355,6 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 .w-sm-quarter {
     width: 80px;
     max-width: calc(min(160px, 25vw));
-
     &:is(.margin) {
         max-width: calc(calc(min(160, 25vw)) - calc(var(--gap) * 2));
     }
@@ -1801,23 +1799,23 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
         flex-shrink: 1;
         flex-grow: 1;
     }
-
+    
     .w-sm-quarter {
         flex-basis: 70px;
     }
-
+    
     .w-sm-half {
         flex-basis: 160px;
         flex-grow: 1;
-
+    
     }
-
+    
     .w-sm-double {
         flex-basis: 16cm;
         flex-shrink: 1;
         flex-grow: 1;
     }
-
+    
 }
 
 
@@ -1839,10 +1837,10 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
 
 .readability-outline {
     text-shadow:
-        2px 2px 2px var(--contrasting-bg-color),
-        -2px 2px 3px var(--contrasting-bg-color),
-        -2px -2px 3px var(--contrasting-bg-color),
-        2px -2px 2px var(--contrasting-bg-color)
+    2px 2px 2px var(--contrasting-bg-color),
+    -2px 2px 3px var(--contrasting-bg-color),
+    -2px -2px 3px var(--contrasting-bg-color),
+    2px -2px 2px var(--contrasting-bg-color)
 }
 
 

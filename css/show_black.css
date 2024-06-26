@@ -28,6 +28,8 @@
 
     --3d-highlight: var(--control-bg);
     --3d-shadow: var(--control-bg);
+    --contrasting-bg: black;
+
 }
 
 * {
