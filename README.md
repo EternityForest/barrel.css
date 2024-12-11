@@ -118,6 +118,10 @@ are red, yellow, green, blue, cyan, purple
 
 ## Utilities
 
+### .break-word
+
+Force wrapping even in the middle of words.
+
 ### .round-feathered
 
 Make an image smoothly fade out around the edges.
