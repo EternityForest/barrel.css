@@ -142,7 +142,10 @@ Do not print this element.
 The background color of this and child elements are meaningful, don't remove them when printing.
 
 ### .rounded
-Round the corners with the default global border-radius.
+Round the corners with the default global border-radius..
+
+### .control-rounded
+Round with the control border radius same as a button.
 
 ### .undecorated
 Remove borders, backgrounds, shadows, and backdrop filters.
@@ -154,6 +157,10 @@ Puts a border on the element, with the usual width, color, and radius.
 ### .noselect
 
 Don't allow selecting the text. Use sparingly. People mostly don't like this.
+
+### .selectable
+
+Always allow selection even if it's not normally selectable.
 
 ### .flex-row
 Makes a class into a flex container. It will wrap, and have row orientation with margin between elements.
@@ -194,6 +201,9 @@ The element will have a reasonable theme dependent amount of padding.
 ### .padding-bottom
 Add padding just to bottom.  Useful for fixing scrollbar showing up
 when not needed.
+
+### .padding-inline
+Padding to left and right
 
 ### .margin
 The element will have a reasonable theme dependent amount of margin(Determined by --gap).
