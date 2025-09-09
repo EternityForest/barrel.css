@@ -424,6 +424,13 @@ dt {
   break-after: avoid;
 }
 
+ul:not(:has(li:nth-last-child(n + 12))),
+ol:not(:has(li:nth-last-child(n + 12))),
+dl:not(:has(li:nth-last-child(n + 5))) {
+  break-inside: avoid;
+}
+
+
 li,
 dd,
 dt {
@@ -547,6 +554,7 @@ td details {
 button {
   border-style: solid;
   color: var(--control-fg);
+    transition: scale 0.05s ease-in; /* Transition duration and timing function */
 }
 
 button:active,
@@ -555,6 +563,8 @@ input:is([type="submit"], [type="button"]):active {
   background: var(--convex-item-active-bg) !important;
   box-shadow: var(--concave-item-box-shadow) !important;
   color: var(--control-fg);
+  scale: 0.95;
+  transition: scale 0.03s ease-in; /* Transition duration and timing function */
 }
 
 summary h2:first-child {
@@ -722,6 +732,10 @@ h4 {
   padding-inline-end: var(--header-padding);
   padding-inline-start: var(--header-padding);
   text-shadow: var(--heading-text-shadow);
+}
+
+h1, h2, h3 ,h4, h5, h6 {
+  break-after: avoid;
 }
 
 h2:first-of-type,
@@ -3075,7 +3089,7 @@ input[type="checkbox"].toggle {
 i[class],
 button i[class] {
   color: var(--graphical-fg);
-  vertical-align: text-top;
+  vertical-align: middle;
 }
 
 /*Animation and behavior*/
