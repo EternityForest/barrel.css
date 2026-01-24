@@ -110,13 +110,13 @@ dd {
   /*Borders*/
   --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
   --border-style: solid;
-  --border-radius: 1.2rem;
+  --border-radius: 0.6rem;
   --border-width: 1px;
 
   --border: var(--border-width) var(--border-style) var(--border-color);
   /*Inputs, buttons, etc*/
   --control-height: 1.6rem;
-  --control-border-radius: 0.8rem;
+  --control-border-radius: 0.5rem;
   --control-border-width: 1px;
 
   /*control-bg also applies to small elements like headers*/
