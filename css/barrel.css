@@ -98,14 +98,14 @@ dd {
     monospace;
 
   --main-font: var(--sans-font);
-  --font-size: 18px;
-  --line-height: calc(2px + 18px + 2px + 4px);
+  --font-size: 1rem;
+  --line-height: calc(2px + 1rem + 2px + 4px);
   --heading-font: var(--main-font);
   --control-font: var(--main-font);
 
   /*Spacing*/
-  --padding: 8px;
-  --gap: 12px;
+  --padding: 0.25rem;
+  --gap: 0.4rem;
 
   /*Borders*/
   --border-color: color-mix(in srgb, var(--graphical-fg) 50%, rgb(0 0 0 / 0%));
