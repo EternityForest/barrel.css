@@ -317,6 +317,7 @@ Note that the base color definitinons change in dark theme.
     --grey-1: #e1ded7;
     --grey-2: #f1f1f1;
     --grey-3: #F8F9FA;
+    --grey-4: #fafafa;
 
     --red: #e03131;
     --yellow: #ffd43b;

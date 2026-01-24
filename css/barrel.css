@@ -60,6 +60,7 @@ dd {
   --grey-1: #e1ded7;
   --grey-2: #f1f1f1;
   --grey-3: #f8f9fa;
+  --grey-4: #fafafa;
 
   --red: #e03131;
   --yellow: #ffd43b;
@@ -570,6 +571,7 @@ input:is([type="submit"], [type="button"]):active {
 summary h2:first-child {
   display: inline;
 }
+
 
 blockquote {
   white-space: pre-line;
@@ -1130,6 +1132,66 @@ header:not(.undecorated) .tool-bar {
   width: min-content;
   height: min-content;
   flex-basis: min-content;
+}
+
+.accordion details[open] summary::before {
+      transform: rotate(90deg);
+  }
+.accordion{
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+
+  summary::before {
+    content: "▶ ";
+    font-size: 10px;
+    margin-right: 4px;
+    display: inline-block;
+    transition: transform 0.2s;
+    vertical-align: bottom;
+  }
+
+  details:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+  details:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  details:not(:first-child) {
+    border-top: 1px solid var(--border-color);
+  }
+  details:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+
+  details {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    overflow: auto;
+    border-radius: 0px;
+    border: none;
+    summary {
+      padding: 8px;
+      background: var(--alt-control-bg);
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--control-fg);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+      list-style: none;
+    }
+  }
 }
 
 .stacked-form {
