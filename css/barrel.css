@@ -79,6 +79,7 @@ dd {
 
   /*Headings, links, etc*/
   --accent-color: var(--dark-blue);
+
   /*Main page bg*/
   --bg: var(--grey-1);
   /*.paper, items*/
@@ -2233,6 +2234,10 @@ footer.padding {
   --fg: var(--warning-fg);
   --graphical-fg: var(--warning-fg);
   color: var(--fg);
+}
+
+.subtle{
+  opacity: 0.5;
 }
 
 .error:not(.specificity_hack),
