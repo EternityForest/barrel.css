@@ -406,7 +406,7 @@ audio {
   dl,
   ul,
   ol {
-    &:not(.tool-bar, .nomargin) {
+    &:not(.tool-bar, .nomargin, .no-margin) {
       margin: var(--padding);
     }
   }
@@ -571,7 +571,6 @@ input:is([type="submit"], [type="button"]):active {
 summary h2:first-child {
   display: inline;
 }
-
 
 blockquote {
   white-space: pre-line;
@@ -1052,6 +1051,77 @@ table {
   border-color: var(--border-color);
 }
 
+
+
+.accordion details[open] summary::before {
+      transform: rotate(90deg);
+  }
+.accordion{
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+
+  summary::before {
+    content: "▶ ";
+    font-size: 10px;
+    margin-right: 4px;
+    display: inline-block;
+    transition: transform 0.2s;
+    vertical-align: bottom;
+  }
+
+  details:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+  details:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  details:not(:first-child) {
+    border-top: 1px solid var(--border-color);
+  }
+  details:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  details:not([open]){
+    flex-grow: 0;
+    flex-basis: min-content;
+    overflow: hidden;
+  }
+
+  details[open]{
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  details {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    overflow: auto;
+    border-radius: 0px;
+    border: none;
+    summary {
+      padding: 8px;
+      background: var(--alt-control-bg);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--control-fg);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+      list-style: none;
+    }
+  }
+}
+
+
 /*From the old geocities size*/
 .badge-88 {
   width: 88px;
@@ -1111,12 +1181,13 @@ header:not(.undecorated) .tool-bar {
   break-before: always;
 }
 
-.nobreaks {
+.nobreaks,.no-breaks {
   break-inside: avoid;
 }
 
 @media print {
-  .noprint {
+  .noprint,
+  .no-print {
     display: none;
   }
 }
@@ -1132,66 +1203,6 @@ header:not(.undecorated) .tool-bar {
   width: min-content;
   height: min-content;
   flex-basis: min-content;
-}
-
-.accordion details[open] summary::before {
-      transform: rotate(90deg);
-  }
-.accordion{
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
-  display: flex;
-  flex-direction: column;
-
-  summary::before {
-    content: "▶ ";
-    font-size: 10px;
-    margin-right: 4px;
-    display: inline-block;
-    transition: transform 0.2s;
-    vertical-align: bottom;
-  }
-
-  details:first-child {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-  }
-  details:last-child {
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-  }
-
-  details:not(:first-child) {
-    border-top: 1px solid var(--border-color);
-  }
-  details:not(:last-child) {
-    border-bottom: 1px solid var(--border-color);
-  }
-
-
-  details {
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 0%;
-    overflow: auto;
-    border-radius: 0px;
-    border: none;
-    summary {
-      padding: 8px;
-      background: var(--alt-control-bg);
-      border-bottom: 1px solid var(--border-color);
-      font-weight: 600;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: var(--control-fg);
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.2s;
-      list-style: none;
-    }
-  }
 }
 
 .stacked-form {
@@ -1948,6 +1959,11 @@ A little smaller in flex to allow for expansion or fitting lots on a row*/
   background: var(--box-bg);
 }
 
+.no-background {
+  background: transparent !important;
+}
+
+
 .readability-outline {
   text-shadow:
     2px 2px 2px var(--contrasting-bg-color),
@@ -2002,7 +2018,8 @@ iframe.h-center {
   border: var(--border);
 }
 
-.noselect {
+
+.noselect, .no-select {
   user-select: none;
 }
 
@@ -2010,7 +2027,7 @@ iframe.h-center {
   user-select: auto !important;
 }
 
-.nogaps {
+.nogaps, .no-gaps {
   gap: 0px;
 
   & > :not(.specificity_hack) {
@@ -2048,15 +2065,15 @@ footer.padding {
   font-style: normal;
 }
 
-.nopadding {
+.nopadding, .no-padding {
   padding: 0px;
 }
 
-.nogrow {
+.nogrow, .no-grow {
   flex-grow: 0 !important;
 }
 
-.noshrink {
+.noshrink, .no-shrink {
   flex-grow: 0;
 }
 
@@ -2076,7 +2093,7 @@ footer.padding {
   margin-bottom: var(--gap);
 }
 
-.nomargin {
+.nomargin, .no-margin {
   margin: 0px;
 }
 

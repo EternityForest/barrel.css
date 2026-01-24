@@ -132,10 +132,10 @@ This object should have it's own background, it is like a popup you're going to 
 ### .pagebreak
 Insert a page break before this element
 
-### .nobreaks
+### .no-breaks
 Try not to break this element.  Browsers appear to still do so if necessary, but avoid if possible.
 
-### .noprint
+### .no-print
 Do not print this element.
 
 ### .print-exact
@@ -154,7 +154,7 @@ Remove borders, backgrounds, shadows, and backdrop filters.
 
 Puts a border on the element, with the usual width, color, and radius.
 
-### .noselect
+### .no-select
 
 Don't allow selecting the text. Use sparingly. People mostly don't like this.
 
@@ -173,7 +173,7 @@ Same as above but flex as columns.
 ### .font-normal
 Normal text, not bold or italic. Useful in something like a block quote.
 
-### .nogaps
+### .no-gaps
 Set flex gap to zero, set all children to have zero margins.
 
 ### .scroll
@@ -272,7 +272,7 @@ height: min-content
 
 Set width, height, and flex basis to follow the max and min content.
 
-### .nogrow and .noshrink
+### .no-grow and .no-shrink
 Flex-grow and flex-shrink set to 0
 
 ### .grow
