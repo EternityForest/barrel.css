@@ -116,7 +116,18 @@ a pre look nice for poetry.
 Use this on a checkbox type input to make an inducator LED. Available colors
 are red, yellow, green, blue, cyan, purple
 
+### .avatar
+
+Use this on an image of any size that is semantically
+like an avatar or preview, a small image identifying
+a block of content.
+
 ## Utilities
+
+### .hidden
+
+
+Hide with Display: none
 
 ### .break-word
 
