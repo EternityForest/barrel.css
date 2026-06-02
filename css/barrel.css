@@ -2944,7 +2944,7 @@ label {
 
       & header {
         font-family: var(--heading-font);
-        color: var(--accent-color);
+        color: var(--fg-color);
         font-weight: bold;
         border: none !important;
         background: transparent !important;
