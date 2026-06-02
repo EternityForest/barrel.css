@@ -2934,7 +2934,7 @@ label {
 /*Alert boxes*/
 .alert {
     padding: 8px 12px;
-    margin: 4px 0;
+    margin: 4px 4px;
     border-radius: var(--border-radius);
     display: flex;
     justify-content: space-between;
