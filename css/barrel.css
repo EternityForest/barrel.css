@@ -2941,6 +2941,7 @@ label {
     align-items: center;
     border-left: 6px solid var(--fg);
     color: var(--graphical-fg);
+    box-shadow: var(--item-box-shadow);
 
       & header {
         font-family: var(--heading-font);
@@ -2950,7 +2951,7 @@ label {
         background: transparent !important;
       }
 
-        &.warning {
+      &.warning {
         border-color: var(--warning-color);
       }
 
