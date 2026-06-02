@@ -2946,6 +2946,8 @@ label {
         font-family: var(--heading-font);
         color: var(--accent-color);
         font-weight: bold;
+        border: none !important;
+        background: transparent !important;
       }
 
         &.warning {
