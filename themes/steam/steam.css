@@ -5,7 +5,7 @@
     --3d-shadow: rgb(223 160 17);
     --bg: linear-gradient(175deg, rgba(255, 255, 255, 0) 7vh, rgba(255, 255, 255, 0.1882528011204482) 30vh, rgba(208, 208, 208, 0) 70vh, rgba(0, 0, 0, 0) 80vh),
         linear-gradient(126deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, 0.1282528011204482) 30%, rgba(208, 208, 208, 0) 40%, rgba(6, 70, 50, 0.136) 90%),
-        url(./Wood066_1K-JPG_Color.webp);
+        url(themes/steam/Wood066_1K-JPG_Color.webp);
     --box-bg: #ffa32ca3;
     --fg: #1e1200;
     --accent-color: #eaff2f;
@@ -32,7 +32,7 @@
     font-family: 'Ovo';
     font-style: normal;
     font-weight: 400;
-    src: url('fonts/Ovo-Regular.ttf');
+    src: url('../fonts/Ovo-Regular.ttf');
     /* Chrome 26+, Opera 23+, Firefox 39+ */
 }
 

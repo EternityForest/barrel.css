@@ -1,5 +1,5 @@
 :root {
-  --bg: radial-gradient(circle, rgb(255 255 255 / 70%) 0%, rgb(188 193 162 / 64%)), url(banderole/pergament-papier-hintergrund-braun.avif);
+  --bg: radial-gradient(circle, rgb(255 255 255 / 70%) 0%, rgb(188 193 162 / 64%)), url(themes/banderole/pergament-papier-hintergrund-braun.avif);
   --box-bg: #e7e5caf1;
   --fg: #522f28;
   --graphical-fg: rgb(75 45 14 / 81%);
@@ -125,12 +125,12 @@ img {
 
 
 .decorative-image-h-bar {
-  background-image: url(/static/img/banderole/decorativebarthing.svg);
+  background-image: url(themes/banderole/decorativebarthing.svg);
   display: block;
 }
 
 .decorative-image-corner-ur {
-  background-image: url(/static/img/banderole/Rose-Floral-Flourish-16.svg);
+  background-image: url(themes/banderole/Rose-Floral-Flourish-16.svg);
   display: block;
   box-shadow: none;
 }

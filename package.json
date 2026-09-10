@@ -1,0 +1,28 @@
+{
+  "name": "barrel.css",
+  "version": "1.0.0",
+  "description": "An opinionated CSS framework for maximum restyling possibilities",
+  "main": "dist/barrel.css",
+  "module": "dist/barrel.css",
+  "style": "dist/barrel.css",
+  "files": [
+    "dist/",
+    "themes/"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "watch": "postcss src/barrel.css -o dist/barrel.css --watch"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "classless",
+    "themeable"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0",
+    "cssnano": "^6.0.0"
+  }
+}

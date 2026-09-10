@@ -1819,7 +1819,7 @@ iframe.h-center {
 
 header.padding,
 footer.padding {
-  padding: calc(max(4px, calc(var(--padding) / 3)));
+  padding: max(4px, calc(var(--padding) / 3));
 }
 
 .font-normal {

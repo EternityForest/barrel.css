@@ -19,6 +19,57 @@ Note that the preview is of this master branch, not any particular release.
 When printing, Barrel currently overrides the styles automatically, with a white foreground, flat background,
 the theme Serif font, and the URLs displayed after all links.
 
+## Installation
+
+```bash
+npm install barrel.css
+```
+
+## Usage
+
+This is designed to work without any build step or bundler integration. Copy the CSS directly to your static output:
+
+### Copy to static assets
+
+In your build/copy script:
+
+```bash
+# Copy barrel.css (use barrel.min.css for production)
+cp node_modules/barrel.css/dist/barrel.css public/css/
+
+# Copy all themes
+cp -r node_modules/barrel.css/themes/ public/css/
+```
+
+### HTML Include
+
+```html
+<!-- Core framework -->
+<link rel="stylesheet" href="css/barrel.css">
+
+<!-- Theme (include after barrel.css) -->
+<link rel="stylesheet" href="css/themes/nord.css">
+```
+
+### Theme Override Pattern
+
+To switch themes at runtime without bundler configuration, include all themes and override via CSS:
+
+```html
+<!-- Load default theme first -->
+<link rel="stylesheet" href="css/themes/basic.css">
+
+<!-- Your app can override by including another theme after -->
+<!-- Or use CSS custom properties to switch -->
+<style>
+  /* Override theme colors dynamically */
+  :root {
+    --bg: #f0f0f0;
+    --fg: #333;
+  }
+</style>
+```
+
 ## Design Rules
 
 Avoid mixing component classes.  Put a stacked form IN a card, don't make a stacked form
@@ -31,14 +82,34 @@ Putting a button or toolbar in a header, or a button in heading inside a header,
 
 
 
-## Alt themes
-Because of weirdness with css variables, all of the alt themes folders must be in the foler with barrel.css itself.  Include barrel.css before
-your theme folder.
+## Themes
 
-If you want to put the theme folder elsewhere. just use relative URLs for --bg and the fonts.
+All themes are located in the `themes/` directory. Include barrel.css before your theme:
 
-Please note: Nord is an adaptation of the Nord Theme, which is MIT licensed, not public domain.
-The font file for Fugit is under it's own free license. Images should all be CC0.
+```html
+<link rel="stylesheet" href="barrel.css">
+<link rel="stylesheet" href="themes/nord.css">
+```
+
+Available themes:
+- `98.css` - Windows 98 style
+- `basic.css` - Clean minimal theme
+- `blast.css` - High contrast theme
+- `forest.css` - Forest green theme
+- `lair.css` - Dark theme
+- `nord.css` - Nord color palette (MIT licensed)
+- `show_black.css` - Dark minimal theme
+- `steam.css` - Steampunk aesthetic
+- `scrapbook/` - Scrapbook green theme
+- `fugit/` - Cyberpunk theme
+- `frutiger/` - Water/aquatic theme
+- `banderole/` - Decorative/parchment theme
+
+Note: Some themes include fonts and background images in their subdirectories. Copy the entire themes folder to ensure assets load correctly.
+
+If you want to put the theme folder elsewhere, just use relative URLs for --bg and the fonts.
+
+Note: Nord is an adaptation of the Nord Theme (MIT licensed). The Fugit font has its own license. Images are CC0.
 
 
 ## Meta tag
