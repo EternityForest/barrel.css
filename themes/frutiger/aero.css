@@ -1,8 +1,18 @@
+
+/*Force correct resolution of relative image*/
+@property --bg-img {
+  syntax: "<url>";
+  initial-value: url("");
+  inherits: true;
+}
+
+
 :root {
     color-scheme: only light;
     --3d-highlight: rgb(248 248 248);
     --3d-shadow: rgb(218 218 218);
-    --bg: linear-gradient(175deg, rgba(255, 255, 255, 0) 7vh, rgb(255 255 255 / 4%) 30vh, rgb(255 255 255 / 58%) 70vh, rgb(0 0 0 / 0%) 80vh), linear-gradient(126deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, 0.1282528011204482) 30%, rgb(255 255 255 / 45%) 40%, rgb(171 176 219 / 39%) 90%), url(themes/frutiger/seamless-pool-water-surface-1699261210dwY.jpg);
+    --bg-img: url(./seamless-pool-water-surface-1699261210dwY.jpg);
+    --bg: linear-gradient(175deg, rgba(255, 255, 255, 0) 7vh, rgb(255 255 255 / 4%) 30vh, rgb(255 255 255 / 58%) 70vh, rgb(0 0 0 / 0%) 80vh), linear-gradient(126deg, rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, 0.1282528011204482) 30%, rgb(255 255 255 / 45%) 40%, rgb(171 176 219 / 39%) 90%), var(--bg-img);
     --box-bg: #a6f2ffd4;
     --accent-color: #36ae3f;
     --highlight-color: #608fdc;
