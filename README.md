@@ -34,18 +34,18 @@ This is designed to work without any build step or bundler integration. Copy the
 In your build/copy script:
 
 ```bash
-# Copy barrel.css (use barrel.min.css for production)
-cp node_modules/barrel.css/dist/barrel.css public/css/
+# Copy barrel.min.css
+cp node_modules/barrel.css/dist/barrel.min.css public/css/
 
 # Copy all themes
-cp -r node_modules/barrel.css/themes/ public/css/
+cp -r node_modules/barrel.css/dist/themes/ public/css/
 ```
 
 ### HTML Include
 
 ```html
 <!-- Core framework -->
-<link rel="stylesheet" href="css/barrel.css">
+<link rel="stylesheet" href="css/barrel.min.css">
 
 <!-- Theme (include after barrel.css) -->
 <link rel="stylesheet" href="css/themes/nord.css">

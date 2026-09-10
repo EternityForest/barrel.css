@@ -1,10 +1,10 @@
 {
   "name": "barrel.css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An opinionated CSS framework for maximum restyling possibilities",
-  "main": "dist/barrel.css",
-  "module": "dist/barrel.css",
-  "style": "dist/barrel.css",
+  "main": "dist/barrel.min.css",
+  "module": "dist/barrel.min.css",
+  "style": "dist/barrel.min.css",
   "files": [
     "dist/",
     "themes/"
